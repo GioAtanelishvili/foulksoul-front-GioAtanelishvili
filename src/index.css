@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'bgp_nino_mtavruli';
+  src: url(assets/fonts/bpg_nino_mtavruli_normal.ttf);
+}
+
+@font-face {
+  font-family: 'bgb_arial';
+  src: url(assets/fonts/bpg_arial_2009.ttf);
+}
+
+@layer base {
+  #landing-card-div::-webkit-scrollbar {
+    width: 6px;
+  }
+  #landing-card-div::-webkit-scrollbar-track {
+    background-color: #143b52;
+    border-radius: 20px;
+    box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.5);
+  }
+  #landing-card-div::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
