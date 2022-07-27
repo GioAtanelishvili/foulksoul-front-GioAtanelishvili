@@ -9,23 +9,28 @@ const SocialMediaFooter: React.FC = () => {
 
   return (
     <footer className='w-full mt-6 flex justify-center items-center gap-9'>
-      {socialMedia.map((item) => (
-        <a
-          key={item._id}
-          href={item.url}
-          target='_blank'
-          rel='noreferrer'
-          title={capitalize(item.name)}
-          className='flex items-center'
-          data-testid={item.name}
-        >
-          <img
-            src={`${baseUrl}/${item.iconPath}`}
-            className='max-h-[2.5rem]'
-            alt='Social media logo'
-          />
-        </a>
-      ))}
+      {socialMedia.map((item) => {
+        if (item.iconPath) {
+          return (
+            <a
+              key={item._id}
+              href={item.url}
+              target='_blank'
+              rel='noreferrer'
+              title={capitalize(item.name)}
+              className='flex items-center'
+              data-testid={item.name}
+            >
+              <img
+                src={`${baseUrl}/${item.iconPath}`}
+                className='max-h-[2.5rem]'
+                alt='Social media logo'
+              />
+            </a>
+          );
+        }
+        return null;
+      })}
     </footer>
   );
 };
