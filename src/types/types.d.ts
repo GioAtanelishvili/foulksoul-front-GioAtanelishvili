@@ -41,3 +41,17 @@ export interface BandDetails {
   info: string;
   imagePath: string;
 }
+
+export interface InputProps {
+  id: string;
+  type: string;
+  placeholder: string;
+  register: {
+    onChange: ChangeHandler;
+    onBlur: ChangeHandler;
+    ref: React.Ref<HTMLInputElement>;
+    name: string;
+  };
+  error: FieldError;
+  className?: string;
+}

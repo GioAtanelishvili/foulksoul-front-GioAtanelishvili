@@ -15,10 +15,17 @@ module.exports = {
         'content-white': '#FBFBFB',
         'primary-gold': '#FFB72D',
         'secondary-gold': '#FBD560',
+        'login-gradient-start': '#345161',
+        'login-gradient-end': '#7B5A5A',
+        'login-input-background': '#C4B6B2',
+        'login-input-text': '#501C1C',
+        'login-input-error': '#CE1F1F',
+        'login-submit-button': '#345161',
       },
       backgroundImage: {
         'gradient-radial-purple':
           'radial-gradient(50% 50% at 50% 50%, #534571 0%, #342C46 100%)',
+        'login-header': 'url(assets/images/skew-rect.svg)',
       },
       fontFamily: {
         'nino-mtavruli': 'bgp_nino_mtavruli',

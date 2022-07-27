@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthContextProvider, DataContextProvider } from 'context';
-import { Landing } from 'pages';
+import { Landing, Login } from 'pages';
 
 const App = () => {
   return (
@@ -9,6 +9,7 @@ const App = () => {
       <DataContextProvider>
         <Routes>
           <Route path='/' element={<Landing />} />
+          <Route path='login' element={<Login />} />
         </Routes>
       </DataContextProvider>
     </AuthContextProvider>
