@@ -14,3 +14,15 @@ Cypress.Commands.add('stubGetRequests', (res: any, delay?: number) => {
     delay,
   });
 });
+
+Cypress.Commands.add('login', () => {
+  cy.visit('/login');
+
+  cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/login`, {
+    statusCode: 200,
+  });
+
+  cy.get('#nickname').type('zazaevich');
+  cy.get('#password').type('motoburti');
+  cy.get('[data-testid="login-submit-button"]').click();
+});
