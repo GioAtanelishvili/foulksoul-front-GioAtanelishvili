@@ -1,13 +1,15 @@
 import { Outlet } from 'react-router-dom';
 
+import { Nav, DashboardCard } from './components';
 import { Layout } from 'components';
-import { Nav } from './components';
 
 const Dashboard: React.FC = () => {
   return (
-    <Layout className='flex items-center'>
+    <Layout className='flex items-center py-24'>
       <Nav />
-      <Outlet />
+      <DashboardCard>
+        <Outlet />
+      </DashboardCard>
     </Layout>
   );
 };

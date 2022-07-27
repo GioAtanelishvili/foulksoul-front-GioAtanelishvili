@@ -5,3 +5,6 @@ export { default as MemberIcon } from './MemberIcon';
 export { default as HouseIcon } from './HouseIcon';
 export { default as NoteIcon } from './NoteIcon';
 export { default as ExitIcon } from './ExitIcon';
+export { default as Antenna } from './Antenna';
+export { default as TVLogo } from './TVLogo';
+export { default as TVLegs } from './TVLegs';

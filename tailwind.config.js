@@ -5,12 +5,15 @@ module.exports = {
     extend: {
       spacing: {
         3.75: '0.9375rem',
+        13: '3.25rem',
         23: '5.75rem',
         24: '6rem',
         35: '8.75rem',
         70: '17.5rem',
         76: '19rem',
+        86: '21.5rem',
         92: '23rem',
+        129: '32.25rem',
       },
       colors: {
         'content-white': '#FBFBFB',
@@ -30,6 +33,7 @@ module.exports = {
         'gradient-radial-purple':
           'radial-gradient(50% 50% at 50% 50%, #534571 0%, #342C46 100%)',
         'login-header': 'url(assets/images/skew-rect.svg)',
+        'main-tv-screen': 'url(assets/images/tv-screen.jpg)',
       },
       fontFamily: {
         'nino-mtavruli': 'bgp_nino_mtavruli',
@@ -37,6 +41,10 @@ module.exports = {
       },
       dropShadow: {
         'card-photo-frame': '2px 4px 14px #000000',
+        'main-tv': '10px 10px 14px #939191',
+      },
+      boxShadow: {
+        'dashboard-card': 'inset 4px 4px 20px #4d4d4d',
       },
     },
   },
