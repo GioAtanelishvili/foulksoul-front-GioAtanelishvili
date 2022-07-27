@@ -2,6 +2,17 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(on, config) {
+      require('@cypress/code-coverage/task')(on, config);
+      return config;
+    },
+    baseUrl: 'http://localhost:3000',
+    viewportWidth: 1920,
+    viewportHeight: 1080,
+    video: false,
+    screenshotOnRunFailure: false,
+  },
+  env: {
+    API_BASE_URL: `http://localhost:8080/api`,
   },
 });

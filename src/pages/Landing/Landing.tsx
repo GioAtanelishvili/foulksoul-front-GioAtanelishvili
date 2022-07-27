@@ -22,16 +22,20 @@ const Landing: React.FC = () => {
 
   return (
     <Layout>
-      <header className='mt-6 mx-24 flex justify-between items-center'>
+      <header
+        className='mt-6 mx-24 flex justify-between items-center'
+        data-testid='landing-page-header'
+      >
         <BandLogo />
         <Link
           to='/login'
           className='text-content-white text-base font-nino-mtavruli'
+          data-testid='login-button'
         >
           შესვლა
         </Link>
       </header>
-      <main className='border flex'>
+      <main className='border flex' data-testid='landing-page-main-content'>
         <SunnoteSystem
           handleMemberClick={changeCardSubject}
           handleSunnoteClick={changeCardSubject}

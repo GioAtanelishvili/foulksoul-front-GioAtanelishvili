@@ -16,14 +16,18 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
   let content;
 
   if (subject === 'band') {
-    content = info;
+    if (info === '') {
+      content = 'ბენდის შესახებ ინფორმაცია დამატებული არ არის.';
+    } else {
+      content = info;
+    }
   } else if (subject === 'member') {
     const member = members.find(
       (member) => member._id === props.subject.memberId
     );
 
     if (member?.biography === '') {
-      content = 'ბენდის შესახებ ინფორმაცია დამატებული არ არის.';
+      content = 'ჯგუფის წევრის შესახებ ინფორმაცია დამატებული არ არის.';
     } else {
       content = member!.biography;
     }
@@ -44,8 +48,10 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
           <LoadingSpinner />
         ) : (
           <article className='text-justify text-lg font-arial'>
-            {content?.split('\n').map((paragraph) => (
-              <p className='mb-8'>{paragraph}</p>
+            {content?.split('\n').map((paragraph, index) => (
+              <p key={index} className='mb-8'>
+                {paragraph}
+              </p>
             ))}
           </article>
         )}

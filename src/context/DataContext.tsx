@@ -50,7 +50,7 @@ export const DataContextProvider: React.FC<WrapperProps> = (props) => {
 
         if (status === 403) {
           navigate('/403');
-        } else {
+        } else if (status === 500) {
           navigate('/500');
         }
       }

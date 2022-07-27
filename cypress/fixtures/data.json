@@ -1,0 +1,70 @@
+{
+  "members": [
+    {
+      "_id": "sluchaina",
+      "name": "სლუჩაინა",
+      "instrument": "დოლი",
+      "orbitRadius": 500,
+      "color": "#F12AC7",
+      "biography": "კაი კაცი",
+      "avatarPath": ""
+    },
+    {
+      "_id": "qristefore",
+      "name": "ქრისტეფორე",
+      "instrument": "გიტარა",
+      "orbitRadius": 600,
+      "color": "#F12AC7",
+      "biography": "კიდევ უკეთესი კაცი",
+      "avatarPath": ""
+    },
+    {
+      "_id": "babnika",
+      "name": "ბაბნიკა",
+      "instrument": "უკულელე",
+      "orbitRadius": 300,
+      "color": "#F12AC7",
+      "biography": "კაი ქალი, თბილისელი",
+      "avatarPath": ""
+    },
+    {
+      "_id": "goglika",
+      "name": "გოგლიკა",
+      "instrument": "არაფერი",
+      "orbitRadius": 1000,
+      "color": "#F12AC7",
+      "biography": "კაი კაცი, ცოტა მსუქანი",
+      "avatarPath": ""
+    }
+  ],
+  "socialMedia": [
+    {
+      "_id": "facebook",
+      "name": "facebook",
+      "url": "https://facebook.com/",
+      "iconPath": ""
+    },
+    {
+      "_id": "instagram",
+      "name": "instagram",
+      "url": "https://instagram.com/",
+      "iconPath": ""
+    },
+    {
+      "_id": "youtube",
+      "name": "youtube",
+      "url": "https://youtube.com/",
+      "iconPath": ""
+    },
+    {
+      "_id": "twitter",
+      "name": "twitter",
+      "url": "https://twitter.com/",
+      "iconPath": ""
+    }
+  ],
+  "bandDetails": {
+    "info": "ძალიან საინტერესო ბიოგრაფია.",
+    "imagePath": ""
+  }
+}

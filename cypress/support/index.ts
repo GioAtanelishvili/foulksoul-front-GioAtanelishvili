@@ -2,6 +2,8 @@ export {};
 
 declare global {
   namespace Cypress {
-    interface Chainable {}
+    interface Chainable {
+      stubGetRequests(res: any, delay?: number): Chainable<Element>;
+    }
   }
 }
