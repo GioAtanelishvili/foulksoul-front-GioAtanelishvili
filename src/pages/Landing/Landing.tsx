@@ -13,6 +13,7 @@ import {
 const Landing: React.FC = () => {
   const [cardSubject, setCardSubject] = useState<LandingCardSubject>({
     subject: 'band',
+    memberId: null,
   });
 
   const changeCardSubject = (subject: LandingCardSubject) => {

@@ -8,7 +8,7 @@ export interface ClassNameProps {
 }
 
 export type LandingCardSubject =
-  | { subject: 'band' }
+  | { subject: 'band'; memberId: null }
   | { subject: 'member'; memberId: string };
 
 export interface LandingCardProps {
@@ -16,8 +16,8 @@ export interface LandingCardProps {
 }
 
 export interface SunnoteSystemProps {
-  handleMemberClick: (subject: { subject: 'member'; memberId: string }) => void;
-  handleSunnoteClick: (subject: { subject: 'band' }) => void;
+  handleMemberClick: (subject: LandingCardSubject) => void;
+  handleSunnoteClick: (subject: LandingCardSubject) => void;
 }
 
 export interface Member {
