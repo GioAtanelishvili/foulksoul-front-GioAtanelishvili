@@ -60,3 +60,8 @@ export interface LoginFormData {
   nickname: string;
   password: string;
 }
+
+export interface NavItemProps {
+  to: string;
+  children: React.ReactNode;
+}

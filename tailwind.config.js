@@ -9,6 +9,7 @@ module.exports = {
         24: '6rem',
         35: '8.75rem',
         70: '17.5rem',
+        76: '19rem',
         92: '23rem',
       },
       colors: {
@@ -21,6 +22,9 @@ module.exports = {
         'login-input-text': '#501C1C',
         'login-input-error': '#CE1F1F',
         'login-submit-button': '#345161',
+        'primary-grey': '#333333',
+        'good-grey': '#898989',
+        'primary-dark-blue': '#143B52',
       },
       backgroundImage: {
         'gradient-radial-purple':
