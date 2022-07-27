@@ -1,5 +1,33 @@
+import { useContext } from 'react';
+
+import { DataContext } from 'context';
+import { capitalize } from 'helpers';
+
 const SocialMediaFooter: React.FC = () => {
-  return <footer className='mt-6 flex items-center border'></footer>;
+  const { socialMedia } = useContext(DataContext);
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
+  return (
+    <footer className='w-full mt-6 flex justify-center items-center gap-9'>
+      {socialMedia.map((item) => (
+        <a
+          key={item._id}
+          href={item.url}
+          target='_blank'
+          rel='noreferrer'
+          title={capitalize(item.name)}
+          className='flex items-center'
+          data-testid={item.name}
+        >
+          <img
+            src={`${baseUrl}/${item.iconPath}`}
+            className='max-h-[2.5rem]'
+            alt='Social media logo'
+          />
+        </a>
+      ))}
+    </footer>
+  );
 };
 
 export default SocialMediaFooter;
