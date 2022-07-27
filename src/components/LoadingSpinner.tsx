@@ -1,8 +1,8 @@
-const LoadingSpinner: React.FC = () => {
+const LoadingSpinner: React.FC<{ className?: string }> = (props) => {
   return (
     <div
       role='status'
-      className='flex justify-center items-center'
+      className={`flex justify-center items-center ${props.className}`}
       data-testid='loading-spinner'
     >
       <svg

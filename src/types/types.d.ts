@@ -55,3 +55,8 @@ export interface InputProps {
   error: FieldError;
   className?: string;
 }
+
+export interface LoginFormData {
+  nickname: string;
+  password: string;
+}

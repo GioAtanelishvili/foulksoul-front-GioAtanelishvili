@@ -1,7 +1,13 @@
+import { useEffect } from 'react';
+
 import { Layout } from 'components';
 import { LoginCard, LoginForm } from './components';
 
 const Login: React.FC = () => {
+  useEffect(() => {
+    document.title = 'FolkSoul - Login';
+  }, []);
+
   return (
     <Layout className='flex justify-center items-center'>
       <LoginCard>
