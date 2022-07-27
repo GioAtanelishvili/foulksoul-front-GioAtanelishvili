@@ -19,3 +19,25 @@ export interface SunnoteSystemProps {
   handleMemberClick: (subject: { subject: 'member'; memberId: string }) => void;
   handleSunnoteClick: (subject: { subject: 'band' }) => void;
 }
+
+export interface Member {
+  _id: string;
+  name: string;
+  instrument: string;
+  orbitRadius: number;
+  color: string;
+  biography: string;
+  avatarPath: string;
+}
+
+export interface SocialMediaItem {
+  _id: string;
+  name: string;
+  url: string;
+  iconPath: string;
+}
+
+export interface BandDetails {
+  info: string;
+  imagePath: string;
+}
