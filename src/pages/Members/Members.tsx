@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { DashboardHeader, LoadingSpinner } from 'components';
@@ -12,6 +12,10 @@ const Members: React.FC = () => {
 
   const page = Number(searchParams.get('page')) || 1;
   const membersToRender = members.slice((page - 1) * 3, page * 3);
+
+  useEffect(() => {
+    document.title = 'Members';
+  }, []);
 
   return (
     <Fragment>

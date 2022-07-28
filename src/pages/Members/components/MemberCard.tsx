@@ -1,5 +1,10 @@
-import { MemberAvatar, CardButtons } from '../components';
 import { MemberCardProps } from 'types';
+import {
+  MemberAvatar,
+  GreenButton,
+  RedCircle,
+  YellowCircle,
+} from '../components';
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
   return (
@@ -12,7 +17,11 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       <h2 className='text-white text-lg font-nino-mtavruli tracking-[0.11em]'>
         {props.name}
       </h2>
-      <CardButtons />
+      <div className='w-full mt-3 py-2 px-5 flex items-center justify-between border-t border-t-black shadow-member-card-buttons'>
+        <GreenButton _id={props._id} index={props.index} />
+        <RedCircle />
+        <YellowCircle />
+      </div>
     </div>
   );
 };

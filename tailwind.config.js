@@ -6,6 +6,7 @@ module.exports = {
       spacing: {
         3.75: '0.9375rem',
         13: '3.25rem',
+        15: '3.75rem',
         23: '5.75rem',
         24: '6rem',
         35: '8.75rem',
@@ -13,6 +14,7 @@ module.exports = {
         76: '19rem',
         86: '21.5rem',
         92: '23rem',
+        120: '30rem',
         129: '32.25rem',
       },
       colors: {
@@ -29,6 +31,7 @@ module.exports = {
         'good-gray': '#898989',
         'primary-dark-blue': '#143B52',
         'members-nav-inactive': '#C4C4C4',
+        'modal-overlay': '#042639',
       },
       backgroundImage: {
         'gradient-radial-purple':
@@ -48,6 +51,7 @@ module.exports = {
         'dashboard-card': 'inset 4px 4px 20px #4d4d4d',
         'member-card': '5px 5px 13px rgba(0, 0, 0, 0.63)',
         'member-card-buttons': '5px 5px 13px rgba(0, 0, 0, 0.63)',
+        'modal-avatar': '1.11504px 2.23009px 7.80531px #000000',
       },
     },
   },

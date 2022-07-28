@@ -11,7 +11,6 @@ const MembersNav: React.FC<MembersNavProps> = (props) => {
   return (
     <div className='w-full mt-28 flex justify-center items-center'>
       {pages.map((_, index) => {
-        console.log('gio');
         return (
           <button
             key={index}

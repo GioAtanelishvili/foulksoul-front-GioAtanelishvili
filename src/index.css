@@ -26,4 +26,18 @@
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
+
+  #member-details-modal-div::-webkit-scrollbar {
+    width: 8px;
+  }
+  #member-details-modal-div::-webkit-scrollbar-track {
+    background-color: #143b52;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  #member-details-modal-div::-webkit-scrollbar-thumb {
+    background: #87aec5;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
 }

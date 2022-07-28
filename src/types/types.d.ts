@@ -70,6 +70,7 @@ export interface MemberAvatarProps {
   background: string;
   avatarPath: string;
   index: number;
+  className?: string;
 }
 
 export interface MemberCardProps extends Member {
@@ -79,3 +80,20 @@ export interface MemberCardProps extends Member {
 export interface MembersNavProps {
   totalMembers: number;
 }
+
+export interface ModalOverlayProps {
+  handleClick: () => void;
+}
+
+export interface ModalProps {
+  handleClose: () => void;
+}
+
+export interface ModalCardProps extends WrapperProps, ModalProps {}
+
+export interface GreenButtonProps {
+  _id: string;
+  index: number;
+}
+
+export interface MemberDetailsModalProps extends ModalProps, GreenButtonProps {}

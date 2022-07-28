@@ -1,4 +1,5 @@
 export { default as SocialMediaIcon } from './SocialMediaIcon';
+export { default as ModalCloseIcon } from './ModalCloseIcon';
 export { default as FolkSoulTitle } from './FolkSoulTitle';
 export { default as FolkSoulLogo } from './FolkSoulLogo';
 export { default as MemberIcon } from './MemberIcon';
