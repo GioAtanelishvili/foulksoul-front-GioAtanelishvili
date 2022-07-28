@@ -23,7 +23,7 @@ const MemberDetailsModal: React.FC<MemberDetailsModalProps> = (props) => {
           id='member-details-modal-div'
           className='w-full h-120 mb-12 pb-3 px-14 flex flex-col items-center overflow-y-auto'
         >
-          <div>
+          <div data-testid='avatar'>
             <MemberAvatar
               background={member?.color as string}
               avatarPath={member?.avatarPath as string}
@@ -31,11 +31,14 @@ const MemberDetailsModal: React.FC<MemberDetailsModalProps> = (props) => {
               className='mt-8 shadow-modal-avatar'
             />
           </div>
-          <h2 className='text-sm font-nino-mtavruli'>
+          <h2 className='text-sm font-nino-mtavruli' data-testid='orbit-radius'>
             ორბიტალური დაშორება:{' '}
             <span className='font-semibold'>{member?.orbitRadius}</span>
           </h2>
-          <article className='w-full mt-3 text-base text-justify font-arial'>
+          <article
+            className='w-full mt-3 text-base text-justify font-arial'
+            data-testid='biography'
+          >
             {member?.biography}
           </article>
         </div>

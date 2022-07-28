@@ -13,7 +13,10 @@ const GreenButton: React.FC<GreenButtonProps> = (props) => {
 
   return (
     <Fragment>
-      <button onClick={() => setIsModalOpen(true)}>
+      <button
+        onClick={() => setIsModalOpen(true)}
+        data-testid={`${props._id}-green-button`}
+      >
         <GreenCircle />
       </button>
       {isModalOpen && (

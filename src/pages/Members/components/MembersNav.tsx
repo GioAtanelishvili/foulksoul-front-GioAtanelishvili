@@ -20,6 +20,7 @@ const MembersNav: React.FC<MembersNavProps> = (props) => {
                 ? ' bg-primary-gray'
                 : 'bg-members-nav-inactive'
             }`}
+            data-testid={`members-nav-button-${index}`}
           />
         );
       })}

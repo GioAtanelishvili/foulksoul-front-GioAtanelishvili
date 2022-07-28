@@ -5,6 +5,7 @@ const ModalOverlay: React.FC<ModalOverlayProps> = (props) => {
     <div
       onClick={props.handleClick}
       className='bg-modal-overlay w-full fixed top-0 bottom-0 opacity-[0.97] z-10'
+      data-testid='modal-overlay'
     />
   );
 };
