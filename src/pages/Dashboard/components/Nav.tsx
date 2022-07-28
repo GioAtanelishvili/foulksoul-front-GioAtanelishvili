@@ -10,7 +10,7 @@ import {
 const Nav: React.FC = () => {
   return (
     <nav
-      className='bg-primary-grey w-76 py-16 border-r border-t border-b border-good-grey rounded-r-2xl'
+      className='bg-primary-gray w-76 py-16 border-r border-t border-b border-good-gray rounded-r-2xl'
       data-testid='dashboard-nav'
     >
       <ul className='flex flex-col'>
@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
           <HouseIcon />
           <span className='mt-[6px] ml-4'>მთავარი</span>
         </NavItem>
-        <NavItem to='/band/members'>
+        <NavItem to='/band/members?page=1'>
           <MemberIcon />
           <span className='mt-[6px] ml-4'>ჯგუფის წევრები</span>
         </NavItem>

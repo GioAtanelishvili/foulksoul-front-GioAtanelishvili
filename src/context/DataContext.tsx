@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Member, SocialMediaItem, BandDetails, WrapperProps } from 'types';
 import { getMembers, getSocialMedia, getBandDetails } from 'services';
@@ -23,8 +22,6 @@ export const DataContextProvider: React.FC<WrapperProps> = (props) => {
   });
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     setIsLoading(true);
 
@@ -46,16 +43,12 @@ export const DataContextProvider: React.FC<WrapperProps> = (props) => {
         setSocialMedia(socialMedia);
         setBandDetails(bandDetails);
       } catch (err: any) {
-        const { status } = err.response;
+        setIsLoading(false);
 
-        if (status === 403) {
-          navigate('/403');
-        } else if (status === 500) {
-          navigate('/500');
-        }
+        console.error(err);
       }
     })();
-  }, [navigate]);
+  }, []);
 
   const updateMembers = (members: Member[]) => {
     setMembers(members);

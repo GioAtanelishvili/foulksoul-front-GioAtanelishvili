@@ -65,3 +65,17 @@ export interface NavItemProps {
   to: string;
   children: React.ReactNode;
 }
+
+export interface MemberAvatarProps {
+  background: string;
+  avatarPath: string;
+  index: number;
+}
+
+export interface MemberCardProps extends Member {
+  index: number;
+}
+
+export interface MembersNavProps {
+  totalMembers: number;
+}

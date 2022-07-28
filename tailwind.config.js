@@ -25,9 +25,10 @@ module.exports = {
         'login-input-text': '#501C1C',
         'login-input-error': '#CE1F1F',
         'login-submit-button': '#345161',
-        'primary-grey': '#333333',
-        'good-grey': '#898989',
+        'primary-gray': '#333333',
+        'good-gray': '#898989',
         'primary-dark-blue': '#143B52',
+        'members-nav-inactive': '#C4C4C4',
       },
       backgroundImage: {
         'gradient-radial-purple':
@@ -45,6 +46,8 @@ module.exports = {
       },
       boxShadow: {
         'dashboard-card': 'inset 4px 4px 20px #4d4d4d',
+        'member-card': '5px 5px 13px rgba(0, 0, 0, 0.63)',
+        'member-card-buttons': '5px 5px 13px rgba(0, 0, 0, 0.63)',
       },
     },
   },

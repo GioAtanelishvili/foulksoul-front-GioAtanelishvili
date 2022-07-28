@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AuthContextProvider, DataContextProvider } from 'context';
-import { Landing, Login, Dashboard, Main } from 'pages';
+import { Landing, Login, Dashboard, Main, Members } from 'pages';
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
           <Route path='band' element={<Dashboard />}>
             <Route index element={<Navigate to='main' />} />
             <Route path='main' element={<Main />} />
-            <Route path='members' element={<p>members</p>} />
+            <Route path='members' element={<Members />} />
             <Route path='social-media' element={<p>social media</p>} />
             <Route path='about' element={<p>about</p>} />
           </Route>
