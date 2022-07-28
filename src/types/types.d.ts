@@ -91,9 +91,14 @@ export interface ModalProps {
 
 export interface ModalCardProps extends WrapperProps, ModalProps {}
 
-export interface GreenButtonProps {
+export interface CardButtonProps {
   _id: string;
   index: number;
 }
 
-export interface MemberDetailsModalProps extends ModalProps, GreenButtonProps {}
+export interface MemberDetailsModalProps extends ModalProps, CardButtonProps {}
+
+export interface DataDeleteModalProps extends ModalProps, CardButtonProps {
+  // subject: 'member' | 'social-media';
+  // service: (token: string, id: string) => Promise<AxiosInstance<any, any>>;
+}

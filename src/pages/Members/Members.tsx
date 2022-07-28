@@ -39,7 +39,7 @@ const Members: React.FC = () => {
           ))
         )}
       </section>
-      <MembersNav totalMembers={members.length} />
+      {members.length > 3 && <MembersNav totalMembers={members.length} />}
     </Fragment>
   );
 };

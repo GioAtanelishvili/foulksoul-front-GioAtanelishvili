@@ -2,7 +2,7 @@ import { MemberCardProps } from 'types';
 import {
   MemberAvatar,
   GreenButton,
-  RedCircle,
+  RedButton,
   YellowCircle,
 } from '../components';
 
@@ -23,7 +23,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       <div className='w-full mt-3 py-2 px-5 flex items-center justify-between border-t border-t-black shadow-member-card-buttons'>
         <GreenButton _id={props._id} index={props.index} />
         <YellowCircle />
-        <RedCircle />
+        <RedButton _id={props._id} index={props.index} />
       </div>
     </div>
   );

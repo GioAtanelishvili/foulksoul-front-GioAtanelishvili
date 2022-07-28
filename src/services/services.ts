@@ -17,3 +17,11 @@ export const getBandDetails = async () => {
 export const login = async (data: LoginFormData) => {
   return axios.post('login', data);
 };
+
+export const deleteMember = async (_id: string, token: string) => {
+  return axios.delete(`band/member?id=${_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

@@ -1,10 +1,10 @@
 import { Fragment, useState } from 'react';
 
-import { MemberDetailsModal } from '../components';
+import { MemberDeleteModal } from '../components';
 import { CardButtonProps } from 'types';
-import { GreenCircle } from './svgs';
+import { RedCircle } from './svgs';
 
-const GreenButton: React.FC<CardButtonProps> = (props) => {
+const RedButton: React.FC<CardButtonProps> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalClose = () => {
@@ -17,10 +17,10 @@ const GreenButton: React.FC<CardButtonProps> = (props) => {
         onClick={() => setIsModalOpen(true)}
         data-testid={`${props._id}-green-button`}
       >
-        <GreenCircle />
+        <RedCircle />
       </button>
       {isModalOpen && (
-        <MemberDetailsModal
+        <MemberDeleteModal
           _id={props._id}
           index={props.index}
           handleClose={handleModalClose}
@@ -30,4 +30,4 @@ const GreenButton: React.FC<CardButtonProps> = (props) => {
   );
 };
 
-export default GreenButton;
+export default RedButton;

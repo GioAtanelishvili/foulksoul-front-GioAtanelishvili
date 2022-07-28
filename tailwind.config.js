@@ -32,6 +32,7 @@ module.exports = {
         'primary-dark-blue': '#143B52',
         'members-nav-inactive': '#C4C4C4',
         'modal-overlay': '#042639',
+        'delete-modal-button': '#FC0303',
       },
       backgroundImage: {
         'gradient-radial-purple':
