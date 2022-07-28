@@ -11,7 +11,7 @@ describe('landing page', () => {
     cy.get('[data-testid="landing-page-main-content"]').should('exist');
   });
 
-  it('loading spinner show up when waiting for server response', () => {
+  it('loading spinner shows up when waiting for server response', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data, 5000);
     });

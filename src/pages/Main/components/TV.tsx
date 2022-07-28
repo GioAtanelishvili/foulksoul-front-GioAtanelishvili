@@ -25,7 +25,10 @@ const TV: React.FC = () => {
             data-testid='main-band-image'
           />
         ) : (
-          <p className='text-lg font-medium font-nino-mtavruli'>
+          <p
+            className='text-lg font-medium font-nino-mtavruli'
+            date-testid='photo-not-uploaded-message'
+          >
             ბენდის ფოტო ატვირთული არ არის!
           </p>
         )}
