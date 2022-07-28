@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Member, SocialMediaItem, BandDetails, WrapperProps } from 'types';
 import { getMembers, getSocialMedia, getBandDetails } from 'services';
@@ -21,6 +22,17 @@ export const DataContextProvider: React.FC<WrapperProps> = (props) => {
     imagePath: '',
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [responseStatus, setResponseStatus] = useState();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (responseStatus === 403) {
+      navigate('/403');
+    } else if (responseStatus === 500) {
+      navigate('/500');
+    }
+  }, [navigate, responseStatus]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -45,7 +57,9 @@ export const DataContextProvider: React.FC<WrapperProps> = (props) => {
       } catch (err: any) {
         setIsLoading(false);
 
-        console.error(err);
+        const { status } = err.response;
+
+        setResponseStatus(status);
       }
     })();
   }, []);

@@ -1,8 +1,12 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 
 import { TV } from './components';
 
 const Main: React.FC = () => {
+  useEffect(() => {
+    document.title = 'FolkSoul';
+  }, []);
+
   return (
     <Fragment>
       <header
