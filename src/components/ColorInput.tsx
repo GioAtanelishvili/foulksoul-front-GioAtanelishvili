@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { ColorInputProps } from 'types';
 
 const ColorInput: React.FC<ColorInputProps> = (props) => {
-  const [color, setColor] = useState(props.defaultValue);
+  const [color, setColor] = useState(props.defaultValue || '');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);

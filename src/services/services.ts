@@ -18,6 +18,14 @@ export const login = async (data: LoginFormData) => {
   return axios.post('login', data);
 };
 
+export const addMember = async (data: MembersFormData, token: string) => {
+  return axios.post('band/member', data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const deleteMember = async (_id: string, token: string) => {
   return axios.delete(`band/member?id=${_id}`, {
     headers: {

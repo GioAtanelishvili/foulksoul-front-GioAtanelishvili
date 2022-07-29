@@ -1,12 +1,12 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Fragment, useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { DashboardHeader, MemberUpdateForm, LoadingSpinner } from 'components';
 import { DataContext, AuthContext } from 'context';
-import { Member, MembersFormData } from 'types';
-import { editMember } from 'services';
+import { MembersFormData } from 'types';
+import { addMember } from 'services';
 
-const MembersEdit: React.FC = () => {
+const MemberCreate: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { members, updateMembers } = useContext(DataContext);
@@ -14,26 +14,17 @@ const MembersEdit: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const { state: member } = useLocation();
-  const { _id, name, instrument, orbitRadius, color, biography } =
-    member as Member;
-
   const handleSubmit = async (data: MembersFormData) => {
     setIsLoading(true);
 
     try {
-      await editMember(data, _id, token);
+      const response = await addMember(data, token);
       setIsLoading(false);
 
-      const updatedMembers = members.map((member) => {
-        if (member._id === _id) {
-          return { ...member, ...data };
-        }
+      const { createdMember } = response.data;
+      console.log(createdMember);
 
-        return member;
-      });
-
-      updateMembers(updatedMembers);
+      updateMembers([...members, createdMember]);
       navigate('../members');
     } catch (err: any) {
       setIsLoading(false);
@@ -49,11 +40,11 @@ const MembersEdit: React.FC = () => {
 
   return (
     <Fragment>
-      <DashboardHeader>შეცვალე ჯგუფის წევრი</DashboardHeader>
+      <DashboardHeader>დაამატე ჯგუფის ახალი წევრი</DashboardHeader>
       <MemberUpdateForm
-        defaultValues={{ name, instrument, orbitRadius, color, biography }}
+        defaultValues={{}}
         submitHandler={handleSubmit}
-        action='edit'
+        action='create'
       />
       <Link
         to='../members'
@@ -68,4 +59,4 @@ const MembersEdit: React.FC = () => {
   );
 };
 
-export default MembersEdit;
+export default MemberCreate;

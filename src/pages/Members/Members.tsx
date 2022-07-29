@@ -1,5 +1,5 @@
 import { Fragment, useContext, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 import { DashboardHeader, LoadingSpinner } from 'components';
 import { MemberCard, MembersNav } from './components';
@@ -40,6 +40,12 @@ const Members: React.FC = () => {
         )}
       </section>
       {members.length > 3 && <MembersNav totalMembers={members.length} />}
+      <Link
+        to='create'
+        className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
+      >
+        ახალი წევრი გვყავს?
+      </Link>
     </Fragment>
   );
 };

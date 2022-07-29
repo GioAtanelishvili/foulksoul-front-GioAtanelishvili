@@ -15,7 +15,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
     clearErrors,
     getValues,
     handleSubmit,
-  } = useForm<Member>({ mode: 'onChange', defaultValues });
+  } = useForm<Member>({ mode: 'onSubmit', defaultValues });
 
   return (
     <form
