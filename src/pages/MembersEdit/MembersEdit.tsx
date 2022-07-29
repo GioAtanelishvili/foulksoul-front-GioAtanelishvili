@@ -14,9 +14,12 @@ const MembersEdit: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const { state: member } = useLocation();
+  const { state } = useLocation();
+
   const { _id, name, instrument, orbitRadius, color, biography } =
-    member as Member;
+    state as Member;
+
+  const { page } = state as any;
 
   const handleSubmit = async (data: MembersFormData) => {
     setIsLoading(true);
@@ -34,7 +37,7 @@ const MembersEdit: React.FC = () => {
       });
 
       updateMembers(updatedMembers);
-      navigate('../members');
+      navigate(`../members?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
@@ -56,7 +59,7 @@ const MembersEdit: React.FC = () => {
         action='edit'
       />
       <Link
-        to='../members'
+        to={`../members?page=${page}`}
         className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან

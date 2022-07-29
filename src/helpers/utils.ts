@@ -12,3 +12,10 @@ export const toNumber = (value: string) => {
 
   return value;
 };
+
+export const extractPageNumber = (search: string) => {
+  const start = search.indexOf('?page=') + 6;
+  const end = start + 1;
+
+  return search.slice(start, end);
+};

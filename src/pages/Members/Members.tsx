@@ -42,6 +42,7 @@ const Members: React.FC = () => {
       {members.length > 3 && <MembersNav totalMembers={members.length} />}
       <Link
         to='create'
+        state={page}
         className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
       >
         ახალი წევრი გვყავს?

@@ -1,5 +1,5 @@
 import { Fragment, useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 import { DashboardHeader, MemberUpdateForm, LoadingSpinner } from 'components';
 import { DataContext, AuthContext } from 'context';
@@ -13,6 +13,7 @@ const MemberCreate: React.FC = () => {
   const { token } = useContext(AuthContext);
 
   const navigate = useNavigate();
+  const { state: page } = useLocation();
 
   const handleSubmit = async (data: MembersFormData) => {
     setIsLoading(true);
@@ -47,7 +48,7 @@ const MemberCreate: React.FC = () => {
         action='create'
       />
       <Link
-        to='../members'
+        to={`../members?page=${page}`}
         className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან
