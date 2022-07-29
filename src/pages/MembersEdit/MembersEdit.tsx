@@ -42,9 +42,9 @@ const MembersEdit: React.FC = () => {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === '403') {
+      if (status === 403) {
         navigate('/403');
-      } else if (status === '500') {
+      } else if (status === 500) {
         navigate('/500');
       }
     }
