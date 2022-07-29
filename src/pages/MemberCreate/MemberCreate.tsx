@@ -21,19 +21,20 @@ const MemberCreate: React.FC = () => {
     try {
       const response = await addMember(data, token);
       setIsLoading(false);
+      console.log(response);
 
       const { createdMember } = response.data;
       console.log(createdMember);
 
       updateMembers([...members, createdMember]);
-      navigate('../members');
+      navigate(`../members?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === '403') {
+      if (status === 403) {
         navigate('/403');
-      } else if (status === '500') {
+      } else if (status === 500) {
         navigate('/500');
       }
     }

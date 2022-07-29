@@ -27,7 +27,7 @@ const Members: React.FC = () => {
           membersToRender.map((member, index) => (
             <MemberCard
               key={member._id}
-              _id={member._id}
+              _id={member?._id}
               name={member.name}
               instrument={member.instrument}
               orbitRadius={member.orbitRadius}
@@ -44,6 +44,7 @@ const Members: React.FC = () => {
         to='create'
         state={page}
         className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
+        data-testid='link-to-member-create'
       >
         ახალი წევრი გვყავს?
       </Link>

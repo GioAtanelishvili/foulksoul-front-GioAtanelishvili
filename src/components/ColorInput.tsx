@@ -7,7 +7,13 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
     props.setFormValue(e.target.value);
-    if (
+
+    if (e.target.value === '' && props.isSubmitted) {
+      props.setFormError({
+        type: 'custom',
+        message: 'ფერი სავალდებულოა!',
+      });
+    } else if (
       !/^#(([0-9a-f]){6}$|([0-9A-F]){6}$)/.test(e.target.value) &&
       props.isSubmitted
     ) {

@@ -21,6 +21,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
     <form
       onSubmit={handleSubmit(props.submitHandler)}
       className='w-full mt-15 flex flex-col items-center'
+      data-testid='members-update-form'
     >
       <Input
         id='name'
@@ -67,7 +68,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
             required: 'ორბიტის რადიუსი სავალდებულოა!',
             pattern: {
               value: /^\d+$/,
-              message: 'გამოიყენეთ მხოლოდ ქართული ციფრები!',
+              message: 'გამოიყენეთ მხოლოდ ციფრები!',
             },
             setValueAs: toNumber,
           })}
@@ -101,6 +102,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
       <button
         type='submit'
         className='bg-primary-dark-blue text-content-white mt-12 pt-4 pb-3 px-8 rounded-[5px] text-center text-sm font-bold font-nino-mtavruli'
+        data-testid='members-update-form-submit-button'
       >
         {props.action === 'edit' ? 'შეცვალე წევრი' : 'დაამატე წევრი'}
       </button>
