@@ -4,3 +4,11 @@ export const capitalize = (value: string) => {
 
   return `${upperFirstChar}${value.slice(1)}`;
 };
+
+export const toNumber = (value: string) => {
+  if (/^\d+$/.test(value)) {
+    return Number(value);
+  }
+
+  return value;
+};

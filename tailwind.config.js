@@ -33,6 +33,8 @@ module.exports = {
         'members-nav-inactive': '#C4C4C4',
         'modal-overlay': '#042639',
         'delete-modal-button': '#FC0303',
+        'update-form-placeholder': '#A8A3A3',
+        'form-go-back-link': '#3A7DA3',
       },
       backgroundImage: {
         'gradient-radial-purple':

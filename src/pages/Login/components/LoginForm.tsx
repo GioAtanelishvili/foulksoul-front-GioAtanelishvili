@@ -62,6 +62,7 @@ const LoginForm: React.FC = () => {
         id='nickname'
         type='text'
         placeholder='მეტსახელი'
+        error={errors['nickname']}
         register={register('nickname', {
           required: 'მეტსახელის ველი სავალდებულოა!',
           minLength: {
@@ -74,12 +75,12 @@ const LoginForm: React.FC = () => {
               'უნდა შედგებოდეს დაბალი რეგისტრის სიმბოლოებისა და რიცხვებისგან!',
           },
         })}
-        error={errors['nickname']}
       />
       <LoginInput
         id='password'
         type='password'
         placeholder='პაროლი'
+        error={errors['password']}
         register={register('password', {
           required: 'პაროლის ველი სავალდებულოა!',
           minLength: {
@@ -87,7 +88,6 @@ const LoginForm: React.FC = () => {
             message: 'უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან!',
           },
         })}
-        error={errors['password']}
       />
       <LoginSubmitButton />
       {isLoading && (

@@ -1,3 +1,4 @@
+export { MembersEdit } from './MembersEdit';
 export { Dashboard } from './Dashboard';
 export { Landing } from './Landing';
 export { Members } from './Members';

@@ -3,7 +3,7 @@ import {
   MemberAvatar,
   GreenButton,
   RedButton,
-  YellowCircle,
+  YellowButton,
 } from '../components';
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
@@ -22,7 +22,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
       </h2>
       <div className='w-full mt-3 py-2 px-5 flex items-center justify-between border-t border-t-black shadow-member-card-buttons'>
         <GreenButton _id={props._id} index={props.index} />
-        <YellowCircle />
+        <YellowButton _id={props._id} />
         <RedButton _id={props._id} index={props.index} />
       </div>
     </div>

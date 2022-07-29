@@ -1,6 +1,6 @@
 import axios from './instance';
 
-import { LoginFormData } from 'types';
+import { LoginFormData, MembersFormData } from 'types';
 
 export const getMembers = async () => {
   return axios.get('band/members');
@@ -20,6 +20,18 @@ export const login = async (data: LoginFormData) => {
 
 export const deleteMember = async (_id: string, token: string) => {
   return axios.delete(`band/member?id=${_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const editMember = async (
+  data: MembersFormData,
+  _id: string,
+  token: string
+) => {
+  return axios.patch(`band/member?id=${_id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

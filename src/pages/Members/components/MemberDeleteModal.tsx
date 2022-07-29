@@ -54,7 +54,7 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
           <MemberAvatar
             background={member?.color as string}
             avatarPath={member?.avatarPath as string}
-            index={props.index}
+            index={props.index as number}
             className='mt-8 shadow-modal-avatar'
           />
         </div>

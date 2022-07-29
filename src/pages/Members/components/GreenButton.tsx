@@ -15,6 +15,7 @@ const GreenButton: React.FC<CardButtonProps> = (props) => {
     <Fragment>
       <button
         onClick={() => setIsModalOpen(true)}
+        title='დამატება'
         data-testid={`${props._id}-green-button`}
       >
         <GreenCircle />

@@ -46,14 +46,40 @@ export interface InputProps {
   id: string;
   type: string;
   placeholder: string;
+  error: FieldError;
+  className?: string;
   register: {
     onChange: ChangeHandler;
     onBlur: ChangeHandler;
     ref: React.Ref<HTMLInputElement>;
     name: string;
   };
+}
+
+export interface ColorInputProps {
+  defaultValue: string;
+  isSubmitted: boolean;
+  setFormValue: (color: string) => void;
+  setFormError: (error: FieldError) => void;
+  clearFormError: () => void;
   error: FieldError;
+  register: {
+    onChange: ChangeHandler;
+    onBlur: ChangeHandler;
+    ref: React.Ref<HTMLInputElement>;
+    name: string;
+  };
+}
+
+export interface TextAreaProps {
   className?: string;
+  error: FieldError;
+  register: {
+    onChange: ChangeHandler;
+    onBlur: ChangeHandler;
+    ref: LegacyRef<HTMLTextAreaElement>;
+    name: string;
+  };
 }
 
 export interface LoginFormData {
@@ -93,12 +119,24 @@ export interface ModalCardProps extends WrapperProps, ModalProps {}
 
 export interface CardButtonProps {
   _id: string;
-  index: number;
+  index?: number;
 }
 
 export interface MemberDetailsModalProps extends ModalProps, CardButtonProps {}
 
-export interface DataDeleteModalProps extends ModalProps, CardButtonProps {
-  // subject: 'member' | 'social-media';
-  // service: (token: string, id: string) => Promise<AxiosInstance<any, any>>;
+export interface DataDeleteModalProps extends ModalProps, CardButtonProps {}
+
+export interface UpdateFormProps {
+  defaultValues: Member | SocialMediaItem | {};
+  submitHandler: (data: MembersFormData) => void;
+  action: 'create' | 'edit';
+}
+
+export interface MembersFormData {
+  name: string;
+  instrument: string;
+  orbitRadius: number;
+  color: string;
+  biography: string;
+  avatarPath: string;
 }
