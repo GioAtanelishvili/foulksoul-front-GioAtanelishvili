@@ -11,6 +11,7 @@ import {
   MemberCreate,
   SocialMedia,
   SocialMediaCreate,
+  SocialMediaEdit,
 } from 'pages';
 
 const App = () => {
@@ -27,10 +28,7 @@ const App = () => {
             <Route path='members/edit' element={<MembersEdit />} />
             <Route path='members/create' element={<MemberCreate />} />
             <Route path='social-media' element={<SocialMedia />} />
-            <Route
-              path='social-media/edit'
-              element={<p>edit social media</p>}
-            />
+            <Route path='social-media/edit' element={<SocialMediaEdit />} />
             <Route path='social-media/create' element={<SocialMediaCreate />} />
             <Route path='about' element={<p>about</p>} />
           </Route>

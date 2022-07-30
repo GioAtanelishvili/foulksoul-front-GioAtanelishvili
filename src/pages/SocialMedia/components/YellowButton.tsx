@@ -14,7 +14,7 @@ const YellowButton: React.FC<CardButtonProps> = (props) => {
 
   const handleClick = () => {
     const item = socialMedia.find((item) => item._id === props._id);
-    const page = extractPageNumber(search);
+    const page = extractPageNumber(search) || 1;
 
     navigate('edit', { state: { ...item, page } });
   };

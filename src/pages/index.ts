@@ -1,4 +1,5 @@
 export { SocialMediaCreate } from './SocialMediaCreate';
+export { SocialMediaEdit } from './SocialMediaEdit';
 export { MemberCreate } from './MemberCreate';
 export { MembersEdit } from './MembersEdit';
 export { SocialMedia } from './SocialMedia';

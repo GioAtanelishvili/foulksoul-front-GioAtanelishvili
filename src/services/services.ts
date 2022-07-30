@@ -26,14 +26,6 @@ export const addMember = async (data: MembersFormData, token: string) => {
   });
 };
 
-export const deleteMember = async (_id: string, token: string) => {
-  return axios.delete(`band/member?id=${_id}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-};
-
 export const editMember = async (
   data: MembersFormData,
   _id: string,
@@ -46,11 +38,31 @@ export const editMember = async (
   });
 };
 
+export const deleteMember = async (_id: string, token: string) => {
+  return axios.delete(`band/member?id=${_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
 export const addSocialMedia = async (
   data: SocialMediaFormData,
   token: string
 ) => {
   return axios.post('band/social-media', data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const editSocialMedia = async (
+  data: SocialMediaFormData,
+  _id: string,
+  token: string
+) => {
+  return axios.patch(`band/social-media?id=${_id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
