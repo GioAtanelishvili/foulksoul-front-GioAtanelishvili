@@ -1,8 +1,13 @@
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { UpdateFormProps, Member } from 'types';
-import { Input, ColorInput, MemberTextArea } from '../components';
 import { toNumber } from 'helpers';
+import {
+  Input,
+  ColorInput,
+  MemberTextArea,
+  UpdateFormButton,
+} from '../components';
 
 const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
   const defaultValues = props.defaultValues;
@@ -19,16 +24,17 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
 
   return (
     <form
-      onSubmit={handleSubmit(props.submitHandler)}
+      onSubmit={handleSubmit(props.submitHandler as SubmitHandler<Member>)}
       className='w-full mt-15 flex flex-col items-center'
       data-testid='members-update-form'
+      noValidate
     >
       <Input
         id='name'
         type='text'
         placeholder='სახელი'
         error={errors['name']}
-        className='w-[16rem]'
+        className='w-64'
         register={register('name', {
           required: 'სახელი სავალდებულოა!',
           minLength: {
@@ -99,13 +105,9 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
           },
         })}
       />
-      <button
-        type='submit'
-        className='bg-primary-dark-blue text-content-white mt-12 pt-4 pb-3 px-8 rounded-[5px] text-center text-sm font-bold font-nino-mtavruli'
-        data-testid='members-update-form-submit-button'
-      >
-        {props.action === 'edit' ? 'შეცვალე წევრი' : 'დაამატე წევრი'}
-      </button>
+      <UpdateFormButton>
+        {props.action === 'create' ? 'დაამატე წევრი' : 'შეცვალე წევრი'}
+      </UpdateFormButton>
     </form>
   );
 };

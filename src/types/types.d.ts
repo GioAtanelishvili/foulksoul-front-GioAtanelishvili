@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface WrapperProps {
   children: React.ReactNode;
   className?: string;
@@ -132,7 +134,9 @@ export interface DataDeleteModalProps extends ModalProps, CardButtonProps {}
 
 export interface UpdateFormProps {
   defaultValues: Member | SocialMediaItem | {};
-  submitHandler: (data: MembersFormData) => void;
+  submitHandler:
+    | ((data: MembersFormData) => void)
+    | ((data: SocialMediaFormData) => void);
   action: 'create' | 'edit';
 }
 
@@ -143,6 +147,12 @@ export interface MembersFormData {
   color: string;
   biography: string;
   avatarPath: string;
+}
+
+export interface SocialMediaFormData {
+  name: string;
+  url: string;
+  iconPath: string;
 }
 
 export interface SocialMediaCardProps extends SocialMediaItem {

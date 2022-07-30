@@ -57,6 +57,7 @@ const LoginForm: React.FC = () => {
       onSubmit={handleSubmit(submitHandler)}
       className='w-full flex flex-col items-center'
       data-testid='login-form'
+      noValidate
     >
       <LoginInput
         id='nickname'

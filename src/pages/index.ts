@@ -1,3 +1,4 @@
+export { SocialMediaCreate } from './SocialMediaCreate';
 export { MemberCreate } from './MemberCreate';
 export { MembersEdit } from './MembersEdit';
 export { SocialMedia } from './SocialMedia';

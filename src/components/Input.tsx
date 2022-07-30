@@ -11,10 +11,12 @@ const Input: React.FC<InputProps> = (props) => {
         onChange={props.register.onChange}
         onBlur={props.register.onBlur}
         ref={props.register.ref}
-        className={`w-40 h-14 py-4 text-center border border-primary-dark-blue rounded-[5px] outline-none text-primary-dark-blue placeholder:text-update-form-placeholder ${props.className}`}
+        className={`w-40 h-14 py-4 text-center border rounded-[5px] outline-none text-primary-dark-blue placeholder:text-update-form-placeholder ${
+          props.error ? 'border-input-error' : 'border-primary-dark-blue'
+        } ${props.className}`}
       />
       {props.error && (
-        <p className='text-login-input-error absolute top-14 text-center font-medium'>
+        <p className='text-input-error absolute top-14 text-center font-medium'>
           {props.error.message}
         </p>
       )}

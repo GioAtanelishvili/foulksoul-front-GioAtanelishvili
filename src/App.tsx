@@ -10,6 +10,7 @@ import {
   MembersEdit,
   MemberCreate,
   SocialMedia,
+  SocialMediaCreate,
 } from 'pages';
 
 const App = () => {
@@ -30,10 +31,7 @@ const App = () => {
               path='social-media/edit'
               element={<p>edit social media</p>}
             />
-            <Route
-              path='social-media/create'
-              element={<p>create social media</p>}
-            />
+            <Route path='social-media/create' element={<SocialMediaCreate />} />
             <Route path='about' element={<p>about</p>} />
           </Route>
         </Routes>

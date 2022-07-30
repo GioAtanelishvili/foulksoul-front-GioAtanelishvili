@@ -1,6 +1,8 @@
+export { default as SocialMediaUpdateForm } from './SocialMediaUpdateForm';
 export { default as MemberUpdateForm } from './MembersUpdateForm';
 export { default as DashboardCardNav } from './DashboardCardNav';
 export { default as DataDeleteButton } from './DataDeleteButton';
+export { default as UpdateFormButton } from './UpdateFormButton';
 export { default as DashboardHeader } from './DashboardHeader';
 export { default as ModalCardHeader } from './ModalCardHeader';
 export { default as LoadingSpinner } from './LoadingSpinner';

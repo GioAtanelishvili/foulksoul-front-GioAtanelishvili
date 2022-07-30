@@ -25,7 +25,7 @@ module.exports = {
         'login-gradient-end': '#7B5A5A',
         'login-input-background': '#C4B6B2',
         'login-input-text': '#501C1C',
-        'login-input-error': '#CE1F1F',
+        'input-error': '#CE1F1F',
         'login-submit-button': '#345161',
         'primary-gray': '#333333',
         'good-gray': '#898989',

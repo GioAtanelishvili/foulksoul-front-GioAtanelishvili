@@ -1,6 +1,6 @@
 import axios from './instance';
 
-import { LoginFormData, MembersFormData } from 'types';
+import { LoginFormData, MembersFormData, SocialMediaFormData } from 'types';
 
 export const getMembers = async () => {
   return axios.get('band/members');
@@ -40,6 +40,17 @@ export const editMember = async (
   token: string
 ) => {
   return axios.patch(`band/member?id=${_id}`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const addSocialMedia = async (
+  data: SocialMediaFormData,
+  token: string
+) => {
+  return axios.post('band/social-media', data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
