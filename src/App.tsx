@@ -9,6 +9,7 @@ import {
   Members,
   MembersEdit,
   MemberCreate,
+  SocialMedia,
 } from 'pages';
 
 const App = () => {
@@ -24,7 +25,15 @@ const App = () => {
             <Route path='members' element={<Members />} />
             <Route path='members/edit' element={<MembersEdit />} />
             <Route path='members/create' element={<MemberCreate />} />
-            <Route path='social-media' element={<p>social media</p>} />
+            <Route path='social-media' element={<SocialMedia />} />
+            <Route
+              path='social-media/edit'
+              element={<p>edit social media</p>}
+            />
+            <Route
+              path='social-media/create'
+              element={<p>create social media</p>}
+            />
             <Route path='about' element={<p>about</p>} />
           </Route>
         </Routes>

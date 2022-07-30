@@ -10,13 +10,13 @@ const YellowButton: React.FC<CardButtonProps> = (props) => {
   const navigate = useNavigate();
   const { search } = useLocation();
 
-  const { members } = useContext(DataContext);
+  const { socialMedia } = useContext(DataContext);
 
   const handleClick = () => {
-    const member = members.find((member) => member._id === props._id);
+    const item = socialMedia.find((item) => item._id === props._id);
     const page = extractPageNumber(search);
 
-    navigate('edit', { state: { ...member, page } });
+    navigate('edit', { state: { ...item, page } });
   };
 
   return (

@@ -1,8 +1,8 @@
 import { Fragment, useContext, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
-import { DashboardHeader, LoadingSpinner } from 'components';
-import { MemberCard, MembersNav } from './components';
+import { DashboardHeader, LoadingSpinner, DashboardCardNav } from 'components';
+import { MemberCard } from './components';
 import { DataContext } from 'context';
 
 const Members: React.FC = () => {
@@ -20,7 +20,7 @@ const Members: React.FC = () => {
   return (
     <Fragment>
       <DashboardHeader>ჯგუფის წევრები</DashboardHeader>
-      <section className='w-3/5 min-h-[17.5rem] mt-20 flex justify-center items-center'>
+      <section className='w-3/5 h-70 mt-20 flex justify-center items-center'>
         {isLoading ? (
           <LoadingSpinner className='scale-150' />
         ) : (
@@ -39,7 +39,7 @@ const Members: React.FC = () => {
           ))
         )}
       </section>
-      {members.length > 3 && <MembersNav totalMembers={members.length} />}
+      {members.length > 3 && <DashboardCardNav arrayLength={members.length} />}
       <Link
         to='create'
         state={page}

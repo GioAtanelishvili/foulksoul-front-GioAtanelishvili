@@ -103,8 +103,8 @@ export interface MemberCardProps extends Member {
   index: number;
 }
 
-export interface MembersNavProps {
-  totalMembers: number;
+export interface DashboardCardNavProps {
+  arrayLength: number;
 }
 
 export interface ModalOverlayProps {
@@ -140,3 +140,5 @@ export interface MembersFormData {
   biography: string;
   avatarPath: string;
 }
+
+export interface SocialMediaCardProps extends SocialMediaItem {}

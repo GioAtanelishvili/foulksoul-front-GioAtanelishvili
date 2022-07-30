@@ -9,3 +9,4 @@ export { default as ModalCard } from './ModalCard';
 export { default as Layout } from './Layout';
 export { default as Input } from './Input';
 export * from './svgs';
+export { default as DashboardCardNav } from './DashboardCardNav';

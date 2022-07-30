@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 
-import { MemberDeleteModal } from '../components';
+import { SocialMediaDeleteModal } from '../components';
 import { CardButtonProps } from 'types';
 import { RedCircle } from 'components';
 
@@ -21,7 +21,7 @@ const RedButton: React.FC<CardButtonProps> = (props) => {
         <RedCircle />
       </button>
       {isModalOpen && (
-        <MemberDeleteModal
+        <SocialMediaDeleteModal
           _id={props._id}
           index={props.index}
           handleClose={handleModalClose}
