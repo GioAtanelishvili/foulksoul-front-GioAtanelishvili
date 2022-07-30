@@ -27,7 +27,11 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
   };
 
   return (
-    <div className='w-40 h-14 py-3 pl-2 flex items-center justify-between gap-1 text-center relative text-sm border border-primary-dark-blue rounded-[5px] bg-content-white'>
+    <div
+      className={`w-40 h-14 py-3 pl-2 flex items-center justify-between gap-1 text-center relative text-sm border rounded-[5px] bg-content-white ${
+        props.error ? 'border-input-error' : 'border-primary-dark-blue'
+      }`}
+    >
       <input
         id='text-color'
         type='text'
@@ -52,7 +56,7 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
         className='invisible w-0 h-0'
       />
       {props.error && (
-        <p className='text-login-input-error absolute top-14 font-medium'>
+        <p className='text-input-error absolute top-14 font-medium'>
           {props.error.message}
         </p>
       )}

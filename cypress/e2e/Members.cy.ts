@@ -28,16 +28,16 @@ describe('members page', () => {
     });
     cy.reload();
 
-    cy.get('[data-testid="members-nav-button-0"]').should('be.visible');
-    cy.get('[data-testid="members-nav-button-1"]').should('be.visible');
+    cy.get('[data-testid="dashboard-card-nav-button-0"]').should('be.visible');
+    cy.get('[data-testid="dashboard-card-nav-button-1"]').should('be.visible');
 
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests({ ...data, members: [] });
     });
     cy.reload();
 
-    cy.get('[data-testid="members-nav-button-0"]').should('not.exist');
-    cy.get('[data-testid="members-nav-button-1"]').should('not.exist');
+    cy.get('[data-testid="dashboard-card-nav-button-0"]').should('not.exist');
+    cy.get('[data-testid="dashboard-card-nav-button-1"]').should('not.exist');
   });
 
   it('user can navigate to check all members', () => {
@@ -46,10 +46,10 @@ describe('members page', () => {
     });
     cy.reload();
 
-    cy.get('[data-testid="members-nav-button-1"]').click();
+    cy.get('[data-testid="dashboard-card-nav-button-1"]').click();
     cy.url().should('include', '?page=2');
 
-    cy.get('[data-testid="members-nav-button-0"]').click();
+    cy.get('[data-testid="dashboard-card-nav-button-0"]').click();
     cy.url().should('include', '?page=1');
   });
 

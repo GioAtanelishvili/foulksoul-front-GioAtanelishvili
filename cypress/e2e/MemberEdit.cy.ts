@@ -24,11 +24,11 @@ describe('member edit page', () => {
 
   it('loading spinner shows up when waiting for server response', () => {
     cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
-      statusCode: 201,
+      statusCode: 200,
       delay: 5000,
     });
 
-    cy.get('[data-testid="members-update-form-submit-button"]').click();
+    cy.get('[data-testid="update-form-submit-button"]').click();
     cy.get('[data-testid="loading-spinner"]').should('be.visible');
   });
 
@@ -39,7 +39,7 @@ describe('member edit page', () => {
     cy.visit('/band/members');
     cy.get('[data-testid="sluchaina-yellow-button"]').click();
 
-    cy.get('[data-testid="members-update-form-submit-button"]').click();
+    cy.get('[data-testid="update-form-submit-button"]').click();
     cy.url().should('include', '403');
   });
 
@@ -50,7 +50,7 @@ describe('member edit page', () => {
     cy.visit('/band/members');
     cy.get('[data-testid="sluchaina-yellow-button"]').click();
 
-    cy.get('[data-testid="members-update-form-submit-button"]').click();
+    cy.get('[data-testid="update-form-submit-button"]').click();
     cy.url().should('include', '500');
   });
 
@@ -63,7 +63,7 @@ describe('member edit page', () => {
 
     cy.get('#name').clear().type('ღოღე');
 
-    cy.get('[data-testid="members-update-form-submit-button"]').click();
+    cy.get('[data-testid="update-form-submit-button"]').click();
 
     cy.url().should('not.contain', 'edit');
     cy.contains('ღოღე').should('be.visible');

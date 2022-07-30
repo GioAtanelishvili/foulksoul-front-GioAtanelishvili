@@ -87,7 +87,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
           clearFormError={() => clearErrors('color')}
           error={errors['color']}
           register={register('color', {
-            required: 'ფერი დავალდებულოა!',
+            required: 'ფერი სავალდებულოა!',
             pattern: {
               value: /^#([0-9a-fA-F]){6}$/,
               message: 'უნდა ემთხვეოდეს HEX ფორმატს!',

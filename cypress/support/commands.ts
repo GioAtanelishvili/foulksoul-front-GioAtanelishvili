@@ -52,6 +52,29 @@ Cypress.Commands.add(
     cy.get('#text-color').type('#f0f0f0');
     cy.get('#members-update-textarea').type('რუსთაველი ბიჭია.');
 
-    cy.get('[data-testid="members-update-form-submit-button"]').click();
+    cy.get('[data-testid="update-form-submit-button"]').click();
+  }
+);
+
+Cypress.Commands.add(
+  'addSocialMedia',
+  (delay?: number, statusCode: number = 201) => {
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/band/social-media`, {
+      statusCode,
+      body: {
+        createdSocialMediaItem: {
+          _id: 'facebook',
+          name: 'Facebook',
+          url: 'https://facebook.com',
+          iconPath: '',
+        },
+      },
+      delay,
+    });
+
+    cy.get('#name').type('Facebook');
+    cy.get('#url').type('https://facebook.com');
+
+    cy.get('[data-testid="update-form-submit-button"]').click();
   }
 );
