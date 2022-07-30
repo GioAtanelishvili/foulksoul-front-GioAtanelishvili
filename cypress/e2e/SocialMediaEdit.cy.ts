@@ -15,12 +15,12 @@ describe('social media edit page', () => {
   });
 
   it('form fields are filled with the data of the social-media', () => {
-    cy.get('#name').should('have.value', 'Facebook');
+    cy.get('#name').should('have.value', 'facebook');
     cy.get('#url').should('have.value', 'https://facebook.com/');
   });
 
   it('loading spinner shows up when waiting for server response', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/social-media/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
       statusCode: 200,
       delay: 5000,
     });
@@ -30,10 +30,10 @@ describe('social media edit page', () => {
   });
 
   it('auth error redirects user to page 403', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/social-media/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
       statusCode: 403,
     });
-    cy.visit('/social-media/members');
+    cy.visit('/band/social-media');
     cy.get('[data-testid="facebook-yellow-button"]').click();
 
     cy.get('[data-testid="update-form-submit-button"]').click();
@@ -41,10 +41,10 @@ describe('social media edit page', () => {
   });
 
   it('internal error redirects user to page 500', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/social-media/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
       statusCode: 500,
     });
-    cy.visit('/social-media/members');
+    cy.visit('/band/social-media');
     cy.get('[data-testid="facebook-yellow-button"]').click();
 
     cy.get('[data-testid="update-form-submit-button"]').click();
@@ -52,10 +52,10 @@ describe('social media edit page', () => {
   });
 
   it('submiting valid form updates social media data', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/social-media/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
       statusCode: 200,
     });
-    cy.visit('/social-media/members');
+    cy.visit('/band/social-media');
     cy.get('[data-testid="facebook-yellow-button"]').click();
 
     cy.get('#name').clear().type('instagram');
