@@ -115,6 +115,10 @@ export interface ModalProps {
   handleClose: () => void;
 }
 
+export interface DataDeleteButtonProps {
+  handleClick: () => void;
+}
+
 export interface ModalCardProps extends WrapperProps, ModalProps {}
 
 export interface CardButtonProps {
@@ -141,4 +145,6 @@ export interface MembersFormData {
   avatarPath: string;
 }
 
-export interface SocialMediaCardProps extends SocialMediaItem {}
+export interface SocialMediaCardProps extends SocialMediaItem {
+  index: number;
+}

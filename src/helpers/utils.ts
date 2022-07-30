@@ -19,3 +19,11 @@ export const extractPageNumber = (search: string) => {
 
   return search.slice(start, end);
 };
+
+export const findDestination = (index: number) => {
+  if (index % 3 === 1) {
+    return Math.floor(index / 3);
+  } else {
+    return Math.ceil(index / 3);
+  }
+};

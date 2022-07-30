@@ -5,12 +5,14 @@ import { createPortal } from 'react-dom';
 import { DataContext, AuthContext } from 'context';
 import { MemberAvatar } from '../components';
 import { DataDeleteModalProps } from 'types';
+import { findDestination } from 'helpers';
 import { deleteMember } from 'services';
 import {
   ModalOverlay,
   ModalCard,
   ModalCardHeader,
   LoadingSpinner,
+  DataDeleteButton,
 } from 'components';
 
 const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
@@ -22,6 +24,7 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
   const member = members.find((member) => member._id === props._id);
 
   const navigate = useNavigate();
+  const page = findDestination(props.index as number);
 
   const handleDelete = async () => {
     setIsLoading(true);
@@ -33,6 +36,7 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
         (member) => member._id !== props._id
       );
       updateMembers(updatedMembers);
+      navigate(`../members?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
@@ -61,12 +65,7 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
         <p className='text-base font-nino-mtavruli'>
           {member?.name} ~ {member?.instrument}
         </p>
-        <button
-          className='bg-delete-modal-button text-white mt-20 mb-10 pt-3 pb-2 px-10 font-medium font-nino-mtavruli rounded-[5px]'
-          onClick={handleDelete}
-        >
-          წაშლა
-        </button>
+        <DataDeleteButton handleClick={handleDelete} />
         {isLoading && (
           <LoadingSpinner className='fixed scale-[2] left-[calc(50%-1rem)] top-[calc(50%-1rem)]' />
         )}

@@ -2,12 +2,12 @@ import { Fragment, useContext, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+import { DashboardHeader, DashboardCardNav, LoadingSpinner } from 'components';
 import { SocialMediaCard } from './components';
-import { DashboardHeader, DashboardCardNav } from 'components';
 import { DataContext } from 'context';
 
 const SocialMedia: React.FC = () => {
-  const { socialMedia } = useContext(DataContext);
+  const { socialMedia, isLoading } = useContext(DataContext);
 
   const [searchParams] = useSearchParams({ page: '1' });
 
@@ -22,15 +22,20 @@ const SocialMedia: React.FC = () => {
     <Fragment>
       <DashboardHeader>სოციალური ბმულები</DashboardHeader>
       <section className='w-3/5 h-70 mt-20 flex flex-col items-center gap-14'>
-        {itemsToRender.map((item) => (
-          <SocialMediaCard
-            key={item._id}
-            _id={item._id}
-            name={item.name}
-            url={item.url}
-            iconPath={item.iconPath}
-          />
-        ))}
+        {isLoading ? (
+          <LoadingSpinner className='mt-35 scale-150' />
+        ) : (
+          itemsToRender.map((item, index) => (
+            <SocialMediaCard
+              key={item._id}
+              _id={item._id}
+              name={item.name}
+              url={item.url}
+              iconPath={item.iconPath}
+              index={index}
+            />
+          ))
+        )}
       </section>
       {socialMedia.length > 3 && (
         <DashboardCardNav arrayLength={socialMedia.length} />

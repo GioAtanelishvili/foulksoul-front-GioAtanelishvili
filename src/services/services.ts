@@ -45,3 +45,11 @@ export const editMember = async (
     },
   });
 };
+
+export const deleteSocialMedia = async (_id: string, token: string) => {
+  return axios.delete(`band/social-media?id=${_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

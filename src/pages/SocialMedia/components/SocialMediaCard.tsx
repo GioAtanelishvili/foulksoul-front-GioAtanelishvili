@@ -28,7 +28,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
         {props.url}
       </a>
       <YellowButton _id={props._id} />
-      <RedButton _id={props._id} />
+      <RedButton _id={props._id} index={props.index} />
     </div>
   );
 };
