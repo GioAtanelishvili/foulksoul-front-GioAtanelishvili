@@ -17,9 +17,41 @@ export interface LandingCardProps {
   subject: LandingCardSubject;
 }
 
+export interface CardPhotoFrameProps extends WrapperProps {
+  style: {
+    [styleName: string]: string;
+  } | null;
+}
+
 export interface SunnoteSystemProps {
   handleMemberClick: (subject: LandingCardSubject) => void;
   handleSunnoteClick: (subject: LandingCardSubject) => void;
+  cardSubject: LandingCardSubject;
+}
+
+export interface MemberPlanetProps {
+  _id: string;
+  name: string;
+  color: string;
+  width: number;
+  avatarPath: string;
+  isAnimating: boolean;
+  animationTiming: number;
+  handleClick: (subject: LandingCardSubject) => void;
+}
+
+export interface MemberPlanetOrbitProps extends WrapperProps {
+  sizeRatio: number;
+  isAnimating: boolean;
+  animationTiming: number;
+}
+
+export interface OrbitStrokeProps {
+  sizing: number;
+}
+
+export interface SunnoteProps {
+  handleClick: (subject: LandingCardSubject) => void;
 }
 
 export interface Member {

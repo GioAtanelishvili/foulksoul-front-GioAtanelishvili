@@ -12,6 +12,16 @@
   src: url(assets/fonts/bpg_arial_2009.ttf);
 }
 
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+
+  .run {
+    animation-play-state: running;
+  }
+}
+
 @layer base {
   #landing-card-div::-webkit-scrollbar {
     width: 6px;

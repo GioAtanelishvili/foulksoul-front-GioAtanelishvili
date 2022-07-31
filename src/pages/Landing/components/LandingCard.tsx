@@ -13,6 +13,11 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
   } = useContext(DataContext);
 
   const { subject } = props.subject;
+  const member = members.find(
+    (member) => member._id === props.subject.memberId
+  );
+
+  const avatarUrl = `${process.env.REACT_APP_API_BASE_URL}/${member?.avatarPath}`;
   let content;
 
   if (subject === 'band') {
@@ -22,10 +27,6 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
       content = info;
     }
   } else if (subject === 'member') {
-    const member = members.find(
-      (member) => member._id === props.subject.memberId
-    );
-
     content = member!.biography;
   }
 
@@ -33,22 +34,28 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
     <section className='bg-secondary-gold w-full mt-36 pt-35 relative rounded-[20px]'>
       <div className='absolute w-3.75 h-3.75 top-3.75 left-4 rounded-full bg-gradient-radial-purple' />
       <div className='absolute w-3.75 h-3.75 top-3.75 right-4 rounded-full bg-gradient-radial-purple' />
-      <CardPhotoFrame>
-        <BandLogo className='scale-150' />
+      <CardPhotoFrame
+        style={
+          subject === 'member'
+            ? { backgroundColor: member?.color as string }
+            : null
+        }
+      >
+        {subject === 'band' ? (
+          <BandLogo className='scale-150' />
+        ) : (
+          <img src={avatarUrl} alt='Band member' />
+        )}
       </CardPhotoFrame>
       <div
         id='landing-card-div'
-        className='h-92 mt-9 mb-10 mr-8 ml-4 px-12 overflow-y-auto'
+        className='h-108 mt-9 mb-10 mr-8 ml-4 px-12 overflow-y-auto'
       >
         {isLoading ? (
           <LoadingSpinner />
         ) : (
-          <article className='text-justify text-lg font-arial'>
-            {content?.split('\n').map((paragraph, index) => (
-              <p key={index} className='mb-8'>
-                {paragraph}
-              </p>
-            ))}
+          <article className='text-justify text-lg font-arial whitespace-pre-wrap'>
+            {content}
           </article>
         )}
       </div>

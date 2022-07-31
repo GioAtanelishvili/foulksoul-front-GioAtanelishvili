@@ -35,11 +35,14 @@ const Landing: React.FC = () => {
           შესვლა
         </Link>
       </header>
-      <main className='border flex' data-testid='landing-page-main-content'>
-        <SunnoteSystem
-          handleMemberClick={changeCardSubject}
-          handleSunnoteClick={changeCardSubject}
-        />
+      <main className='mt-5 flex' data-testid='landing-page-main-content'>
+        <div className='w-[55%] flex justify-center items-center'>
+          <SunnoteSystem
+            handleMemberClick={changeCardSubject}
+            handleSunnoteClick={changeCardSubject}
+            cardSubject={cardSubject}
+          />
+        </div>
         <section className='w-[45%] px-23 flex flex-col items-center'>
           <LandingCard subject={cardSubject} />
           <SocialMediaFooter />

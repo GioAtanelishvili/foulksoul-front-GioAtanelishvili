@@ -1,3 +1,5 @@
+import { Member } from 'types';
+
 export const capitalize = (value: string) => {
   const firstChar = value[0];
   const upperFirstChar = firstChar.toUpperCase();
@@ -26,4 +28,27 @@ export const findDestination = (index: number) => {
   } else {
     return Math.ceil(index / 3);
   }
+};
+
+export const calcScaling = () => {
+  const scalingOptions = ['scale-70', 'scale-80', 'scale-90', 'scale-100'];
+  const index = Math.floor(Math.random() * 4);
+
+  return scalingOptions[index];
+};
+
+export const calcOrbitRatios = (members: Member[]) => {
+  const maxOrbitRadius = members.reduce((max, member) => {
+    return member.orbitRadius > max ? member.orbitRadius : max;
+  }, 0);
+
+  const orbitRatios = members.map(
+    (member) => member.orbitRadius / maxOrbitRadius
+  );
+
+  return orbitRatios;
+};
+
+export const calcAnimationTimings = (orbitRatios: number[]) => {
+  return orbitRatios.map((orbitRatio) => orbitRatio * 20);
 };
