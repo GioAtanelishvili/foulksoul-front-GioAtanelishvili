@@ -5,7 +5,7 @@ import {
   SocialMediaIcon,
   NoteIcon,
   ExitIcon,
-} from 'components';
+} from './svgs';
 
 const Nav: React.FC = () => {
   return (

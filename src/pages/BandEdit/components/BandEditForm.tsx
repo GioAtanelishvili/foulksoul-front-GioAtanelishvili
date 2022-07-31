@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useContext, useState } from 'react';
 
 import { DataContext, AuthContext } from 'context';
 import { BandEditCard } from '../components';

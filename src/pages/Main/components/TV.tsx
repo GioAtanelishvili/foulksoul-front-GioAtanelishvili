@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
-import { Antenna, TVLogo, TVLegs, LoadingSpinner } from 'components';
+import { Antenna, TVLogo, TVLegs } from './svgs';
+import { LoadingSpinner } from 'components';
 import { DataContext } from 'context';
 
 const TV: React.FC = () => {

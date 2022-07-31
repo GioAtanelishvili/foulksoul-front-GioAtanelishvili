@@ -1,4 +1,4 @@
-import { FolkSoulLogo, FolkSoulTitle } from 'components';
+import { FolkSoulLogo, FolkSoulTitle } from './svgs';
 import { ClassNameProps } from 'types';
 
 const BandLogo: React.FC<ClassNameProps> = (props) => {
