@@ -163,6 +163,6 @@ export interface BandImageProps {
   path: string;
 }
 
-export interface BandInfoProps {
+export interface BandEditFormData {
   info: string;
 }

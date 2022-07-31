@@ -29,16 +29,12 @@ const Band: React.FC = () => {
         ) : (
           <Fragment>
             <BandImage path={imagePath} />
-            <article className='mt-12 text-base text-justify font-arial'>
-              {content?.split('\n').map((paragraph, index) => (
-                <p key={index} className='mb-7'>
-                  {paragraph}
-                </p>
-              ))}
+            <article className='mt-12 text-base text-justify font-arial whitespace-pre-wrap'>
+              {content}
             </article>
           </Fragment>
         )}
-        <Link to='../edit' className='absolute left-14 bottom-52'>
+        <Link to='edit' className='absolute left-14 bottom-52'>
           <EditIcon />
         </Link>
       </section>

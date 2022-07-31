@@ -2,16 +2,17 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AuthContextProvider, DataContextProvider } from 'context';
 import {
-  Landing,
-  Login,
-  Dashboard,
-  Main,
-  Members,
-  MembersEdit,
-  MemberCreate,
-  SocialMedia,
   SocialMediaCreate,
   SocialMediaEdit,
+  MemberCreate,
+  MembersEdit,
+  SocialMedia,
+  Dashboard,
+  BandEdit,
+  Landing,
+  Members,
+  Login,
+  Main,
   Band,
 } from 'pages';
 
@@ -32,6 +33,7 @@ const App = () => {
             <Route path='social-media/edit' element={<SocialMediaEdit />} />
             <Route path='social-media/create' element={<SocialMediaCreate />} />
             <Route path='about' element={<Band />} />
+            <Route path='about/edit' element={<BandEdit />} />
           </Route>
         </Routes>
       </DataContextProvider>

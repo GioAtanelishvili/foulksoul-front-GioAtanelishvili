@@ -1,6 +1,11 @@
 import axios from './instance';
 
-import { LoginFormData, MembersFormData, SocialMediaFormData } from 'types';
+import {
+  BandEditFormData,
+  LoginFormData,
+  MembersFormData,
+  SocialMediaFormData,
+} from 'types';
 
 export const getMembers = async () => {
   return axios.get('band/members');
@@ -71,6 +76,14 @@ export const editSocialMedia = async (
 
 export const deleteSocialMedia = async (_id: string, token: string) => {
   return axios.delete(`band/social-media?id=${_id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const editBandInfo = async (data: BandEditFormData, token: string) => {
+  return axios.put('band/info', data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

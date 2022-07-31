@@ -5,7 +5,7 @@ const BandImage: React.FC<BandImageProps> = (props) => {
   console.log(imageUrl);
 
   return (
-    <figure className='w-52 h-52 m-auto flex justify-center items-center border-[6.3px] border-band-image-border rounded-full drop-shadow-band-image overflow-hidden'>
+    <figure className='w-52 h-52 m-auto flex justify-center items-center border-[6.3px] border-band-image-frame rounded-full drop-shadow-band-image overflow-hidden'>
       {props.path && (
         <img src={imageUrl} className='max-w-full max-h-full' alt='Band' />
       )}

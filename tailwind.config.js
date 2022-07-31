@@ -37,7 +37,9 @@ module.exports = {
         'update-form-placeholder': '#A8A3A3',
         'form-go-back-link': '#3A7DA3',
         'social-media-link': '#2F80ED',
-        'band-image-border': '#3B5495',
+        'band-image-frame': '#3B5495',
+        'band-edit-card': '#E5E5E5',
+        'primary-green': '#53C02C',
       },
       backgroundImage: {
         'gradient-radial-purple':
@@ -60,6 +62,7 @@ module.exports = {
         'member-card-buttons': '5px 5px 13px rgba(0, 0, 0, 0.63)',
         'modal-avatar': '1.11504px 2.23009px 7.80531px #000000',
         'social-media-card': '2px 4px 14px #000000',
+        'band-edit-card': '2px 4px 14px #000000',
       },
     },
   },
