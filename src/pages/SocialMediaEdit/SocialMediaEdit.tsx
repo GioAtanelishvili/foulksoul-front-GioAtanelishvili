@@ -63,7 +63,7 @@ const SocialMediaEdit: React.FC = () => {
       />
       <Link
         to={`../social-media?page=${page}`}
-        className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
+        className='text-form-go-back-link mt-5 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან
       </Link>

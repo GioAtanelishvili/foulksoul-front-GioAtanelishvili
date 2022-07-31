@@ -27,14 +27,17 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
+  #band-about-page-section::-webkit-scrollbar,
   #member-details-modal-div::-webkit-scrollbar {
     width: 8px;
   }
+  #band-about-page-section::-webkit-scrollbar-track,
   #member-details-modal-div::-webkit-scrollbar-track {
     background-color: #143b52;
     border-radius: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
+  #band-about-page-section::-webkit-scrollbar-thumb,
   #member-details-modal-div::-webkit-scrollbar-thumb {
     background: #87aec5;
     border-radius: 20px;

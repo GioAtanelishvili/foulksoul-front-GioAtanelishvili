@@ -8,3 +8,4 @@ export { Landing } from './Landing';
 export { Members } from './Members';
 export { Login } from './Login';
 export { Main } from './Main';
+export { Band } from './Band';

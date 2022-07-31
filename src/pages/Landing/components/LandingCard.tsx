@@ -26,11 +26,7 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
       (member) => member._id === props.subject.memberId
     );
 
-    if (member?.biography === '') {
-      content = 'ჯგუფის წევრის შესახებ ინფორმაცია დამატებული არ არის.';
-    } else {
-      content = member!.biography;
-    }
+    content = member!.biography;
   }
 
   return (

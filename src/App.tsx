@@ -12,6 +12,7 @@ import {
   SocialMedia,
   SocialMediaCreate,
   SocialMediaEdit,
+  Band,
 } from 'pages';
 
 const App = () => {
@@ -30,7 +31,7 @@ const App = () => {
             <Route path='social-media' element={<SocialMedia />} />
             <Route path='social-media/edit' element={<SocialMediaEdit />} />
             <Route path='social-media/create' element={<SocialMediaCreate />} />
-            <Route path='about' element={<p>about</p>} />
+            <Route path='about' element={<Band />} />
           </Route>
         </Routes>
       </DataContextProvider>

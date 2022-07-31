@@ -16,6 +16,7 @@ module.exports = {
         92: '23rem',
         120: '30rem',
         129: '32.25rem',
+        140: '35rem',
       },
       colors: {
         'content-white': '#FBFBFB',
@@ -36,6 +37,7 @@ module.exports = {
         'update-form-placeholder': '#A8A3A3',
         'form-go-back-link': '#3A7DA3',
         'social-media-link': '#2F80ED',
+        'band-image-border': '#3B5495',
       },
       backgroundImage: {
         'gradient-radial-purple':
@@ -50,6 +52,7 @@ module.exports = {
       dropShadow: {
         'card-photo-frame': '2px 4px 14px #000000',
         'main-tv': '10px 10px 14px #939191',
+        'band-image': '0px 4px 4px rgba(0, 0, 0, 0.25)',
       },
       boxShadow: {
         'dashboard-card': 'inset 4px 4px 20px #4d4d4d',

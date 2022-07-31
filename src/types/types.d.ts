@@ -158,3 +158,11 @@ export interface SocialMediaFormData {
 export interface SocialMediaCardProps extends SocialMediaItem {
   index: number;
 }
+
+export interface BandImageProps {
+  path: string;
+}
+
+export interface BandInfoProps {
+  info: string;
+}
