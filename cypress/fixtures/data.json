@@ -7,7 +7,7 @@
       "orbitRadius": 500,
       "color": "#F12AC7",
       "biography": "კაი კაცი",
-      "avatarPath": ""
+      "avatarPath": "sluchaina.png"
     },
     {
       "_id": "qristefore",
@@ -16,7 +16,7 @@
       "orbitRadius": 600,
       "color": "#F12AC7",
       "biography": "კიდევ უკეთესი კაცი",
-      "avatarPath": ""
+      "avatarPath": "qristefore.png"
     },
     {
       "_id": "babnika",
@@ -42,7 +42,7 @@
       "_id": "facebook",
       "name": "facebook",
       "url": "https://facebook.com/",
-      "iconPath": ""
+      "iconPath": "facebook.png"
     },
     {
       "_id": "instagram",
@@ -54,7 +54,7 @@
       "_id": "youtube",
       "name": "youtube",
       "url": "https://youtube.com/",
-      "iconPath": ""
+      "iconPath": "youtube.png"
     },
     {
       "_id": "twitter",
@@ -65,6 +65,6 @@
   ],
   "bandDetails": {
     "info": "ძალიან საინტერესო ბიოგრაფია.",
-    "imagePath": "uploads/band-photo.png"
+    "imagePath": "band.jpg"
   }
 }

@@ -1,24 +1,42 @@
 /// <reference types="cypress" />
 
 Cypress.Commands.add('stubGetRequests', (res: any, delay?: number) => {
-  cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/band/members`, {
+  cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/api/band/members`, {
     body: res.members,
     delay,
   });
-  cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/band/social-media`, {
+  cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/api/band/social-media`, {
     body: res.socialMedia,
     delay,
   });
-  cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/band`, {
+  cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/api/band`, {
     body: res.bandDetails,
     delay,
+  });
+});
+
+Cypress.Commands.add('stubImageRequests', () => {
+  cy.intercept(`${Cypress.env('API_BASE_URL')}/band.jpg`, {
+    fixture: 'images/band.jpg',
+  });
+  cy.intercept(`${Cypress.env('API_BASE_URL')}/sluchaina.png`, {
+    fixture: 'images/sluchaina.png',
+  });
+  cy.intercept(`${Cypress.env('API_BASE_URL')}/qristefore.png`, {
+    fixture: 'images/qristefore.png',
+  });
+  cy.intercept(`${Cypress.env('API_BASE_URL')}/facebook.png`, {
+    fixture: 'images/facebook.png',
+  });
+  cy.intercept(`${Cypress.env('API_BASE_URL')}/youtube.png`, {
+    fixture: 'images/youtube.png',
   });
 });
 
 Cypress.Commands.add('login', () => {
   cy.visit('/login');
 
-  cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/login`, {
+  cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
     statusCode: 200,
   });
 
@@ -30,7 +48,7 @@ Cypress.Commands.add('login', () => {
 Cypress.Commands.add(
   'addMember',
   (delay?: number, statusCode: number = 201) => {
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/band/member`, {
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}api/band/member`, {
       statusCode,
       body: {
         createdMember: {
@@ -59,18 +77,22 @@ Cypress.Commands.add(
 Cypress.Commands.add(
   'addSocialMedia',
   (delay?: number, statusCode: number = 201) => {
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/band/social-media`, {
-      statusCode,
-      body: {
-        createdSocialMediaItem: {
-          _id: 'facebook',
-          name: 'Facebook',
-          url: 'https://facebook.com',
-          iconPath: '',
+    cy.intercept(
+      'POST',
+      `${Cypress.env('API_BASE_URL')}api/band/social-media`,
+      {
+        statusCode,
+        body: {
+          createdSocialMediaItem: {
+            _id: 'facebook',
+            name: 'Facebook',
+            url: 'https://facebook.com',
+            iconPath: '',
+          },
         },
-      },
-      delay,
-    });
+        delay,
+      }
+    );
 
     cy.get('#name').type('Facebook');
     cy.get('#url').type('https://facebook.com');

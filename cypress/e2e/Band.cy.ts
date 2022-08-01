@@ -1,4 +1,8 @@
 describe('band about page', () => {
+  beforeEach(() => {
+    cy.stubImageRequests();
+  });
+
   it('loads successfully', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);
@@ -18,6 +22,7 @@ describe('band about page', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data, 5000);
     });
+
     cy.reload();
 
     cy.get('[data-testid="loading-spinner"]').should('be.visible');
@@ -30,6 +35,7 @@ describe('band about page', () => {
         bandDetails: { info: '', imagePath: '' },
       });
     });
+
     cy.reload();
 
     cy.contains('ბენდის შესახებ ინფორმაცია დამატებული არ არის.').should(

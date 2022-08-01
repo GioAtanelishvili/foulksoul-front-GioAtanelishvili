@@ -10,7 +10,6 @@ const AvatarUploadButton: React.FC<PhotoUploadButtonProps> = (props) => {
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
-  console.log(handleModalClose);
 
   return (
     <Fragment>

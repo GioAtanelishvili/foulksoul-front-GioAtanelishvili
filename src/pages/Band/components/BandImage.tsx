@@ -2,7 +2,7 @@ import { BandImageProps } from 'types';
 
 const BandImage: React.FC<BandImageProps> = (props) => {
   const imageUrl = `${process.env.REACT_APP_API_BASE_URL}/${props.path}`;
-  console.log(imageUrl);
+  console.log(imageUrl, props.path);
 
   return (
     <figure className='w-full h-full flex justify-center items-center border-[6.3px] border-band-image-frame rounded-full drop-shadow-band-image overflow-hidden'>

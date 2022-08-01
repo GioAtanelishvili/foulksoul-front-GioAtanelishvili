@@ -1,4 +1,8 @@
 describe('landing page', () => {
+  beforeEach(() => {
+    cy.stubImageRequests();
+  });
+
   it('loads successfully', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);

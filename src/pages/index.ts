@@ -1,6 +1,7 @@
 export { SocialMediaCreate } from './SocialMediaCreate';
 export { SocialMediaEdit } from './SocialMediaEdit';
 export { InternalError } from './InternalError';
+export { NotFoundError } from './NotFoundError';
 export { MemberCreate } from './MemberCreate';
 export { MembersEdit } from './MembersEdit';
 export { SocialMedia } from './SocialMedia';
@@ -12,4 +13,3 @@ export { Members } from './Members';
 export { Login } from './Login';
 export { Main } from './Main';
 export { Band } from './Band';
-export { NotFoundError } from './NotFoundError';
