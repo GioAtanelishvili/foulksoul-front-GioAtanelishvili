@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 
+import { DefaultAvatar } from 'components';
 import { CardPhotoFrame, BandLogo } from '../components';
 import { LoadingSpinner } from 'components';
 import { LandingCardProps } from 'types';
@@ -43,8 +44,10 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
       >
         {subject === 'band' ? (
           <BandLogo className='scale-150' />
-        ) : (
+        ) : member?.avatarPath ? (
           <img src={avatarUrl} alt='Band member' />
+        ) : (
+          <DefaultAvatar className='scale-[2]' />
         )}
       </CardPhotoFrame>
       <div

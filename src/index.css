@@ -34,7 +34,6 @@
   #landing-card-div::-webkit-scrollbar-thumb {
     background: #ffffff;
     border-radius: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   #band-about-page-section::-webkit-scrollbar,

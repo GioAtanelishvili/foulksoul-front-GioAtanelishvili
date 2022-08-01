@@ -1,4 +1,6 @@
-const Blonde: React.FC = () => {
+import { ClassNameProps } from 'types';
+
+const DefaultAvatar: React.FC<ClassNameProps> = (props) => {
   return (
     <svg
       width='62'
@@ -6,16 +8,16 @@ const Blonde: React.FC = () => {
       viewBox='0 0 62 83'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      data-testid='avatar-blonde'
+      className={props.className}
     >
-      <g filter='url(#filter0_d_2192_699)'>
+      <g filter='url(#filter0_d_2308_1346)'>
         <path
           d='M32.2726 75C20.6363 75 6.09082 47.6028 6.09082 36.0671C6.09082 24.5315 17.7272 6.50701 32.2726 6.50701C46.8181 6.50701 56.9999 24.5315 56.9999 35.3462C56.9999 46.1608 43.909 75 32.2726 75Z'
           fill='#F28300'
         />
         <path
           d='M23.5455 14.4378C23.5455 14.4378 14.0909 26.6944 11.9091 28.8574C9.72728 31.0203 5.36363 41.835 5.36363 41.835C5.36363 41.835 3.9091 25.2525 6.81819 21.6476C9.72728 18.0427 19.9091 5.06507 25 2.90214C30.0909 0.739199 43.1818 0.0182095 47.5455 2.90212C51.9091 5.78603 55.5455 13.7168 56.2727 16.6007C57 19.4846 56.2727 41.114 56.2727 41.114L49.7273 19.4846V30.2993L44.6364 16.6007L33 12.9958L27.1818 21.6476L28.6364 13.7168L21.3636 25.9734L23.5455 14.4378Z'
-          fill='#F2C94C'
+          fill='#CF7070'
           stroke='black'
         />
         <ellipse
@@ -40,10 +42,10 @@ const Blonde: React.FC = () => {
       </g>
       <defs>
         <filter
-          id='filter0_d_2192_699'
+          id='filter0_d_2308_1346'
           x='0.5'
           y='0.5'
-          width='60.5957'
+          width='60.5962'
           height='82.5'
           filterUnits='userSpaceOnUse'
           colorInterpolationFilters='sRGB'
@@ -64,12 +66,12 @@ const Blonde: React.FC = () => {
           <feBlend
             mode='normal'
             in2='BackgroundImageFix'
-            result='effect1_dropShadow_2192_699'
+            result='effect1_dropShadow_2308_1346'
           />
           <feBlend
             mode='normal'
             in='SourceGraphic'
-            in2='effect1_dropShadow_2192_699'
+            in2='effect1_dropShadow_2308_1346'
             result='shape'
           />
         </filter>
@@ -78,4 +80,4 @@ const Blonde: React.FC = () => {
   );
 };
 
-export default Blonde;
+export default DefaultAvatar;

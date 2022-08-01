@@ -10,7 +10,7 @@ const MemberPlanetOrbit: React.FC<MemberPlanetOrbitProps> = (props) => {
     <Fragment>
       <OrbitStroke sizing={orbitSizing} />
       <div
-        className='absolute rounded-full'
+        className='absolute rounded-full z-10'
         style={{
           width: `${orbitSizing}%`,
           height: `${orbitSizing}%`,

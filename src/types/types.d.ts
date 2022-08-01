@@ -37,6 +37,7 @@ export interface MemberPlanetProps {
   avatarPath: string;
   isAnimating: boolean;
   animationTiming: number;
+  index: number;
   handleClick: (subject: LandingCardSubject) => void;
 }
 
