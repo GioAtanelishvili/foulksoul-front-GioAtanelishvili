@@ -31,14 +31,17 @@ const SunnoteSystem: React.FC<SunnoteSystemProps> = (props) => {
             color={member.color}
             width={orbitRatios[index]}
             avatarPath={member.avatarPath}
-            isAnimating={props.cardSubject.subject === 'band'}
+            cardSubject={props.cardSubject}
             animationTiming={animationTimings[index]}
             index={index}
             handleClick={props.handleMemberClick}
           />
         </MemberPlanetOrbit>
       ))}
-      <Sunnote handleClick={props.handleSunnoteClick} />
+      <Sunnote
+        handleClick={props.handleSunnoteClick}
+        isAnimating={props.cardSubject.subject === 'band'}
+      />
     </article>
   );
 };

@@ -35,7 +35,7 @@ export interface MemberPlanetProps {
   color: string;
   width: number;
   avatarPath: string;
-  isAnimating: boolean;
+  cardSubject: LandingCardSubject;
   animationTiming: number;
   index: number;
   handleClick: (subject: LandingCardSubject) => void;
@@ -53,6 +53,7 @@ export interface OrbitStrokeProps {
 
 export interface SunnoteProps {
   handleClick: (subject: LandingCardSubject) => void;
+  isAnimating: boolean;
 }
 
 export interface Member {

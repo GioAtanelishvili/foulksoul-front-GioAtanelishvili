@@ -1,36 +1,30 @@
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
 
 import { DefaultAvatar } from 'components';
 import { MemberPlanetProps } from 'types';
 import { calcScaling } from 'helpers';
 
 const MemberPlanet: React.FC<MemberPlanetProps> = (props) => {
-  const [isActive, setIsActive] = useState(false);
   const refContainer = useRef(calcScaling());
 
   const avatarUrl = `${process.env.REACT_APP_API_BASE_URL}/${props.avatarPath}`;
-  console.log(props.avatarPath);
 
-  useEffect(() => {
-    if (props.isAnimating) {
-      setIsActive(false);
-    }
-  }, [props.isAnimating]);
+  const isActive = props.cardSubject.memberId === props._id;
+  const isAnimating = props.cardSubject.subject === 'band';
 
   return (
     <div
       className={`absolute -top-10 left-1/2 animate-move-circularly-planet visible ${
-        props.isAnimating ? 'run' : 'pause'
+        isAnimating ? 'run' : 'pause'
       }`}
       style={{
         animationDuration: `${props.animationTiming}s`,
       }}
     >
       <div
-        onClick={() => {
-          setIsActive(true);
-          props.handleClick({ subject: 'member', memberId: props._id });
-        }}
+        onClick={() =>
+          props.handleClick({ subject: 'member', memberId: props._id })
+        }
         className={`w-32 flex flex-col items-center relative cursor-pointer drop-shadow-member-planet ${
           refContainer.current
         } transition ease-in-out hover:scale-125 ${
