@@ -68,6 +68,7 @@ module.exports = {
         'modal-avatar': '1.11504px 2.23009px 7.80531px #000000',
         'social-media-card': '2px 4px 14px #000000',
         'band-edit-card': '2px 4px 14px #000000',
+        'avatar-upload-button': '1.66667px 3.33333px 11.6667px #000000',
       },
       keyframes: {
         pulse: {

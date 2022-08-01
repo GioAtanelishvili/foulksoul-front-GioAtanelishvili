@@ -2,7 +2,7 @@ import { Fragment, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { DashboardHeader, LoadingSpinner } from 'components';
-import { BandImage, EditIcon } from './components';
+import { BandImage, EditIcon, ImageUploadButton } from './components';
 import { DataContext } from 'context';
 
 const Band: React.FC = () => {
@@ -29,7 +29,10 @@ const Band: React.FC = () => {
           <LoadingSpinner className='mt-60 scale-150' />
         ) : (
           <Fragment>
-            <BandImage path={imagePath} />
+            <div className='w-52 h-52 m-auto relative'>
+              <BandImage path={imagePath} />
+              <ImageUploadButton _id='' />
+            </div>
             <article
               className='mt-12 text-base text-justify font-arial whitespace-pre-wrap'
               data-testid='band-info-article'

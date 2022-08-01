@@ -72,7 +72,7 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       <ModalOverlay handleClick={props.handleClose} />
       <ModalCard handleClose={props.handleClose}>
         <ModalCardHeader>შეცვალე ჯგუფის წევრის ავატარი</ModalCardHeader>
-        <div className='w-56 h-56 mt-20 mb-10'>
+        <div className='w-56 h-56 mt-20 mb-10 flex justify-center items-center'>
           {newAvatarSource ? (
             <MemberAvatar
               background={member?.color as string}

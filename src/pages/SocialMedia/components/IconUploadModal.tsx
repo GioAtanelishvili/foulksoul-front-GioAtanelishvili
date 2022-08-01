@@ -70,7 +70,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       <ModalOverlay handleClick={props.handleClose} />
       <ModalCard handleClose={props.handleClose}>
         <ModalCardHeader>შეცვალე სოციალური ბმულის ხატულა</ModalCardHeader>
-        <div className='w-56 h-56 mt-20 mb-10'>
+        <div className='w-56 h-56 mt-20 mb-10 flex justify-center items-center'>
           {newIconSource ? (
             <img
               src={newIconSource as string | undefined}

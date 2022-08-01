@@ -115,3 +115,12 @@ export const editBandInfo = async (data: BandEditFormData, token: string) => {
     },
   });
 };
+
+export const uploadBandImage = async (data: FormData, token: string) => {
+  return axios.put('band/image', data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
