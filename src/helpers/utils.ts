@@ -23,7 +23,7 @@ export const extractPageNumber = (search: string) => {
 };
 
 export const findDestination = (index: number) => {
-  if (index % 3 === 1) {
+  if (index % 3 === 1 && index > 3) {
     return Math.floor(index / 3);
   } else {
     return Math.ceil(index / 3);

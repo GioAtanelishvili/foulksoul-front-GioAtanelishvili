@@ -1,5 +1,7 @@
 export { default as MemberDetailsModal } from './MemberDetailsModal';
+export { default as AvatarUploadButton } from './AvatarUploadButton';
 export { default as MemberDeleteModal } from './MemberDeleteModal';
+export { default as AvatarUploadModal } from './AvatarUploadModal';
 export { default as MemberAvatar } from './MemberAvatar';
 export { default as GreenButton } from './GreenButton';
 export { default as YellowButton } from './YellowButton';

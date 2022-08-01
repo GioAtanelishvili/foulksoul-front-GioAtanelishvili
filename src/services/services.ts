@@ -51,6 +51,19 @@ export const deleteMember = async (_id: string, token: string) => {
   });
 };
 
+export const uploadAvatar = async (
+  data: FormData,
+  _id: string,
+  token: string
+) => {
+  return axios.put(`band/member/avatar?id=${_id}`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
 export const addSocialMedia = async (
   data: SocialMediaFormData,
   token: string

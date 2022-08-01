@@ -54,12 +54,11 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
       <ModalOverlay handleClick={props.handleClose} />
       <ModalCard handleClose={props.handleClose}>
         <ModalCardHeader>წაშალე ჯგუფის წევრი</ModalCardHeader>
-        <div>
+        <div className='w-56 h-56 mt-20 mb-10'>
           <MemberAvatar
             background={member?.color as string}
             avatarPath={member?.avatarPath as string}
-            index={props.index as number}
-            className='mt-8 shadow-modal-avatar'
+            className='shadow-modal-avatar'
           />
         </div>
         <p className='text-base font-nino-mtavruli'>

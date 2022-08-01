@@ -5,6 +5,7 @@ export { default as DataDeleteButton } from './DataDeleteButton';
 export { default as UpdateFormButton } from './UpdateFormButton';
 export { default as DashboardHeader } from './DashboardHeader';
 export { default as ModalCardHeader } from './ModalCardHeader';
+export { default as PhotoUploadForm } from './PhotoUploadForm';
 export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as MemberTextArea } from './MemberTextArea';
 export { default as ModalOverlay } from './ModalOverlay';

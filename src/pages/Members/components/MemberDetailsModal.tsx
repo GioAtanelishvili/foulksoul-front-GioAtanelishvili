@@ -26,7 +26,6 @@ const MemberDetailsModal: React.FC<MemberDetailsModalProps> = (props) => {
             <MemberAvatar
               background={member?.color as string}
               avatarPath={member?.avatarPath as string}
-              index={props.index as number}
               className='mt-8 shadow-modal-avatar'
             />
           </div>

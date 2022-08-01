@@ -1,19 +1,20 @@
-import { MemberAvatarProps } from 'types';
 import { DefaultAvatar } from 'components';
+import { MemberAvatarProps } from 'types';
 
 const MemberAvatar: React.FC<MemberAvatarProps> = (props) => {
-  const avatarUrl = `${process.env.REACT_APP_API_BASE_URL}/${props.avatarPath}`;
+  const avatarUrl =
+    props.source || `${process.env.REACT_APP_API_BASE_URL}/${props.avatarPath}`;
 
-  return props.avatarPath ? (
+  return props.avatarPath || props.source ? (
     <figure
-      className={`w-36 h-36 mt-6 mb-5 mx-9 flex justify-center items-center border border-white rounded-full overflow-hidden ${props.className}`}
+      className={`w-full h-full flex justify-center items-center border border-white rounded-full overflow-hidden ${props.className}`}
       style={{ backgroundColor: props.background }}
     >
       <img src={avatarUrl} alt='Band member avatar' />
     </figure>
   ) : (
     <figure
-      className={`bg-primary-dark-blue w-36 h-36 mt-6 mb-5 mx-9 flex justify-center items-center border border-white rounded-full ${props.className}`}
+      className={`bg-primary-dark-blue w-full h-full flex justify-center items-center border border-white rounded-full ${props.className}`}
       style={{ backgroundColor: props.background }}
     >
       <DefaultAvatar />

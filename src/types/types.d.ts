@@ -131,7 +131,7 @@ export interface NavItemProps {
 export interface MemberAvatarProps {
   background: string;
   avatarPath: string;
-  index: number;
+  source?: string;
   className?: string;
 }
 
@@ -162,9 +162,19 @@ export interface CardButtonProps {
   index?: number;
 }
 
+export interface PhotoUploadFormProps {
+  inputName: string;
+  handleSettingFile: (source: string | ArrayBuffer | null) => void;
+  handleUpload: (file: File) => void;
+}
+
+export interface PhotoUploadButtonProps extends CardButtonProps {}
+
 export interface MemberDetailsModalProps extends ModalProps, CardButtonProps {}
 
 export interface DataDeleteModalProps extends ModalProps, CardButtonProps {}
+
+export interface PhotoUploadModalProps extends ModalProps, CardButtonProps {}
 
 export interface UpdateFormProps {
   defaultValues: Member | SocialMediaItem | {};
