@@ -1,19 +1,24 @@
 import { useContext } from 'react';
 
 import { MemberPlanet, MemberPlanetOrbit, Sunnote } from '../components';
-import { calcOrbitRatios, calcAnimationTimings } from 'helpers';
 import { SunnoteSystemProps } from 'types';
 import { DataContext } from 'context';
+import {
+  calcOrbitRatios,
+  calcAnimationTimings,
+  sortMembersByRadius,
+} from 'helpers';
 
 const SunnoteSystem: React.FC<SunnoteSystemProps> = (props) => {
   const { members } = useContext(DataContext);
+  const sortedMembers = sortMembersByRadius(members);
 
   const orbitRatios = calcOrbitRatios(members);
   const animationTimings = calcAnimationTimings(orbitRatios);
 
   return (
     <article className='w-216 h-216 flex justify-center items-center relative'>
-      {members.map((member, index) => (
+      {sortedMembers.map((member, index) => (
         <MemberPlanetOrbit
           key={member._id}
           sizeRatio={orbitRatios[index]}
@@ -28,6 +33,7 @@ const SunnoteSystem: React.FC<SunnoteSystemProps> = (props) => {
             avatarPath={member.avatarPath}
             isAnimating={props.cardSubject.subject === 'band'}
             animationTiming={animationTimings[index]}
+            index={index}
             handleClick={props.handleMemberClick}
           />
         </MemberPlanetOrbit>
