@@ -4,10 +4,13 @@ import { AuthContextProvider, DataContextProvider } from 'context';
 import {
   SocialMediaCreate,
   SocialMediaEdit,
+  InternalError,
+  NotFoundError,
   MemberCreate,
   MembersEdit,
   SocialMedia,
   Dashboard,
+  AuthError,
   BandEdit,
   Landing,
   Members,
@@ -35,6 +38,9 @@ const App = () => {
             <Route path='about' element={<Band />} />
             <Route path='about/edit' element={<BandEdit />} />
           </Route>
+          <Route path='403' element={<AuthError />} />
+          <Route path='500' element={<InternalError />} />
+          <Route path='*' element={<NotFoundError />} />
         </Routes>
       </DataContextProvider>
     </AuthContextProvider>
