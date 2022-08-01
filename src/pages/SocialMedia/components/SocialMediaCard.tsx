@@ -1,5 +1,5 @@
 import { SocialMediaCardProps } from 'types';
-import { YellowButton, RedButton } from '../components';
+import { YellowButton, RedButton, IconUploadButton } from '../components';
 import { capitalize } from 'helpers';
 
 const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
@@ -7,7 +7,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
 
   return (
     <div className='bg-primary-gray w-full h-16 py-3 pl-5 pr-5 flex justify-between items-center border border-black rounded-[5px] shadow-social-media-card'>
-      <figure className='w-11 h-16 py-3 flex justify-center items-center'>
+      <figure className='w-11 h-16 py-3 flex justify-center items-center relative'>
         {props.iconPath && (
           <img
             src={iconUrl}
@@ -15,8 +15,9 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
             alt='Social media icon'
           />
         )}
+        <IconUploadButton _id={props._id} />
       </figure>
-      <h2 className='text-content-white w-32 text-lg text-center font-nino-mtavruli truncate'>
+      <h2 className='text-content-white w-32 pt-1 text-lg text-center font-nino-mtavruli truncate'>
         {capitalize(props.name)}
       </h2>
       <a

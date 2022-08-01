@@ -95,6 +95,19 @@ export const deleteSocialMedia = async (_id: string, token: string) => {
   });
 };
 
+export const uploadIcon = async (
+  data: FormData,
+  _id: string,
+  token: string
+) => {
+  return axios.put(`band/social-media/icon?id=${_id}`, data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
+
 export const editBandInfo = async (data: BandEditFormData, token: string) => {
   return axios.put('band/info', data, {
     headers: {
