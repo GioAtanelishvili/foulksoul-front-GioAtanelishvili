@@ -18,7 +18,7 @@ const SocialMediaFooter: React.FC = () => {
               target='_blank'
               rel='noreferrer'
               title={capitalize(item.name)}
-              className='flex items-center'
+              className='flex items-center transition-transform hover:scale-125'
               data-testid={item.name}
             >
               <img

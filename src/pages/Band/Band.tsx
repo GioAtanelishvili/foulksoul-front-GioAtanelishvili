@@ -23,18 +23,26 @@ const Band: React.FC = () => {
       <section
         id='band-about-page-section'
         className='h-140 mt-8 mx-20 pl-24 pr-20 overflow-auto'
+        data-testid='band-about-page-section'
       >
         {isLoading ? (
           <LoadingSpinner className='mt-60 scale-150' />
         ) : (
           <Fragment>
             <BandImage path={imagePath} />
-            <article className='mt-12 text-base text-justify font-arial whitespace-pre-wrap'>
+            <article
+              className='mt-12 text-base text-justify font-arial whitespace-pre-wrap'
+              data-testid='band-info-article'
+            >
               {content}
             </article>
           </Fragment>
         )}
-        <Link to='edit' className='absolute left-14 bottom-52'>
+        <Link
+          to='edit'
+          className='absolute left-14 bottom-52'
+          data-testid='link-to-band-edit'
+        >
           <EditIcon />
         </Link>
       </section>
