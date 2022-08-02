@@ -1,4 +1,13 @@
 describe('social media create page', () => {
+  beforeEach(() => {
+    cy.stubImageRequests();
+    cy.restoreLocalStorage();
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
+  });
+
   it('loads successfully', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);

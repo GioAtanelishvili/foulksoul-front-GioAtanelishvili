@@ -16,6 +16,7 @@ const AvatarUploadButton: React.FC<PhotoUploadButtonProps> = (props) => {
       <button
         onClick={() => setIsModalOpen(true)}
         className='w-5 h-5 absolute bottom-2 -right-1'
+        data-testid={`${props._id}-icon-upload-button`}
       >
         <CameraIcon />
       </button>

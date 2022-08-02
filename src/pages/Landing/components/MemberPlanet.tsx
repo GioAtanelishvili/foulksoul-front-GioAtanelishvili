@@ -20,6 +20,7 @@ const MemberPlanet: React.FC<MemberPlanetProps> = (props) => {
       style={{
         animationDuration: `${props.animationTiming}s`,
       }}
+      data-testid={`${props._id}-planet`}
     >
       <div
         onClick={() =>

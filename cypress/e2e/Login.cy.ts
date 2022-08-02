@@ -1,4 +1,13 @@
 describe('login page', () => {
+  beforeEach(() => {
+    cy.stubImageRequests();
+    cy.restoreLocalStorage();
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
+  });
+
   it('loads successfully', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);
@@ -36,7 +45,7 @@ describe('login page', () => {
   });
 
   it('submitting invalid credential displays error', () => {
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/login`, {
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
       statusCode: 422,
     });
 
@@ -47,8 +56,11 @@ describe('login page', () => {
   });
 
   it('submitting valid credentials takes user to dashboard', () => {
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/login`, {
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
       statusCode: 200,
+      body: {
+        token: 'xxxxxx.zzzzzz.yyyyyy',
+      },
     });
 
     cy.get('#nickname').type('zazaevich');
@@ -60,7 +72,7 @@ describe('login page', () => {
   it('server error redirects user to 500 page', () => {
     cy.visit('/login');
 
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/login`, {
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
       statusCode: 500,
     });
 

@@ -27,9 +27,7 @@ export const DataContextProvider: React.FC<WrapperProps> = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (responseStatus === 403) {
-      navigate('/403');
-    } else if (responseStatus === 500) {
+    if (responseStatus === 500) {
       navigate('/500');
     }
   }, [navigate, responseStatus]);

@@ -2,7 +2,13 @@ describe('social media edit page', () => {
   beforeEach(() => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);
+      cy.stubImageRequests();
+      cy.restoreLocalStorage();
     });
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
   });
 
   it('loads successfully', () => {
@@ -20,7 +26,7 @@ describe('social media edit page', () => {
   });
 
   it('loading spinner shows up when waiting for server response', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 200,
       delay: 5000,
     });
@@ -30,7 +36,7 @@ describe('social media edit page', () => {
   });
 
   it('auth error redirects user to page 403', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 403,
     });
     cy.visit('/band/social-media');
@@ -41,7 +47,7 @@ describe('social media edit page', () => {
   });
 
   it('internal error redirects user to page 500', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 500,
     });
     cy.visit('/band/social-media');
@@ -52,7 +58,7 @@ describe('social media edit page', () => {
   });
 
   it('submiting valid form updates social media data', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 200,
     });
     cy.visit('/band/social-media');

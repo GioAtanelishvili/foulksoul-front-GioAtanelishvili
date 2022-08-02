@@ -45,7 +45,11 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
         {subject === 'band' ? (
           <BandLogo className='scale-150' />
         ) : member?.avatarPath ? (
-          <img src={avatarUrl} alt='Band member' />
+          <img
+            src={avatarUrl}
+            alt='Band member'
+            data-testid='landing-card-member-avatar'
+          />
         ) : (
           <DefaultAvatar className='scale-[2]' />
         )}
@@ -57,7 +61,10 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
         {isLoading ? (
           <LoadingSpinner />
         ) : (
-          <article className='text-justify text-lg font-arial whitespace-pre-wrap'>
+          <article
+            className='text-justify text-lg font-arial whitespace-pre-wrap'
+            data-testid='landing-card-article'
+          >
             {content}
           </article>
         )}

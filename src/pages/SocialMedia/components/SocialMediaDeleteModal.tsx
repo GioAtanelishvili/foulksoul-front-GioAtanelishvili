@@ -2,7 +2,7 @@ import { Fragment, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 
-import { capitalize, findDestination } from 'helpers';
+import { capitalize } from 'helpers';
 import { DataContext, AuthContext } from 'context';
 import { deleteSocialMedia } from 'services';
 import { DataDeleteModalProps } from 'types';
@@ -24,7 +24,6 @@ const SocialMediaDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
   const iconUrl = `${process.env.REACT_APP_API_BASE_URL}/${item?.iconPath}`;
 
   const navigate = useNavigate();
-  const page = findDestination(props.index as number);
 
   const handleDelete = async () => {
     setIsLoading(true);
@@ -36,7 +35,7 @@ const SocialMediaDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
         (item) => item._id !== props._id
       );
       updateSocialMedia(updatedSocialMedia);
-      navigate(`../social-media?page=${page}`);
+      navigate(`../social-media`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;

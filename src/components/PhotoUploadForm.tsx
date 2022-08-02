@@ -26,13 +26,14 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
         <button
           type='submit'
           className='bg-primary-green text-content-white mt-12 mb-10 pt-3 pb-2 px-10 rounded-[5px] text-center text-lg font-bold font-nino-mtavruli'
+          data-testid='photo-upload-submit-button'
         >
           შეინახე
         </button>
       ) : (
         <Fragment>
           <label
-            htmlFor='file-upload'
+            htmlFor='file-input'
             className='bg-primary-dark-blue text-content-white mt-12 mb-10 pt-3 pb-2 px-10 rounded-[5px] text-center text-lg font-bold font-nino-mtavruli cursor-pointer'
           >
             ატვირთე
@@ -40,10 +41,11 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
           <input
             type='file'
             name={props.inputName}
-            id='file-upload'
+            id='file-input'
             accept='image/png, image/jpg, image/jpeg'
             onChange={handleSettingFile}
             className='invisible'
+            data-testid='file-input'
           />
         </Fragment>
       )}

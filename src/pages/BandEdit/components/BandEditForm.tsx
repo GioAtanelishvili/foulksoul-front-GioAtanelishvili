@@ -46,7 +46,7 @@ const BandEditForm: React.FC = () => {
   return (
     <form
       onSubmit={submitHandler}
-      className='w-3/4 h-140 mt-10 mx-40 flex flex-col items-center'
+      className='w-3/4 h-160 mt-10 mx-40 flex flex-col items-center'
       data-testid='band-edit-form'
     >
       <BandEditCard>

@@ -1,4 +1,13 @@
 describe('band edit page', () => {
+  beforeEach(() => {
+    cy.stubImageRequests();
+    cy.restoreLocalStorage();
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
+  });
+
   it('loads successfully', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);
@@ -24,7 +33,7 @@ describe('band edit page', () => {
   });
 
   it('user can update band info', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 200,
     });
 
@@ -42,8 +51,17 @@ describe('band edit page', () => {
     });
   });
 
+  it('loading spinner is displayed when updating band info', () => {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
+      statusCode: 200,
+      delay: 5000,
+    });
+    cy.get('[data-testid="band-edit-form-submit-button"]').click();
+    cy.get('[data-testid="loading-spinner"]').should('be.visible');
+  });
+
   it('auth error redirects user to page 403', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 403,
     });
     cy.visit('/band/about/edit');
@@ -53,7 +71,7 @@ describe('band edit page', () => {
   });
 
   it('auth error redirects user to page 500', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 500,
     });
     cy.visit('/band/about/edit');

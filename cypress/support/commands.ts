@@ -1,5 +1,19 @@
 /// <reference types="cypress" />
 
+let LOCAL_STORAGE_MEMORY = {};
+
+Cypress.Commands.add('saveLocalStorage', () => {
+  Object.keys(localStorage).forEach((key) => {
+    LOCAL_STORAGE_MEMORY[key] = localStorage[key];
+  });
+});
+
+Cypress.Commands.add('restoreLocalStorage', () => {
+  Object.keys(LOCAL_STORAGE_MEMORY).forEach((key) => {
+    localStorage.setItem(key, LOCAL_STORAGE_MEMORY[key]);
+  });
+});
+
 Cypress.Commands.add('stubGetRequests', (res: any, delay?: number) => {
   cy.intercept('GET', `${Cypress.env('API_BASE_URL')}/api/band/members`, {
     body: res.members,
@@ -38,17 +52,29 @@ Cypress.Commands.add('login', () => {
 
   cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
     statusCode: 200,
+    body: {
+      token: 'xxxxxx.yyyyyy.zzzzzz',
+    },
   });
 
   cy.get('#nickname').type('zazaevich');
   cy.get('#password').type('motoburti');
   cy.get('[data-testid="login-submit-button"]').click();
+
+  const clear = Cypress.LocalStorage.clear;
+
+  Cypress.LocalStorage.clear = function (keys) {
+    // do something with the keys here
+    if (keys) {
+      return clear.apply(this, arguments);
+    }
+  };
 });
 
 Cypress.Commands.add(
   'addMember',
   (delay?: number, statusCode: number = 201) => {
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}api/band/member`, {
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/band/member`, {
       statusCode,
       body: {
         createdMember: {
@@ -79,7 +105,7 @@ Cypress.Commands.add(
   (delay?: number, statusCode: number = 201) => {
     cy.intercept(
       'POST',
-      `${Cypress.env('API_BASE_URL')}api/band/social-media`,
+      `${Cypress.env('API_BASE_URL')}/api/band/social-media`,
       {
         statusCode,
         body: {

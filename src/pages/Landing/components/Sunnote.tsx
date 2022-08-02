@@ -6,6 +6,7 @@ const Sunnote: React.FC<SunnoteProps> = (props) => {
     <button
       onClick={() => props.handleClick({ subject: 'band', memberId: null })}
       className={`z-20 animate-pulse ${props.isAnimating ? 'run' : 'pause'}`}
+      data-testid='landing-sunnote'
     >
       <SunnoteIcon />
     </button>

@@ -22,14 +22,6 @@ export const extractPageNumber = (search: string) => {
   return search.slice(start, end);
 };
 
-export const findDestination = (index: number) => {
-  if (index % 3 === 1 && index > 3) {
-    return Math.floor(index / 3);
-  } else {
-    return Math.ceil(index / 3);
-  }
-};
-
 export const calcScaling = () => {
   const scalingOptions = ['scale-70', 'scale-80', 'scale-90', 'scale-100'];
   const index = Math.floor(Math.random() * 4);

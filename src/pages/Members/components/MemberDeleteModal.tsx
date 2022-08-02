@@ -5,7 +5,6 @@ import { createPortal } from 'react-dom';
 import { DataContext, AuthContext } from 'context';
 import { MemberAvatar } from '../components';
 import { DataDeleteModalProps } from 'types';
-import { findDestination } from 'helpers';
 import { deleteMember } from 'services';
 import {
   ModalOverlay,
@@ -24,7 +23,6 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
   const member = members.find((member) => member._id === props._id);
 
   const navigate = useNavigate();
-  const page = findDestination(props.index as number);
 
   const handleDelete = async () => {
     setIsLoading(true);
@@ -36,7 +34,7 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
         (member) => member._id !== props._id
       );
       updateMembers(updatedMembers);
-      navigate(`../members?page=${page}`);
+      navigate(`../members`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;

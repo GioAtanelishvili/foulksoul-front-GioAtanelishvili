@@ -1,6 +1,11 @@
 describe('main page', () => {
   beforeEach(() => {
     cy.stubImageRequests();
+    cy.restoreLocalStorage();
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
   });
 
   it('loads successfully', () => {

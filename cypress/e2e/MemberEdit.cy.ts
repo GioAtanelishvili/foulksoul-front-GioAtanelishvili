@@ -3,6 +3,12 @@ describe('member edit page', () => {
     cy.fixture('data.json').then((data) => {
       cy.stubGetRequests(data);
     });
+    cy.stubImageRequests();
+    cy.restoreLocalStorage();
+  });
+
+  afterEach(() => {
+    cy.saveLocalStorage();
   });
 
   it('loads successfully', () => {
@@ -23,7 +29,7 @@ describe('member edit page', () => {
   });
 
   it('loading spinner shows up when waiting for server response', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 200,
       delay: 5000,
     });
@@ -33,7 +39,7 @@ describe('member edit page', () => {
   });
 
   it('auth error redirects user to page 403', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 403,
     });
     cy.visit('/band/members');
@@ -44,7 +50,7 @@ describe('member edit page', () => {
   });
 
   it('internal error redirects user to page 500', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 500,
     });
     cy.visit('/band/members');
@@ -55,7 +61,7 @@ describe('member edit page', () => {
   });
 
   it('submiting valid form updates member data', () => {
-    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/band/*`, {
+    cy.intercept('PATCH', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 200,
     });
     cy.visit('/band/members');

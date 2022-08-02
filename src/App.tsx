@@ -29,7 +29,7 @@ const App = () => {
       <Route path='login' element={<Login />} />
       <Route
         path='band'
-        element={isLoggedIn ? <Dashboard /> : <Navigate to='/403' />}
+        element={isLoggedIn ? <Dashboard /> : <Navigate to='/' />}
       >
         <Route index element={<Navigate to='main' />} />
         <Route path='main' element={<Main />} />
