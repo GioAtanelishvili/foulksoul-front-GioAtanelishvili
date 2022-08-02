@@ -18,14 +18,14 @@ export const AuthContextProvider: React.FC<WrapperProps> = (props) => {
   let timerId: NodeJS.Timeout | undefined;
 
   const handleLogin = (token: string) => {
+    setToken(token);
+    setIsLoggedIn(true);
+
     const loginTime = Number(localStorage.getItem('loginTime')) || Date.now();
     const logoutTime =
       Number(localStorage.getItem('logoutTime')) || Date.now() + 3.6e6;
 
     timerId = setTimeout(handleLogout, logoutTime - loginTime);
-
-    setToken(token);
-    setIsLoggedIn(true);
 
     localStorage.setItem('token', token);
     localStorage.setItem('loginTime', loginTime.toString());

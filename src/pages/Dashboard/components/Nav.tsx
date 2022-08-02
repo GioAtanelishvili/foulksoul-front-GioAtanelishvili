@@ -1,4 +1,5 @@
 import { NavItem } from '../components';
+import LogoutButton from './LogoutButton';
 import {
   HouseIcon,
   MemberIcon,
@@ -30,10 +31,10 @@ const Nav: React.FC = () => {
           <NoteIcon />
           <span className='mt-[6px] ml-4'>ბენდის შესახებ</span>
         </NavItem>
-        <NavItem to='/'>
+        <LogoutButton>
           <ExitIcon />
           <span className='mt-[6px] ml-4'>გადი გარეთ</span>
-        </NavItem>
+        </LogoutButton>
       </ul>
     </nav>
   );
