@@ -31,6 +31,7 @@ const BandEditForm: React.FC = () => {
       setIsLoadingLocal(false);
 
       updateBandDetails({ ...bandDetails, info: value });
+      navigate('../about');
     } catch (err: any) {
       setIsLoadingLocal(false);
       const { status } = err.response;
