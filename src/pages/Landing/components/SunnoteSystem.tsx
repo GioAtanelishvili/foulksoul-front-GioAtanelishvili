@@ -17,7 +17,7 @@ const SunnoteSystem: React.FC<SunnoteSystemProps> = (props) => {
   const animationTimings = calcAnimationTimings(orbitRatios);
 
   return (
-    <article className='w-216 h-216 flex justify-center items-center relative'>
+    <article className='w-180 h-180 flex justify-center items-center relative'>
       {sortedMembers.map((member, index) => (
         <MemberPlanetOrbit
           key={member._id}

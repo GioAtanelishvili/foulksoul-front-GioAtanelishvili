@@ -46,7 +46,7 @@ const BandEditForm: React.FC = () => {
   return (
     <form
       onSubmit={submitHandler}
-      className='w-3/4 h-160 mt-10 mx-40 flex flex-col items-center'
+      className='w-3/4 h-140 mt-8 mx-40 flex flex-col items-center'
       data-testid='band-edit-form'
     >
       <BandEditCard>
@@ -66,7 +66,7 @@ const BandEditForm: React.FC = () => {
         <LoadingSpinner className='absolute top-76 scale-[2]' />
       )}
       <button
-        className='bg-primary-green mt-8 pt-2 pb-1 px-10 text-content-white text-lg font-nino-mtavruli rounded-[5px]'
+        className='bg-primary-green mt-6 pt-2 pb-1 px-10 text-content-white text-lg font-nino-mtavruli rounded-[5px]'
         data-testid='band-edit-form-submit-button'
       >
         შეინახე

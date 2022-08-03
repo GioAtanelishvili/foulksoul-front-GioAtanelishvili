@@ -13,7 +13,7 @@ const TV: React.FC = () => {
   const imageUrl = `${process.env.REACT_APP_API_BASE_URL}/${imagePath}`;
 
   return (
-    <figure className='mt-56 flex flex-col items-center relative drop-shadow-xl'>
+    <figure className='mt-40 flex flex-col items-center relative drop-shadow-xl'>
       <Antenna />
       <div className='w-129 h-86 flex items-center justify-center border-[21px] border-black drop-shadow-main-tv bg-main-tv-screen bg-cover overflow-hidden'>
         {isLoading ? (

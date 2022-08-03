@@ -56,7 +56,7 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
       </CardPhotoFrame>
       <div
         id='landing-card-div'
-        className='h-108 mt-9 mb-10 mr-8 ml-4 px-12 overflow-y-auto'
+        className='h-92 mt-9 mb-10 mr-8 ml-4 px-12 overflow-y-auto'
       >
         {isLoading ? (
           <LoadingSpinner />

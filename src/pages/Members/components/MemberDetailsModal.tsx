@@ -22,11 +22,11 @@ const MemberDetailsModal: React.FC<MemberDetailsModalProps> = (props) => {
           id='member-details-modal-div'
           className='w-full h-120 mb-12 pb-3 px-14 flex flex-col items-center overflow-y-auto'
         >
-          <div data-testid='avatar'>
+          <div className='w-40 h-40 mt-10 mb-10' data-testid='avatar'>
             <MemberAvatar
               background={member?.color as string}
               avatarPath={member?.avatarPath as string}
-              className='mt-8 shadow-modal-avatar'
+              className='shadow-modal-avatar'
             />
           </div>
           <h2 className='text-sm font-nino-mtavruli' data-testid='orbit-radius'>

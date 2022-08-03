@@ -9,7 +9,9 @@ module.exports = {
         15: '3.75rem',
         23: '5.75rem',
         24: '6rem',
+        34: '8.5rem',
         35: '8.75rem',
+        68: '17rem',
         70: '17.5rem',
         76: '19rem',
         86: '21.5rem',
@@ -19,7 +21,7 @@ module.exports = {
         129: '32.25rem',
         140: '35rem',
         160: '40rem',
-        216: '54rem',
+        180: '45rem',
       },
       colors: {
         'content-white': '#FBFBFB',
