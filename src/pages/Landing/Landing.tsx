@@ -1,5 +1,5 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 import { LandingCardSubject } from 'types';
 import { Layout } from 'components';
@@ -19,6 +19,10 @@ const Landing: React.FC = () => {
   const changeCardSubject = (subject: LandingCardSubject) => {
     setCardSubject(subject);
   };
+
+  useEffect(() => {
+    document.title = 'FolkSoul';
+  }, []);
 
   return (
     <Layout>

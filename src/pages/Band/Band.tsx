@@ -1,4 +1,4 @@
-import { Fragment, useContext } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { DashboardHeader, LoadingSpinner } from 'components';
@@ -16,6 +16,10 @@ const Band: React.FC = () => {
   } else {
     content = info;
   }
+
+  useEffect(() => {
+    document.title = 'About';
+  }, []);
 
   return (
     <Fragment>
