@@ -10,7 +10,7 @@ const BandEdit: React.FC = () => {
       <DashboardHeader>ბენდის შესახებ - დაარედაქტირე</DashboardHeader>
       <BandEditForm />
       <Link
-        to='../about'
+        to='/band/about'
         className='text-form-go-back-link mt-5 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან

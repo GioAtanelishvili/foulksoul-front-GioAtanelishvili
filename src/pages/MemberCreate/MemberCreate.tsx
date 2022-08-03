@@ -25,7 +25,7 @@ const MemberCreate: React.FC = () => {
       const { createdMember } = response.data;
 
       updateMembers([...members, createdMember]);
-      navigate(`../members?page=${page}`);
+      navigate(`/band/members?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
@@ -47,7 +47,7 @@ const MemberCreate: React.FC = () => {
         action='create'
       />
       <Link
-        to={`../members?page=${page}`}
+        to={`/band/members?page=${page}`}
         className='text-form-go-back-link mt-5 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან

@@ -29,7 +29,7 @@ const SocialMediaCreate: React.FC = () => {
       const { createdSocialMediaItem } = response.data;
 
       updateSocialMedia([...socialMedia, createdSocialMediaItem]);
-      navigate(`../social-media?page=${page}`);
+      navigate(`/band/social-media?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
@@ -51,7 +51,7 @@ const SocialMediaCreate: React.FC = () => {
         action='create'
       />
       <Link
-        to={`../social-media?page=${page}`}
+        to={`/band/social-media?page=${page}`}
         className='text-form-go-back-link mt-5 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან

@@ -40,7 +40,7 @@ const SocialMediaEdit: React.FC = () => {
       });
 
       updateSocialMedia(updatedSocialMedia);
-      navigate(`../social-media?page=${page}`);
+      navigate(`/band/social-media?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
@@ -62,7 +62,7 @@ const SocialMediaEdit: React.FC = () => {
         action='edit'
       />
       <Link
-        to={`../social-media?page=${page}`}
+        to={`/band/social-media?page=${page}`}
         className='text-form-go-back-link mt-5 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან

@@ -35,7 +35,7 @@ const SocialMediaDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
         (item) => item._id !== props._id
       );
       updateSocialMedia(updatedSocialMedia);
-      navigate(`../social-media`);
+      navigate(`/band/social-media`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;

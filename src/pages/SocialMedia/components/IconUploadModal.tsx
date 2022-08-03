@@ -11,7 +11,6 @@ import {
   ModalCardHeader,
   PhotoUploadForm,
   LoadingSpinner,
-  //   LoadingSpinner,
 } from 'components';
 
 const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {

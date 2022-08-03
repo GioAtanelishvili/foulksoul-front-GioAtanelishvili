@@ -34,7 +34,7 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
         (member) => member._id !== props._id
       );
       updateMembers(updatedMembers);
-      navigate(`../members`);
+      navigate(`/band/members`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;

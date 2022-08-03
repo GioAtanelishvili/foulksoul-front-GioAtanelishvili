@@ -37,7 +37,7 @@ const MembersEdit: React.FC = () => {
       });
 
       updateMembers(updatedMembers);
-      navigate(`../members?page=${page}`);
+      navigate(`/band/members?page=${page}`);
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
@@ -59,7 +59,7 @@ const MembersEdit: React.FC = () => {
         action='edit'
       />
       <Link
-        to={`../members?page=${page}`}
+        to={`/band/members?page=${page}`}
         className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
       >
         გადი უკან
