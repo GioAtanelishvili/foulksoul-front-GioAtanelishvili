@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { AuthContext, DataContext } from 'context';
 import { PhotoUploadModalProps } from 'types';
 import { uploadIcon } from 'services';
+import { capitalize } from 'helpers';
 import {
   ModalOverlay,
   ModalCard,
@@ -69,7 +70,10 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       <ModalOverlay handleClick={props.handleClose} />
       <ModalCard handleClose={props.handleClose}>
         <ModalCardHeader>შეცვალე სოციალური ბმულის ხატულა</ModalCardHeader>
-        <div className='w-56 h-56 mt-20 mb-10 flex justify-center items-center'>
+        <h2 className='mt-14 text-center text-lg font-nino-mtavruli'>
+          {capitalize(socialMediaItem?.name as string)}
+        </h2>
+        <div className='w-56 h-56 mt-10 mb-10 flex justify-center items-center'>
           {newIconSource ? (
             <img
               src={newIconSource as string | undefined}
@@ -82,7 +86,9 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
               className='max-w-full max-h-full'
               alt='Social media icon'
             />
-          ) : null}
+          ) : (
+            <div className='bg-primary-dark-blue w-full h-full rounded-full' />
+          )}
         </div>
         <PhotoUploadForm
           inputName='icon'

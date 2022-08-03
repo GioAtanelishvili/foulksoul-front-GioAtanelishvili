@@ -57,7 +57,7 @@ const BandEditForm: React.FC = () => {
           <textarea
             id='band-edit-textarea'
             name='info'
-            className='text-primary-dark-blue w-full h-full pr-14 py-1 bg-transparent font-arial outline-none resize-none overflow-auto'
+            className='text-primary-dark-blue w-full h-full pr-8 py-1 bg-transparent font-arial outline-none resize-none overflow-auto'
             defaultValue={info}
             data-testid='band-edit-textarea'
           />

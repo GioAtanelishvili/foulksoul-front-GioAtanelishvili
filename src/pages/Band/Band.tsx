@@ -26,7 +26,7 @@ const Band: React.FC = () => {
       <DashboardHeader>ბენდის შესახებ</DashboardHeader>
       <section
         id='band-about-page-section'
-        className='h-140 mt-8 mx-20 pl-24 pr-20 overflow-auto'
+        className='w-[85%] h-140 mt-8 px-20 pb-3 overflow-auto'
         data-testid='band-about-page-section'
       >
         {isLoading ? (
@@ -38,7 +38,7 @@ const Band: React.FC = () => {
               <ImageUploadButton _id='' />
             </div>
             <article
-              className='mt-12 text-base text-justify font-arial whitespace-pre-wrap'
+              className='mt-12 text-base text-justify font-arial whitespace-pre-wrap break-words'
               data-testid='band-info-article'
             >
               {content}

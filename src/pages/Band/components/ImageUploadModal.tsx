@@ -61,7 +61,7 @@ const ImageUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       <ModalOverlay handleClick={props.handleClose} />
       <ModalCard handleClose={props.handleClose}>
         <ModalCardHeader>შეცვალე ბენდის ფოტო</ModalCardHeader>
-        <div className='w-64 h-64 mt-20 mb-10 flex justify-center items-center'>
+        <div className='w-64 h-64 mt-20 mb-10 flex justify-center items-center border-[6.3px] border-band-image-frame rounded-full drop-shadow-band-image overflow-hidden'>
           {newImageSource ? (
             <img
               src={newImageSource as string | undefined}
