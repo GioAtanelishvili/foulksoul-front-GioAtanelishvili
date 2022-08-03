@@ -92,6 +92,10 @@ export interface InputProps {
   };
 }
 
+export interface LoginInputProps extends InputProps {
+  clearError?: UseFormClearErrors<LoginFormData>;
+}
+
 export interface ColorInputProps {
   defaultValue: string;
   isSubmitted: boolean;

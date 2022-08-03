@@ -16,6 +16,7 @@ const LoginForm: React.FC = () => {
     formState: { errors },
     handleSubmit,
     setError,
+    clearErrors,
   } = useForm<LoginFormData>({ mode: 'onSubmit' });
 
   const navigate = useNavigate();
@@ -44,8 +45,7 @@ const LoginForm: React.FC = () => {
       if (status === 422) {
         const message = 'შეყვანილი მონაცემები არასწორია!';
 
-        setError('nickname', { message }, { shouldFocus: true });
-        setError('password', { message });
+        setError('password', { type: 'custom', message });
       } else if (status === 500) {
         navigate('/500');
       }
@@ -64,6 +64,7 @@ const LoginForm: React.FC = () => {
         type='text'
         placeholder='მეტსახელი'
         error={errors['nickname']}
+        clearError={clearErrors}
         register={register('nickname', {
           required: 'მეტსახელის ველი სავალდებულოა!',
           minLength: {
