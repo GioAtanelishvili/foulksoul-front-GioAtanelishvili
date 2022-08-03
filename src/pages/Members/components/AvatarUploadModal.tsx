@@ -4,9 +4,9 @@ import { createPortal } from 'react-dom';
 
 import { DataContext, AuthContext } from 'context';
 import { PhotoUploadModalProps } from 'types';
-import { MemberAvatar } from '../components';
 import { PhotoUploadForm } from 'components';
 import { uploadAvatar } from 'services';
+import { MemberAvatar } from './index';
 
 import {
   ModalOverlay,

@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 
-import { MemberDetailsModal } from '../components';
+import { MemberDetailsModal } from './index';
 import { CardButtonProps } from 'types';
 import { GreenCircle } from './svgs';
 

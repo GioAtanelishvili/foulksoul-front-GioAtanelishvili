@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { ColorInputProps } from 'types';
+import { useState } from 'react';
 
 const ColorInput: React.FC<ColorInputProps> = (props) => {
   const [color, setColor] = useState(props.defaultValue || '');

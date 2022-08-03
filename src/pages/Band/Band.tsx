@@ -1,8 +1,8 @@
 import { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { DashboardHeader, LoadingSpinner } from 'components';
 import { BandImage, EditIcon, ImageUploadButton } from './components';
+import { DashboardHeader, LoadingSpinner } from 'components';
 import { DataContext } from 'context';
 
 const Band: React.FC = () => {

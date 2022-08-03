@@ -1,5 +1,5 @@
-import { NavItem } from '../components';
 import LogoutButton from './LogoutButton';
+import { NavItem } from './index';
 import {
   HouseIcon,
   MemberIcon,

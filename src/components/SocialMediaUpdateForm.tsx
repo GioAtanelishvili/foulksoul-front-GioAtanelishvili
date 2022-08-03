@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { UpdateFormProps, SocialMediaItem } from 'types';
-import { Input, UpdateFormButton } from '../components';
+import { Input, UpdateFormButton } from './index';
 
 const SocialMediaUpdateForm: React.FC<UpdateFormProps> = (props) => {
   const { defaultValues } = props;

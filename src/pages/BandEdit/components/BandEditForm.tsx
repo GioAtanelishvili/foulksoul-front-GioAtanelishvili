@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 
 import { DataContext, AuthContext } from 'context';
-import { BandEditCard } from '../components';
 import { LoadingSpinner } from 'components';
 import { editBandInfo } from 'services';
+import { BandEditCard } from './index';
 
 const BandEditForm: React.FC = () => {
   const { token } = useContext(AuthContext);

@@ -1,14 +1,14 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Fragment, useContext, useState } from 'react';
 
+import { SocialMediaItem, SocialMediaFormData } from 'types';
+import { DataContext, AuthContext } from 'context';
+import { editSocialMedia } from 'services';
 import {
   DashboardHeader,
   SocialMediaUpdateForm,
   LoadingSpinner,
 } from 'components';
-import { DataContext, AuthContext } from 'context';
-import { SocialMediaItem, SocialMediaFormData } from 'types';
-import { editSocialMedia } from 'services';
 
 const SocialMediaEdit: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);

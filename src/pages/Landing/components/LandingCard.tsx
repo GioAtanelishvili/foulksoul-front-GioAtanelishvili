@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { CardPhotoFrame, BandLogo } from '../components';
+import { CardPhotoFrame, BandLogo } from './index';
 import { LoadingSpinner } from 'components';
 import { DefaultAvatar } from 'components';
 import { LandingCardProps } from 'types';

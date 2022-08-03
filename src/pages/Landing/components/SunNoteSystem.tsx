@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { MemberPlanet, MemberPlanetOrbit, SunNote } from '../components';
+import { MemberPlanet, MemberPlanetOrbit, SunNote } from './index';
 import { SunNoteSystemProps } from 'types';
 import { DataContext } from 'context';
 import {

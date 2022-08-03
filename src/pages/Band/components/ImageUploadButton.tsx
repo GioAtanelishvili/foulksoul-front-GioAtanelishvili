@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 
-import { ImageUploadModal } from '../components';
 import { PhotoUploadButtonProps } from 'types';
+import { ImageUploadModal } from './index';
 import { CameraIcon } from 'components';
 
 const AvatarUploadButton: React.FC<PhotoUploadButtonProps> = (props) => {

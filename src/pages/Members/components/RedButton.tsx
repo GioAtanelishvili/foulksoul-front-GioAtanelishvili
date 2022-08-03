@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react';
 
-import { MemberDeleteModal } from '../components';
+import { MemberDeleteModal } from './index';
 import { CardButtonProps } from 'types';
 import { RedCircle } from 'components';
 

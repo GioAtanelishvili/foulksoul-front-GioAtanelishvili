@@ -5,7 +5,7 @@ import {
   YellowButton,
   GreenButton,
   RedButton,
-} from '../components';
+} from './index';
 
 const MemberCard: React.FC<MemberCardProps> = (props) => {
   return (

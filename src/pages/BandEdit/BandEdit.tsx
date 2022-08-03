@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 
-import { BandEditForm } from './components';
 import { DashboardHeader } from 'components';
+import { BandEditForm } from './components';
 import { Link } from 'react-router-dom';
 
 const BandEdit: React.FC = () => {

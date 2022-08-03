@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 
 import { DataContext, AuthContext } from 'context';
-import { MemberAvatar } from '../components';
 import { DataDeleteModalProps } from 'types';
 import { deleteMember } from 'services';
+import { MemberAvatar } from './index';
 import {
   ModalOverlay,
   ModalCard,

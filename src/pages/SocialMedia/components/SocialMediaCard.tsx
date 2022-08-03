@@ -1,5 +1,5 @@
 import { SocialMediaCardProps } from 'types';
-import { YellowButton, RedButton, IconUploadButton } from '../components';
+import { YellowButton, RedButton, IconUploadButton } from './index';
 import { capitalize } from 'helpers';
 
 const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {

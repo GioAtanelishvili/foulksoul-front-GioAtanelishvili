@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-import { Layout } from 'components';
 import { LoginCard, LoginForm } from './components';
+import { Layout } from 'components';
 
 const Login: React.FC = () => {
   useEffect(() => {

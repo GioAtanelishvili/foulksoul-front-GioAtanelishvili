@@ -1,13 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { Input, ColorInput, MemberTextArea, UpdateFormButton } from './index';
 import { UpdateFormProps, Member } from 'types';
 import { toNumber } from 'helpers';
-import {
-  Input,
-  ColorInput,
-  MemberTextArea,
-  UpdateFormButton,
-} from '../components';
 
 const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
   const defaultValues = props.defaultValues;

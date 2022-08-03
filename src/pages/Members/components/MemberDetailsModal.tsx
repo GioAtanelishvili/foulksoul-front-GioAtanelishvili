@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 
 import { ModalOverlay, ModalCard, ModalCardHeader } from 'components';
 import { MemberDetailsModalProps } from 'types';
-import { MemberAvatar } from '../components';
+import { MemberAvatar } from './index';
 import { DataContext } from 'context';
 
 const MemberDetailsModal: React.FC<MemberDetailsModalProps> = (props) => {

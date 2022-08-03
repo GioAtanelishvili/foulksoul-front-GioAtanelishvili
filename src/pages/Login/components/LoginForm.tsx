@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { LoginInput, LoginSubmitButton } from '../components';
+import { LoginInput, LoginSubmitButton } from './index';
 import { LoadingSpinner } from 'components';
 import { AuthContext } from 'context';
 import { LoginFormData } from 'types';
