@@ -10,7 +10,6 @@
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#testing">Testing</a></li>
     <li><a href="#deployment">Deployment</a></li>
-    <li><a href=#functionality>Functionality</a></li>
     <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#resources">Resources</a></li>
 </ul>

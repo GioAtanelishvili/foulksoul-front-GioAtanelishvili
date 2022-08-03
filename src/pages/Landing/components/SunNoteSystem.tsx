@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { MemberPlanet, MemberPlanetOrbit, Sunnote } from '../components';
-import { SunnoteSystemProps } from 'types';
+import { MemberPlanet, MemberPlanetOrbit, SunNote } from '../components';
+import { SunNoteSystemProps } from 'types';
 import { DataContext } from 'context';
 import {
   calcOrbitRatios,
@@ -9,7 +9,7 @@ import {
   sortMembersByRadius,
 } from 'helpers';
 
-const SunnoteSystem: React.FC<SunnoteSystemProps> = (props) => {
+const SunNoteSystem: React.FC<SunNoteSystemProps> = (props) => {
   const { members } = useContext(DataContext);
   const sortedMembers = sortMembersByRadius(members);
 
@@ -38,12 +38,12 @@ const SunnoteSystem: React.FC<SunnoteSystemProps> = (props) => {
           />
         </MemberPlanetOrbit>
       ))}
-      <Sunnote
-        handleClick={props.handleSunnoteClick}
+      <SunNote
+        handleClick={props.handleSunNoteClick}
         isAnimating={props.cardSubject.subject === 'band'}
       />
     </article>
   );
 };
 
-export default SunnoteSystem;
+export default SunNoteSystem;

@@ -23,9 +23,9 @@ export interface CardPhotoFrameProps extends WrapperProps {
   } | null;
 }
 
-export interface SunnoteSystemProps {
+export interface SunNoteSystemProps {
   handleMemberClick: (subject: LandingCardSubject) => void;
-  handleSunnoteClick: (subject: LandingCardSubject) => void;
+  handleSunNoteClick: (subject: LandingCardSubject) => void;
   cardSubject: LandingCardSubject;
 }
 
@@ -51,7 +51,7 @@ export interface OrbitStrokeProps {
   sizing: number;
 }
 
-export interface SunnoteProps {
+export interface SunNoteProps {
   handleClick: (subject: LandingCardSubject) => void;
   isAnimating: boolean;
 }

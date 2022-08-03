@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 
-import { DefaultAvatar } from 'components';
 import { CardPhotoFrame, BandLogo } from '../components';
 import { LoadingSpinner } from 'components';
+import { DefaultAvatar } from 'components';
 import { LandingCardProps } from 'types';
 import { DataContext } from 'context';
 
@@ -56,13 +56,13 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
       </CardPhotoFrame>
       <div
         id='landing-card-div'
-        className='h-92 mt-9 mb-10 mr-8 ml-4 px-12 overflow-y-auto'
+        className='h-92 mt-9 mb-10 mr-8 ml-4 px-12 overflow-x-hidden overflow-y-auto'
       >
         {isLoading ? (
-          <LoadingSpinner />
+          <LoadingSpinner className='py-5 scale-125' />
         ) : (
           <article
-            className='text-justify text-lg font-arial whitespace-pre-wrap'
+            className='text-justify text-lg font-arial whitespace-pre-wrap break-words'
             data-testid='landing-card-article'
           >
             {content}

@@ -5,7 +5,7 @@ import { LandingCardSubject } from 'types';
 import { Layout } from 'components';
 import {
   SocialMediaFooter,
-  SunnoteSystem,
+  SunNoteSystem,
   LandingCard,
   BandLogo,
 } from './components';
@@ -41,9 +41,9 @@ const Landing: React.FC = () => {
       </header>
       <main className='mt-5 flex' data-testid='landing-page-main-content'>
         <div className='w-[55%] flex justify-center items-center'>
-          <SunnoteSystem
+          <SunNoteSystem
             handleMemberClick={changeCardSubject}
-            handleSunnoteClick={changeCardSubject}
+            handleSunNoteClick={changeCardSubject}
             cardSubject={cardSubject}
           />
         </div>

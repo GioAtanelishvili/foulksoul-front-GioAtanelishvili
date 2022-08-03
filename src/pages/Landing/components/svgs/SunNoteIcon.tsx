@@ -1,4 +1,4 @@
-const SunnoteIcon: React.FC = () => {
+const SunNoteIcon: React.FC = () => {
   return (
     <svg
       width='172'
@@ -83,4 +83,4 @@ const SunnoteIcon: React.FC = () => {
   );
 };
 
-export default SunnoteIcon;
+export default SunNoteIcon;

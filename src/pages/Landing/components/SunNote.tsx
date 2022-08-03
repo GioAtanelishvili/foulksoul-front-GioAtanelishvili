@@ -1,16 +1,16 @@
-import { SunnoteProps } from 'types';
-import { SunnoteIcon } from './svgs';
+import { SunNoteProps } from 'types';
+import { SunNoteIcon } from './svgs';
 
-const Sunnote: React.FC<SunnoteProps> = (props) => {
+const SunNote: React.FC<SunNoteProps> = (props) => {
   return (
     <button
       onClick={() => props.handleClick({ subject: 'band', memberId: null })}
       className={`z-20 animate-pulse ${props.isAnimating ? 'run' : 'pause'}`}
       data-testid='landing-sunnote'
     >
-      <SunnoteIcon />
+      <SunNoteIcon />
     </button>
   );
 };
 
-export default Sunnote;
+export default SunNote;
