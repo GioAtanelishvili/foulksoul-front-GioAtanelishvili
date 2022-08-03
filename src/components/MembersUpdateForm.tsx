@@ -4,6 +4,11 @@ import { Input, ColorInput, MemberTextArea, UpdateFormButton } from './index';
 import { UpdateFormProps, Member } from 'types';
 import { toNumber } from 'helpers';
 
+const HEX_COLOR_CODE_REGEXP = /^#(([0-9a-f]){6}$|([0-9A-F]){6}$)/;
+const GEORGIAN_LETTERS_REGEXP = /^[\u10D0-\u10F0]+$/;
+const GEORGIAN_TEXT_REGEXP = /^[\u10D0-\u10F0,.?!'"-_@0-9\s]+$/;
+const INT_REGEXP = /^\d+$/;
+
 const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
   const defaultValues = props.defaultValues;
 
@@ -37,7 +42,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
             message: 'გამოიყენეთ მინ. 3 სიმბოლო!',
           },
           pattern: {
-            value: /^[\u10D0-\u10F0]+$/,
+            value: GEORGIAN_LETTERS_REGEXP,
             message: 'გამოიყენეთ მხოლოდ ქართული ასოები!',
           },
         })}
@@ -55,7 +60,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
               message: 'გამოიყენეთ მინ. 2 სიმბოლო!',
             },
             pattern: {
-              value: /^[\u10D0-\u10F0 ]+$/,
+              value: GEORGIAN_LETTERS_REGEXP,
               message: 'გამოიყენეთ მხოლოდ ქართული ასოები!',
             },
           })}
@@ -68,7 +73,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
           register={register('orbitRadius', {
             required: 'ორბიტის რადიუსი სავალდებულოა!',
             pattern: {
-              value: /^\d+$/,
+              value: INT_REGEXP,
               message: 'გამოიყენეთ მხოლოდ ციფრები!',
             },
             setValueAs: toNumber,
@@ -84,7 +89,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
           register={register('color', {
             required: 'ფერი სავალდებულოა!',
             pattern: {
-              value: /^#([0-9a-fA-F]){6}$/,
+              value: HEX_COLOR_CODE_REGEXP,
               message: 'უნდა ემთხვეოდეს HEX ფორმატს!',
             },
           })}
@@ -95,7 +100,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
         register={register('biography', {
           required: 'ბიოგრაფია სავალდებულოა!',
           pattern: {
-            value: /^[\u10D0-\u10F0,.?!'"-_@0-9\s]+$/,
+            value: GEORGIAN_TEXT_REGEXP,
             message: 'გამოიყენეთ მხოლოდ ქართული ასოები!',
           },
         })}

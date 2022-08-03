@@ -3,6 +3,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { UpdateFormProps, SocialMediaItem } from 'types';
 import { Input, UpdateFormButton } from './index';
 
+const HTTP_URI_REGEXP =
+  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
+
 const SocialMediaUpdateForm: React.FC<UpdateFormProps> = (props) => {
   const { defaultValues } = props;
 
@@ -47,8 +50,7 @@ const SocialMediaUpdateForm: React.FC<UpdateFormProps> = (props) => {
         register={register('url', {
           required: 'ბმული სავალდებულოა!',
           pattern: {
-            value:
-              /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/,
+            value: HTTP_URI_REGEXP,
             message: 'ბმული უნდა იყოს ვალიდური!',
           },
         })}

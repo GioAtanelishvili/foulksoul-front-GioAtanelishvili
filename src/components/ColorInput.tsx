@@ -1,6 +1,8 @@
 import { ColorInputProps } from 'types';
 import { useState } from 'react';
 
+const HEX_COLOR_CODE_REGEXP = /^#(([0-9a-f]){6}$|([0-9A-F]){6}$)/;
+
 const ColorInput: React.FC<ColorInputProps> = (props) => {
   const [color, setColor] = useState(props.defaultValue || '');
 
@@ -14,7 +16,7 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
         message: 'ფერი სავალდებულოა!',
       });
     } else if (
-      !/^#(([0-9a-f]){6}$|([0-9A-F]){6}$)/.test(e.target.value) &&
+      !HEX_COLOR_CODE_REGEXP.test(e.target.value) &&
       props.isSubmitted
     ) {
       props.setFormError({

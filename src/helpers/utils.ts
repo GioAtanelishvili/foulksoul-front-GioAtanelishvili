@@ -8,7 +8,9 @@ export const capitalize = (value: string) => {
 };
 
 export const toNumber = (value: string) => {
-  if (/^\d+$/.test(value)) {
+  const INT_REGEXP = /^\d+$/;
+
+  if (INT_REGEXP.test(value)) {
     return Number(value);
   }
 
