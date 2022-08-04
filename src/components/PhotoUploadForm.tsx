@@ -20,7 +20,15 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col items-center'>
+    <form
+      onSubmit={handleSubmit}
+      className='w-full relative flex flex-col items-center'
+    >
+      {props.payloadError && (
+        <p className='text-input-error absolute -top-5 text-center font-medium'>
+          {props.payloadError}
+        </p>
+      )}
       {file ? (
         <button
           type='submit'
@@ -31,12 +39,6 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
         </button>
       ) : (
         <Fragment>
-          <label
-            htmlFor='file-input'
-            className='bg-primary-dark-blue text-content-white mt-12 mb-10 pt-3 pb-2 px-10 rounded-[5px] text-center text-lg font-bold font-nino-mtavruli cursor-pointer'
-          >
-            ატვირთე
-          </label>
           <input
             type='file'
             name={props.inputName}
@@ -46,6 +48,12 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
             className='invisible'
             data-testid='file-input'
           />
+          <label
+            htmlFor='file-input'
+            className='bg-primary-dark-blue text-content-white mt-12 mb-10 pt-3 pb-2 px-10 rounded-[5px] text-center text-lg font-bold font-nino-mtavruli cursor-pointer'
+          >
+            ატვირთე
+          </label>
         </Fragment>
       )}
     </form>

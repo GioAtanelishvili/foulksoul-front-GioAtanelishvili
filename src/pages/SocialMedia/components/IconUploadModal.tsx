@@ -18,6 +18,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   const [newIconSource, setNewIconSource] = useState<
     string | ArrayBuffer | null
   >(null);
+  const [largeFileError, setLargeFileError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const { socialMedia, updateSocialMedia } = useContext(DataContext);
@@ -57,7 +58,9 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === 403) {
+      if (status === 413) {
+        setLargeFileError('ფაილი ზედმეტად დიდია!');
+      } else if (status === 403) {
         navigate('/403');
       } else if (status === 500) {
         navigate('/500');
@@ -92,6 +95,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
         </div>
         <PhotoUploadForm
           inputName='icon'
+          payloadError={largeFileError}
           handleSettingFile={handleSettingNewIcon}
           handleUpload={handleIconUpload}
         />

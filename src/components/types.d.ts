@@ -58,6 +58,7 @@ export interface ModalOverlayProps {
 
 export interface PhotoUploadFormProps {
   inputName: string;
+  payloadError: string;
   handleSettingFile: (source: string | ArrayBuffer | null) => void;
   handleUpload: (file: File) => void;
 }

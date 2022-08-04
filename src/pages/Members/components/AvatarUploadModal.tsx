@@ -19,6 +19,7 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   const [newAvatarSource, setNewAvatarSource] = useState<
     string | ArrayBuffer | null
   >(null);
+  const [largeFileError, setLargeFileError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const { members, updateMembers } = useContext(DataContext);
@@ -59,7 +60,9 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === 403) {
+      if (status === 413) {
+        setLargeFileError('ფაილი ზედმეტად დიდია!');
+      } else if (status === 403) {
         navigate('/403');
       } else if (status === 500) {
         navigate('/500');
@@ -90,6 +93,7 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
         </div>
         <PhotoUploadForm
           inputName='avatar'
+          payloadError={largeFileError}
           handleSettingFile={handleSettingNewAvatar}
           handleUpload={handleAvatarUpload}
         />
