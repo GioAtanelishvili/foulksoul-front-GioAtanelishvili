@@ -1,4 +1,4 @@
-import { LoginInputProps } from 'types';
+import { LoginInputProps } from './types';
 
 const LoginInput: React.FC<LoginInputProps> = (props) => {
   const handleChange = (e: React.SyntheticEvent) => {

@@ -1,4 +1,4 @@
-import { DataDeleteButtonProps } from 'types';
+import { DataDeleteButtonProps } from './types';
 
 const DataDeleteButton: React.FC<DataDeleteButtonProps> = (props) => {
   return (

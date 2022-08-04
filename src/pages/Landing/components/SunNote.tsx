@@ -1,4 +1,4 @@
-import { SunNoteProps } from 'types';
+import { SunNoteProps } from './types';
 import { SunNoteIcon } from './svgs';
 
 const SunNote: React.FC<SunNoteProps> = (props) => {

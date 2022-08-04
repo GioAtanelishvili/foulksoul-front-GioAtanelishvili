@@ -1,4 +1,4 @@
-import { BandImageProps } from 'types';
+import { BandImageProps } from './types';
 
 const BandImage: React.FC<BandImageProps> = (props) => {
   const imageUrl = `${process.env.REACT_APP_API_BASE_URL}/${props.path}`;

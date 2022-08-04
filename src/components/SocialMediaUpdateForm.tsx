@@ -1,7 +1,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { UpdateFormProps, SocialMediaItem } from 'types';
 import { Input, UpdateFormButton } from './index';
+import { UpdateFormProps } from './types';
+import { SocialMediaItem } from 'types';
 
 const HTTP_URI_REGEXP =
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;

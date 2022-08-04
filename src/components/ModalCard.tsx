@@ -1,5 +1,5 @@
+import { ModalCardProps } from './types';
 import { ModalCloseIcon } from './svgs';
-import { ModalCardProps } from 'types';
 
 const ModalCard: React.FC<ModalCardProps> = (props) => {
   return (

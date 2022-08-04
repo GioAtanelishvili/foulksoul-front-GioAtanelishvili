@@ -21,11 +21,7 @@ const GreenButton: React.FC<CardButtonProps> = (props) => {
         <GreenCircle />
       </button>
       {isModalOpen && (
-        <MemberDetailsModal
-          _id={props._id}
-          index={props.index}
-          handleClose={handleModalClose}
-        />
+        <MemberDetailsModal _id={props._id} handleClose={handleModalClose} />
       )}
     </Fragment>
   );

@@ -1,4 +1,4 @@
-import { CardPhotoFrameProps } from 'types';
+import { CardPhotoFrameProps } from './types';
 
 const CardPhotoFrame: React.FC<CardPhotoFrameProps> = (props) => {
   return (

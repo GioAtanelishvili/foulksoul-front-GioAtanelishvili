@@ -1,8 +1,9 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Input, ColorInput, MemberTextArea, UpdateFormButton } from './index';
-import { UpdateFormProps, Member } from 'types';
+import { UpdateFormProps } from './types';
 import { toNumber } from 'helpers';
+import { Member } from 'types';
 
 const HEX_COLOR_CODE_REGEXP = /^#(([0-9a-f]){6}$|([0-9A-F]){6}$)/;
 const GEORGIAN_LETTERS_REGEXP = /^[\u10D0-\u10F0]+$/;

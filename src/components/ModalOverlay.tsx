@@ -1,4 +1,4 @@
-import { ModalOverlayProps } from 'types';
+import { ModalOverlayProps } from './types';
 
 const ModalOverlay: React.FC<ModalOverlayProps> = (props) => {
   return (

@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 
 import { LoginInput, LoginSubmitButton } from './index';
 import { LoadingSpinner } from 'components';
-import { AuthContext } from 'context';
 import { LoginFormData } from 'types';
+import { AuthContext } from 'context';
 import { login } from 'services';
 
 const LoginForm: React.FC = () => {

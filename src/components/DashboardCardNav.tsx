@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
 
-import { DashboardCardNavProps } from 'types';
+import { DashboardCardNavProps } from './types';
 
 const MembersNav: React.FC<DashboardCardNavProps> = (props) => {
   const [searchParams, setSearchParams] = useSearchParams();

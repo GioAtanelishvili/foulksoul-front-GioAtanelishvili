@@ -1,5 +1,5 @@
+import { MemberAvatarProps } from './types';
 import { DefaultAvatar } from 'components';
-import { MemberAvatarProps } from 'types';
 
 const MemberAvatar: React.FC<MemberAvatarProps> = (props) => {
   const avatarUrl =

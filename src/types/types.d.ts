@@ -13,47 +13,8 @@ export type LandingCardSubject =
   | { subject: 'band'; memberId: null }
   | { subject: 'member'; memberId: string };
 
-export interface LandingCardProps {
-  subject: LandingCardSubject;
-}
-
-export interface CardPhotoFrameProps extends WrapperProps {
-  style: {
-    [styleName: string]: string;
-  } | null;
-}
-
-export interface SunNoteSystemProps {
-  handleMemberClick: (subject: LandingCardSubject) => void;
-  handleSunNoteClick: (subject: LandingCardSubject) => void;
-  cardSubject: LandingCardSubject;
-}
-
-export interface MemberPlanetProps {
-  _id: string;
-  name: string;
-  color: string;
-  width: number;
-  avatarPath: string;
-  cardSubject: LandingCardSubject;
-  animationTiming: number;
-  index: number;
-  handleClick: (subject: LandingCardSubject) => void;
-}
-
-export interface MemberPlanetOrbitProps extends WrapperProps {
-  sizeRatio: number;
-  isAnimating: boolean;
-  animationTiming: number;
-}
-
 export interface OrbitStrokeProps {
   sizing: number;
-}
-
-export interface SunNoteProps {
-  handleClick: (subject: LandingCardSubject) => void;
-  isAnimating: boolean;
 }
 
 export interface Member {
@@ -78,115 +39,24 @@ export interface BandDetails {
   imagePath: string;
 }
 
-export interface InputProps {
-  id: string;
-  type: string;
-  placeholder: string;
-  error: FieldError;
-  className?: string;
-  register: {
-    onChange: ChangeHandler;
-    onBlur: ChangeHandler;
-    ref: React.Ref<HTMLInputElement>;
-    name: string;
-  };
-}
-
-export interface LoginInputProps extends InputProps {
-  clearError?: UseFormClearErrors<LoginFormData>;
-}
-
-export interface ColorInputProps {
-  defaultValue: string;
-  isSubmitted: boolean;
-  setFormValue: (color: string) => void;
-  setFormError: (error: FieldError) => void;
-  clearFormError: () => void;
-  error: FieldError;
-  register: {
-    onChange: ChangeHandler;
-    onBlur: ChangeHandler;
-    ref: React.Ref<HTMLInputElement>;
-    name: string;
-  };
-}
-
-export interface TextAreaProps {
-  className?: string;
-  error: FieldError;
-  register: {
-    onChange: ChangeHandler;
-    onBlur: ChangeHandler;
-    ref: LegacyRef<HTMLTextAreaElement>;
-    name: string;
-  };
-}
-
 export interface LoginFormData {
   nickname: string;
   password: string;
-}
-
-export interface NavItemProps {
-  to: string;
-  children: React.ReactNode;
-}
-
-export interface MemberAvatarProps {
-  background: string;
-  avatarPath: string;
-  source?: string;
-  className?: string;
-}
-
-export interface MemberCardProps extends Member {
-  index: number;
-}
-
-export interface DashboardCardNavProps {
-  arrayLength: number;
-}
-
-export interface ModalOverlayProps {
-  handleClick: () => void;
 }
 
 export interface ModalProps {
   handleClose: () => void;
 }
 
-export interface DataDeleteButtonProps {
-  handleClick: () => void;
-}
-
-export interface ModalCardProps extends WrapperProps, ModalProps {}
-
 export interface CardButtonProps {
   _id: string;
-  index?: number;
-}
-
-export interface PhotoUploadFormProps {
-  inputName: string;
-  handleSettingFile: (source: string | ArrayBuffer | null) => void;
-  handleUpload: (file: File) => void;
 }
 
 export interface PhotoUploadButtonProps extends CardButtonProps {}
 
-export interface MemberDetailsModalProps extends ModalProps, CardButtonProps {}
-
 export interface DataDeleteModalProps extends ModalProps, CardButtonProps {}
 
 export interface PhotoUploadModalProps extends ModalProps, CardButtonProps {}
-
-export interface UpdateFormProps {
-  defaultValues: Member | SocialMediaItem | {};
-  submitHandler:
-    | ((data: MembersFormData) => void)
-    | ((data: SocialMediaFormData) => void);
-  action: 'create' | 'edit';
-}
 
 export interface MembersFormData {
   name: string;
@@ -201,14 +71,6 @@ export interface SocialMediaFormData {
   name: string;
   url: string;
   iconPath: string;
-}
-
-export interface SocialMediaCardProps extends SocialMediaItem {
-  index: number;
-}
-
-export interface BandImageProps {
-  path: string;
 }
 
 export interface BandEditFormData {

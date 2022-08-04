@@ -21,11 +21,7 @@ const RedButton: React.FC<CardButtonProps> = (props) => {
         <RedCircle />
       </button>
       {isModalOpen && (
-        <MemberDeleteModal
-          _id={props._id}
-          index={props.index}
-          handleClose={handleModalClose}
-        />
+        <MemberDeleteModal _id={props._id} handleClose={handleModalClose} />
       )}
     </Fragment>
   );

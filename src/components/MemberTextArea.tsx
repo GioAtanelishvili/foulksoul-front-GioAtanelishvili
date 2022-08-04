@@ -1,4 +1,4 @@
-import { TextAreaProps } from 'types';
+import { TextAreaProps } from './types';
 
 const MemberTextArea: React.FC<TextAreaProps> = (props) => {
   return (

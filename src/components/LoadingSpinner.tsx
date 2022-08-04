@@ -1,6 +1,7 @@
+import { ClassNameProps } from 'types';
 import { Spinner } from './svgs';
 
-const LoadingSpinner: React.FC<{ className?: string }> = (props) => {
+const LoadingSpinner: React.FC<ClassNameProps> = (props) => {
   return (
     <div
       role='status'

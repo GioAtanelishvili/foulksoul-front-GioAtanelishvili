@@ -1,4 +1,4 @@
-import { ColorInputProps } from 'types';
+import { ColorInputProps } from './types';
 import { useState } from 'react';
 
 const HEX_COLOR_CODE_REGEXP = /^#(([0-9a-f]){6}$|([0-9A-F]){6}$)/;

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CardPhotoFrame, BandLogo } from './index';
 import { LoadingSpinner } from 'components';
 import { DefaultAvatar } from 'components';
-import { LandingCardProps } from 'types';
+import { LandingCardProps } from './types';
 import { DataContext } from 'context';
 
 const LandingCard: React.FC<LandingCardProps> = (props) => {

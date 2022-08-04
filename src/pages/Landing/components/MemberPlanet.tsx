@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
+import { MemberPlanetProps } from './types';
 import { DefaultAvatar } from 'components';
-import { MemberPlanetProps } from 'types';
 import { calcScaling } from 'helpers';
 
 const MemberPlanet: React.FC<MemberPlanetProps> = (props) => {

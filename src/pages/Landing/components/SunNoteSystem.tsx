@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
 import { MemberPlanet, MemberPlanetOrbit, SunNote } from './index';
-import { SunNoteSystemProps } from 'types';
+import { SunNoteSystemProps } from './types';
 import { DataContext } from 'context';
 import {
   calcOrbitRatios,

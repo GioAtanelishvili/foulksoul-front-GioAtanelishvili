@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-import { MemberPlanetOrbitProps } from 'types';
+import { MemberPlanetOrbitProps } from './types';
 import { OrbitStroke } from './svgs';
 
 const MemberPlanetOrbit: React.FC<MemberPlanetOrbitProps> = (props) => {

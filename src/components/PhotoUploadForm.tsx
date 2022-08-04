@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-import { PhotoUploadFormProps } from 'types';
+import { PhotoUploadFormProps } from './types';
 
 const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
   const [file, setFile] = useState<File | null>(null);

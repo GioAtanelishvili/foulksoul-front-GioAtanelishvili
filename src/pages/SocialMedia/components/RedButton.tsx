@@ -23,7 +23,6 @@ const RedButton: React.FC<CardButtonProps> = (props) => {
       {isModalOpen && (
         <SocialMediaDeleteModal
           _id={props._id}
-          index={props.index}
           handleClose={handleModalClose}
         />
       )}
