@@ -44,7 +44,9 @@ export const calcOrbitRatios = (members: Member[]) => {
 };
 
 export const calcAnimationTimings = (orbitRatios: number[]) => {
-  return orbitRatios.map((orbitRatio) => orbitRatio * 20);
+  return orbitRatios.map((orbitRatio) =>
+    orbitRatio * 20 > 1 ? orbitRatio * 20 : orbitRatio * 20 + 1
+  );
 };
 
 export const sortMembersByRadius = (members: Member[]) => {
