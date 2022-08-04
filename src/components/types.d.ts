@@ -23,20 +23,6 @@ export interface ColorInputProps {
   };
 }
 
-export interface InputProps {
-  id: string;
-  type: string;
-  placeholder: string;
-  error: FieldError | undefined;
-  className?: string;
-  register: {
-    onChange: ChangeHandler;
-    onBlur: ChangeHandler;
-    ref: React.Ref<HTMLInputElement>;
-    name: string;
-  };
-}
-
 export interface DashboardCardNavProps {
   arrayLength: number;
 }

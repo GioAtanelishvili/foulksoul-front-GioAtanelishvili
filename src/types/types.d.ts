@@ -39,6 +39,20 @@ export interface BandDetails {
   imagePath: string;
 }
 
+export interface InputProps {
+  id: string;
+  type: string;
+  placeholder: string;
+  error: FieldError | undefined;
+  className?: string;
+  register: {
+    onChange: ChangeHandler;
+    onBlur: ChangeHandler;
+    ref: React.Ref<HTMLInputElement>;
+    name: string;
+  };
+}
+
 export interface LoginFormData {
   nickname: string;
   password: string;

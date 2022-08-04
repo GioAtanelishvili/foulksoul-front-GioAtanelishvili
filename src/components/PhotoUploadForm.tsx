@@ -9,9 +9,8 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
     if (e.target.files) {
       setFile(e.target.files[0]);
 
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(e.target.files[0]);
-      fileReader.onload = () => props.handleSettingFile(fileReader.result);
+      const fileUrl = URL.createObjectURL(e.target.files[0]);
+      props.handleSettingFile(fileUrl);
     }
   };
 
