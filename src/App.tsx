@@ -28,7 +28,7 @@ const App = () => {
       <Route path='/' element={<Landing />} />
       <Route
         path='login'
-        element={isLoggedIn ? <Navigate to='/band' /> : <Login />}
+        element={isLoggedIn ? <Navigate to='/band/main' /> : <Login />}
       />
       <Route
         path='band'
