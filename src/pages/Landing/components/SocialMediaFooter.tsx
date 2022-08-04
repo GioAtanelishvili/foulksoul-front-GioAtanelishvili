@@ -19,7 +19,7 @@ const SocialMediaFooter: React.FC = () => {
               rel='noreferrer'
               title={capitalize(item.name)}
               className='flex items-center transition-transform hover:scale-125'
-              data-testid={item.name}
+              data-test-id={item.name}
             >
               <img
                 src={`${baseUrl}/${item.iconPath}`}

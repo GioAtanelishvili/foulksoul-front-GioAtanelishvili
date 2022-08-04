@@ -6,20 +6,20 @@ describe('dashboard navigation', () => {
 
     cy.login();
 
-    cy.get('[data-testid="dashboard-nav"]').should('exist');
+    cy.get('[data-test-id="dashboard-nav"]').should('exist');
   });
 
   it('user can navigate through dashboard pages', () => {
-    cy.contains('ჯგუფის წევრები').click();
+    cy.get('[data-test-id="link-to-members"]').click();
     cy.url().should('include', 'members');
 
-    cy.contains('სოციალური ბმულები').click();
+    cy.get('[data-test-id="link-to-social-media"]').click();
     cy.url().should('include', 'social-media');
 
-    cy.contains('ბენდის შესახებ').click();
+    cy.get('[data-test-id="link-to-band-about"]').click();
     cy.url().should('include', 'about');
 
-    cy.contains('გადი გარეთ').click();
+    cy.get('[data-test-id="logout-button"]').click();
     cy.url().should('not.include', 'band');
   });
 });

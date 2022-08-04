@@ -20,7 +20,7 @@ const MembersNav: React.FC<DashboardCardNavProps> = (props) => {
                 ? ' bg-primary-gray'
                 : 'bg-members-nav-inactive'
             }`}
-            data-testid={`dashboard-card-nav-button-${index}`}
+            data-test-id={`dashboard-card-nav-button-${index}`}
           />
         );
       })}

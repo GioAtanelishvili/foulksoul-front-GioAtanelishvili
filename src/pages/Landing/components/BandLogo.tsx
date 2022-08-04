@@ -5,7 +5,7 @@ const BandLogo: React.FC<ClassNameProps> = (props) => {
   return (
     <figure
       className={`flex flex-col items-center ${props.className}`}
-      data-testid='band-logo'
+      data-test-id='band-logo'
     >
       <FolkSoulLogo />
       <FolkSoulTitle />

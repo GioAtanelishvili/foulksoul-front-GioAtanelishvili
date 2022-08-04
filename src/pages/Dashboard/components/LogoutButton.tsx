@@ -16,7 +16,7 @@ const LogoutButton: React.FC<WrapperProps> = (props) => {
         handleLogout();
       }}
       className='flex items-center my-3 py-2 pl-7 text-lg font-nino-mtavruli bg-transparent text-content-white active:bg-content-white active:text-primary-dark-blue '
-      data-testid='logout-button'
+      data-test-id='logout-button'
     >
       {props.children}
     </button>

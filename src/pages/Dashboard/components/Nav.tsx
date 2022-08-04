@@ -12,24 +12,32 @@ const Nav: React.FC = () => {
   return (
     <nav
       className='bg-primary-gray w-76 py-16 border-r border-t border-b border-good-gray rounded-r-2xl'
-      data-testid='dashboard-nav'
+      data-test-id='dashboard-nav'
     >
       <ul className='flex flex-col'>
         <NavItem to='/band/main'>
           <HouseIcon />
-          <span className='mt-[6px] ml-4'>მთავარი</span>
+          <span className='mt-[6px] ml-4' data-test-id='link-to-main'>
+            მთავარი
+          </span>
         </NavItem>
         <NavItem to='/band/members?page=1'>
           <MemberIcon />
-          <span className='mt-[6px] ml-4'>ჯგუფის წევრები</span>
+          <span className='mt-[6px] ml-4' data-test-id='link-to-members'>
+            ჯგუფის წევრები
+          </span>
         </NavItem>
         <NavItem to='/band/social-media'>
           <SocialMediaIcon />
-          <span className='mt-[6px] ml-4'>სოციალური ბმულები</span>
+          <span className='mt-[6px] ml-4' data-test-id='link-to-social-media'>
+            სოციალური ბმულები
+          </span>
         </NavItem>
         <NavItem to='/band/about'>
           <NoteIcon />
-          <span className='mt-[6px] ml-4'>ბენდის შესახებ</span>
+          <span className='mt-[6px] ml-4' data-test-id='link-to-band-about'>
+            ბენდის შესახებ
+          </span>
         </NavItem>
         <LogoutButton>
           <ExitIcon />

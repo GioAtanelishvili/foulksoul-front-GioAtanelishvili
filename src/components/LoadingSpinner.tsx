@@ -6,7 +6,7 @@ const LoadingSpinner: React.FC<ClassNameProps> = (props) => {
     <div
       role='status'
       className={`flex justify-center items-center ${props.className}`}
-      data-testid='loading-spinner'
+      data-test-id='loading-spinner'
     >
       <Spinner />
       <span className='sr-only'>Loading...</span>

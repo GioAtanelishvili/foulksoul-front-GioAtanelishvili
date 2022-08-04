@@ -23,7 +23,7 @@ const YellowButton: React.FC<CardButtonProps> = (props) => {
     <button
       onClick={handleClick}
       title='შეცვლა'
-      data-testid={`${props._id}-yellow-button`}
+      data-test-id={`${props._id}-yellow-button`}
     >
       <YellowCircle />
     </button>

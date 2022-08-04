@@ -16,7 +16,7 @@ const RedButton: React.FC<CardButtonProps> = (props) => {
       <button
         onClick={() => setIsModalOpen(true)}
         title='წაშლა'
-        data-testid={`${props._id}-red-button`}
+        data-test-id={`${props._id}-red-button`}
       >
         <RedCircle />
       </button>

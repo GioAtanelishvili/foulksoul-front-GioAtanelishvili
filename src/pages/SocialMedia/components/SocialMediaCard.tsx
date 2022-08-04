@@ -17,7 +17,10 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
         )}
         <IconUploadButton _id={props._id} />
       </figure>
-      <h2 className='text-content-white w-32 pt-1 text-lg text-center font-nino-mtavruli truncate'>
+      <h2
+        className='text-content-white w-32 pt-1 text-lg text-center font-nino-mtavruli truncate'
+        data-test-id='social-media-card-name'
+      >
         {capitalize(props.name)}
       </h2>
       <a

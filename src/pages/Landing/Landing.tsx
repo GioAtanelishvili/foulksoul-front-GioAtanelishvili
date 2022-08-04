@@ -28,18 +28,18 @@ const Landing: React.FC = () => {
     <Layout>
       <header
         className='mt-6 mx-24 flex justify-between items-center'
-        data-testid='landing-page-header'
+        data-test-id='landing-page-header'
       >
         <BandLogo />
         <Link
           to='/login'
           className='text-content-white text-base font-nino-mtavruli'
-          data-testid='login-button'
+          data-test-id='login-button'
         >
           შესვლა
         </Link>
       </header>
-      <main className='mt-5 flex' data-testid='landing-page-main-content'>
+      <main className='mt-5 flex' data-test-id='landing-page-main-content'>
         <div className='w-[55%] flex justify-center items-center'>
           <SunNoteSystem
             handleMemberClick={changeCardSubject}

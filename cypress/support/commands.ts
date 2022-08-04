@@ -59,7 +59,7 @@ Cypress.Commands.add('login', () => {
 
   cy.get('#nickname').type('zazaevich');
   cy.get('#password').type('motoburti');
-  cy.get('[data-testid="login-submit-button"]').click();
+  cy.get('[data-test-id="login-submit-button"]').click();
 
   const clear = Cypress.LocalStorage.clear;
 
@@ -96,7 +96,7 @@ Cypress.Commands.add(
     cy.get('#text-color').type('#f0f0f0');
     cy.get('#members-update-textarea').type('რუსთაველი ბიჭია.');
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
   }
 );
 
@@ -123,6 +123,6 @@ Cypress.Commands.add(
     cy.get('#name').type('Facebook');
     cy.get('#url').type('https://facebook.com');
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
   }
 );

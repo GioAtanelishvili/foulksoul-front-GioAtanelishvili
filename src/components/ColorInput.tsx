@@ -58,7 +58,10 @@ const ColorInput: React.FC<ColorInputProps> = (props) => {
         className='invisible w-0 h-0'
       />
       {props.error && (
-        <p className='text-input-error absolute top-14 font-medium'>
+        <p
+          className='text-input-error absolute top-14 font-medium'
+          data-test-id='color-error-message'
+        >
           {props.error.message}
         </p>
       )}

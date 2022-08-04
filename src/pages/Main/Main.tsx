@@ -11,7 +11,7 @@ const Main: React.FC = () => {
     <Fragment>
       <header
         className='mt-28 text-5xl text-center font-nino-mtavruli tracking-[0.12em]'
-        data-testid='greeting'
+        data-test-id='greeting'
       >
         დილამშვიდობისა!
       </header>

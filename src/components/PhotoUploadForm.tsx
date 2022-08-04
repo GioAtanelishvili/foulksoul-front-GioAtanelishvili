@@ -25,7 +25,10 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
       className='w-full relative flex flex-col items-center'
     >
       {props.payloadError && (
-        <p className='text-input-error absolute -top-5 text-center font-medium'>
+        <p
+          className='text-input-error absolute -top-5 text-center font-medium'
+          data-test-id='photo-upload-error-message'
+        >
           {props.payloadError}
         </p>
       )}
@@ -33,7 +36,7 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
         <button
           type='submit'
           className='bg-primary-green text-content-white mt-12 mb-10 pt-3 pb-2 px-10 rounded-[5px] text-center text-lg font-bold font-nino-mtavruli'
-          data-testid='photo-upload-submit-button'
+          data-test-id='photo-upload-submit-button'
         >
           შეინახე
         </button>
@@ -46,7 +49,7 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
             accept='image/png, image/jpg, image/jpeg'
             onChange={handleSettingFile}
             className='invisible'
-            data-testid='file-input'
+            data-test-id='file-input'
           />
           <label
             htmlFor='file-input'

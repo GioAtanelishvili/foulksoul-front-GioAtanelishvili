@@ -48,7 +48,7 @@ const BandEditForm: React.FC = () => {
     <form
       onSubmit={submitHandler}
       className='w-3/4 h-140 mt-8 mx-40 flex flex-col items-center'
-      data-testid='band-edit-form'
+      data-test-id='band-edit-form'
     >
       <BandEditCard>
         {isLoading ? (
@@ -59,7 +59,7 @@ const BandEditForm: React.FC = () => {
             name='info'
             className='text-primary-dark-blue w-full h-full pr-8 py-1 bg-transparent font-arial outline-none resize-none overflow-auto'
             defaultValue={info}
-            data-testid='band-edit-textarea'
+            data-test-id='band-edit-textarea'
           />
         )}
       </BandEditCard>
@@ -68,7 +68,7 @@ const BandEditForm: React.FC = () => {
       )}
       <button
         className='bg-primary-green mt-6 pt-2 pb-1 px-10 text-content-white text-lg font-nino-mtavruli rounded-[5px]'
-        data-testid='band-edit-form-submit-button'
+        data-test-id='band-edit-form-submit-button'
       >
         შეინახე
       </button>

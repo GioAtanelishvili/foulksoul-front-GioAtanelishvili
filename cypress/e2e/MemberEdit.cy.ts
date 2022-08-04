@@ -15,9 +15,9 @@ describe('member edit page', () => {
     cy.login();
     cy.visit('/band/members');
 
-    cy.get('[data-testid="sluchaina-yellow-button"]').click();
+    cy.get('[data-test-id="sluchaina-yellow-button"]').click();
     cy.url().should('include', 'edit');
-    cy.get('[data-testid="members-update-form"]').should('be.visible');
+    cy.get('[data-test-id="members-update-form"]').should('be.visible');
   });
 
   it('form fields are filled with the data of the member', () => {
@@ -34,8 +34,8 @@ describe('member edit page', () => {
       delay: 5000,
     });
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
-    cy.get('[data-testid="loading-spinner"]').should('be.visible');
+    cy.get('[data-test-id="update-form-submit-button"]').click();
+    cy.get('[data-test-id="loading-spinner"]').should('be.visible');
   });
 
   it('auth error redirects user to page 403', () => {
@@ -43,9 +43,9 @@ describe('member edit page', () => {
       statusCode: 403,
     });
     cy.visit('/band/members');
-    cy.get('[data-testid="sluchaina-yellow-button"]').click();
+    cy.get('[data-test-id="sluchaina-yellow-button"]').click();
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
     cy.url().should('include', '403');
   });
 
@@ -54,9 +54,9 @@ describe('member edit page', () => {
       statusCode: 500,
     });
     cy.visit('/band/members');
-    cy.get('[data-testid="sluchaina-yellow-button"]').click();
+    cy.get('[data-test-id="sluchaina-yellow-button"]').click();
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
     cy.url().should('include', '500');
   });
 
@@ -65,13 +65,13 @@ describe('member edit page', () => {
       statusCode: 200,
     });
     cy.visit('/band/members');
-    cy.get('[data-testid="sluchaina-yellow-button"]').click();
+    cy.get('[data-test-id="sluchaina-yellow-button"]').click();
 
     cy.get('#name').clear().type('ღოღე');
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
 
     cy.url().should('not.contain', 'edit');
-    cy.contains('ღოღე').should('be.visible');
+    cy.get('[data-test-id="member-card-name"]').should('contain.text', 'ღოღე');
   });
 });

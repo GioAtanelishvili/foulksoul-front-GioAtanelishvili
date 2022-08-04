@@ -27,7 +27,7 @@ const MembersUpdateForm: React.FC<UpdateFormProps> = (props) => {
     <form
       onSubmit={handleSubmit(props.submitHandler as SubmitHandler<Member>)}
       className='w-full mt-15 flex flex-col items-center'
-      data-testid='members-update-form'
+      data-test-id='members-update-form'
       noValidate
     >
       <Input

@@ -25,7 +25,7 @@ const SocialMediaUpdateForm: React.FC<UpdateFormProps> = (props) => {
         props.submitHandler as SubmitHandler<SocialMediaItem>
       )}
       className='w-full mt-48 flex flex-col items-center'
-      data-testid='social-media-update-form'
+      data-test-id='social-media-update-form'
       noValidate
     >
       <Input

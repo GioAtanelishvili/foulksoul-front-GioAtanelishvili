@@ -10,9 +10,9 @@ describe('landing page', () => {
 
     cy.visit('/');
 
-    cy.get('[data-testid="band-logo"]').should('exist');
-    cy.get('[data-testid="landing-page-header"]').should('exist');
-    cy.get('[data-testid="landing-page-main-content"]').should('exist');
+    cy.get('[data-test-id="band-logo"]').should('exist');
+    cy.get('[data-test-id="landing-page-header"]').should('exist');
+    cy.get('[data-test-id="landing-page-main-content"]').should('exist');
   });
 
   it('loading spinner shows up when waiting for server response', () => {
@@ -21,7 +21,7 @@ describe('landing page', () => {
     });
     cy.reload();
 
-    cy.get('[data-testid="loading-spinner"]').should('be.visible');
+    cy.get('[data-test-id="loading-spinner"]').should('be.visible');
   });
 
   it('message is displayed if band info is empty', () => {
@@ -30,8 +30,9 @@ describe('landing page', () => {
     });
     cy.reload();
 
-    cy.contains('ბენდის შესახებ ინფორმაცია დამატებული არ არის.').should(
-      'be.visible'
+    cy.get('[data-test-id="landing-card-article"]').should(
+      'contain.text',
+      'ბენდის შესახებ ინფორმაცია დამატებული არ არის.'
     );
   });
 
@@ -41,21 +42,24 @@ describe('landing page', () => {
     });
     cy.reload();
 
-    cy.contains('ძალიან საინტერესო ბიოგრაფია.').should('be.visible');
+    cy.get('[data-test-id="landing-card-article"]').should(
+      'contain.text',
+      'ძალიან საინტერესო ბიოგრაფია.'
+    );
   });
 
   it('clicking member planet changes card subject to member', () => {
-    cy.get('[data-testid="sluchaina-planet"]').click();
-    cy.get('[data-testid="landing-card-member-avatar"]').should('be.visible');
-    cy.get('[data-testid="landing-card-article"]').should(
+    cy.get('[data-test-id="sluchaina-planet"]').click();
+    cy.get('[data-test-id="landing-card-member-avatar"]').should('be.visible');
+    cy.get('[data-test-id="landing-card-article"]').should(
       'contain.text',
       'კაი კაცი'
     );
   });
 
   it('clicking sunnote changes card subject back to band', () => {
-    cy.get('[data-testid="landing-sunnote"]').click();
-    cy.get('[data-testid="landing-card-article"]').should(
+    cy.get('[data-test-id="landing-sunnote"]').click();
+    cy.get('[data-test-id="landing-card-article"]').should(
       'contain.text',
       'ძალიან საინტერესო ბიოგრაფია.'
     );
@@ -78,7 +82,7 @@ describe('landing page', () => {
       cy.stubGetRequests(data);
     });
     cy.visit('/');
-    cy.get('[data-testid="login-button"]').click();
+    cy.get('[data-test-id="login-button"]').click();
     cy.url().should('include', 'login');
   });
 });

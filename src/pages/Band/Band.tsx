@@ -27,7 +27,7 @@ const Band: React.FC = () => {
       <section
         id='band-about-page-section'
         className='w-[85%] h-140 mt-8 px-20 pb-3 overflow-auto'
-        data-testid='band-about-page-section'
+        data-test-id='band-about-page-section'
       >
         {isLoading ? (
           <LoadingSpinner className='mt-60 scale-150' />
@@ -39,7 +39,7 @@ const Band: React.FC = () => {
             </div>
             <article
               className='mt-12 text-base text-justify font-arial whitespace-pre-wrap break-words'
-              data-testid='band-info-article'
+              data-test-id='band-info-article'
             >
               {content}
             </article>
@@ -48,7 +48,7 @@ const Band: React.FC = () => {
         <Link
           to='edit'
           className='absolute left-14 bottom-52'
-          data-testid='link-to-band-edit'
+          data-test-id='link-to-band-edit'
         >
           <EditIcon />
         </Link>

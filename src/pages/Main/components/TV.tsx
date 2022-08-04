@@ -23,7 +23,7 @@ const TV: React.FC = () => {
             src={imageUrl}
             className='w-full'
             alt='Band'
-            data-testid='main-band-image'
+            data-test-id='main-band-image'
           />
         ) : (
           <p

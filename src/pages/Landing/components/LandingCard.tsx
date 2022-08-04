@@ -48,7 +48,7 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
           <img
             src={avatarUrl}
             alt='Band member'
-            data-testid='landing-card-member-avatar'
+            data-test-id='landing-card-member-avatar'
           />
         ) : (
           <DefaultAvatar className='scale-[2]' />
@@ -63,7 +63,7 @@ const LandingCard: React.FC<LandingCardProps> = (props) => {
         ) : (
           <article
             className='text-justify text-lg font-arial whitespace-pre-wrap break-words'
-            data-testid='landing-card-article'
+            data-test-id='landing-card-article'
           >
             {content}
           </article>

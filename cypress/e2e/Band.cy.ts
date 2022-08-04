@@ -18,8 +18,8 @@ describe('band about page', () => {
     cy.login();
     cy.visit('/band/about');
 
-    cy.get('[data-testid="band-about-page-section"]').should('be.visible');
-    cy.get('[data-testid="band-info-article"]').should(
+    cy.get('[data-test-id="band-about-page-section"]').should('be.visible');
+    cy.get('[data-test-id="band-info-article"]').should(
       'contain.text',
       'ძალიან საინტერესო ბიოგრაფია.'
     );
@@ -32,7 +32,7 @@ describe('band about page', () => {
 
     cy.reload();
 
-    cy.get('[data-testid="loading-spinner"]').should('be.visible');
+    cy.get('[data-test-id="loading-spinner"]').should('be.visible');
   });
 
   it('message is displayed if band info is empty', () => {
@@ -45,28 +45,46 @@ describe('band about page', () => {
 
     cy.reload();
 
-    cy.contains('ბენდის შესახებ ინფორმაცია დამატებული არ არის.').should(
-      'be.visible'
+    cy.get('[data-test-id="band-info-article"]').should(
+      'contain.text',
+      'ბენდის შესახებ ინფორმაცია დამატებული არ არის.'
     );
   });
 
   it('clicking image upload button opens image upload modal', () => {
-    cy.get('[data-testid="image-upload-button"]').click();
+    cy.get('[data-test-id="image-upload-button"]').click();
 
-    cy.get('[data-testid="modal-overlay"]').should('exist');
-    cy.get('[data-testid="modal-card"]').should('exist');
+    cy.get('[data-test-id="modal-overlay"]').should('exist');
+    cy.get('[data-test-id="modal-card"]').should('exist');
   });
 
   it('clicking modal overlay or close button closes the modal', () => {
-    cy.get('[data-testid="modal-overlay"]').click({ force: true });
-    cy.get('[data-testid="modal-overlay"]').should('not.exist');
-    cy.get('[data-testid="modal-card"]').should('not.exist');
+    cy.get('[data-test-id="modal-overlay"]').click({ force: true });
+    cy.get('[data-test-id="modal-overlay"]').should('not.exist');
+    cy.get('[data-test-id="modal-card"]').should('not.exist');
 
-    cy.get('[data-testid="image-upload-button"]').click();
+    cy.get('[data-test-id="image-upload-button"]').click();
 
-    cy.get('[data-testid="modal-close-button"]').click();
-    cy.get('[data-testid="modal-overlay"]').should('not.exist');
-    cy.get('[data-testid="modal-card"]').should('not.exist');
+    cy.get('[data-test-id="modal-close-button"]').click();
+    cy.get('[data-test-id="modal-overlay"]').should('not.exist');
+    cy.get('[data-test-id="modal-card"]').should('not.exist');
+  });
+
+  it('large payload error displays error message', () => {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
+      statusCode: 413,
+    });
+
+    cy.get('[data-test-id="image-upload-button"]').click();
+
+    cy.get('[data-test-id="file-input"]').attachFile('images/band.jpg');
+    cy.get('[data-test-id="photo-upload-submit-button"]').click();
+
+    cy.get('[data-test-id="photo-upload-error-message"]').should(
+      'contain.text',
+      'ფაილი ზედმეტად დიდია!'
+    );
+    cy.get('[data-test-id="modal-close-button"]').click();
   });
 
   it('user can upload a band image', () => {
@@ -77,13 +95,13 @@ describe('band about page', () => {
       },
     });
 
-    cy.get('[data-testid="image-upload-button"]').click();
+    cy.get('[data-test-id="image-upload-button"]').click();
 
-    cy.get('[data-testid="file-input"]').attachFile('images/band.jpg');
-    cy.get('[data-testid="photo-upload-submit-button"]').click();
+    cy.get('[data-test-id="file-input"]').attachFile('images/band.jpg');
+    cy.get('[data-test-id="photo-upload-submit-button"]').click();
 
-    cy.get('[data-testid="modal-overlay"]').should('not.exist');
-    cy.get('[data-testid="modal-card"]').should('not.exist');
+    cy.get('[data-test-id="modal-overlay"]').should('not.exist');
+    cy.get('[data-test-id="modal-card"]').should('not.exist');
   });
 
   it('auth error redirects user to page 403', () => {
@@ -91,10 +109,10 @@ describe('band about page', () => {
       statusCode: 403,
     });
 
-    cy.get('[data-testid="image-upload-button"]').click();
+    cy.get('[data-test-id="image-upload-button"]').click();
 
-    cy.get('[data-testid="file-input"]').attachFile('images/band.jpg');
-    cy.get('[data-testid="photo-upload-submit-button"]').click();
+    cy.get('[data-test-id="file-input"]').attachFile('images/band.jpg');
+    cy.get('[data-test-id="photo-upload-submit-button"]').click();
 
     cy.url().should('include', '403');
   });
@@ -106,13 +124,13 @@ describe('band about page', () => {
     cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
       statusCode: 500,
     });
-    cy.visit('band');
-    cy.contains('ბენდის შესახებ').click();
+    cy.visit('/band');
+    cy.get('[data-test-id="link-to-band-about"]').click();
 
-    cy.get('[data-testid="image-upload-button"]').click();
+    cy.get('[data-test-id="image-upload-button"]').click();
 
-    cy.get('[data-testid="file-input"]').attachFile('images/band.jpg');
-    cy.get('[data-testid="photo-upload-submit-button"]').click();
+    cy.get('[data-test-id="file-input"]').attachFile('images/band.jpg');
+    cy.get('[data-test-id="photo-upload-submit-button"]').click();
 
     cy.url().should('include', '500');
   });
@@ -123,7 +141,7 @@ describe('band about page', () => {
     });
     cy.visit('band/about');
 
-    cy.get('[data-testid="link-to-band-edit"]').click();
+    cy.get('[data-test-id="link-to-band-edit"]').click();
     cy.url().should('include', 'edit');
   });
 });

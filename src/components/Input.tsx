@@ -16,7 +16,10 @@ const Input: React.FC<InputProps> = (props) => {
         } ${props.className}`}
       />
       {props.error && (
-        <p className='text-input-error absolute top-14 text-center font-medium'>
+        <p
+          className='text-input-error absolute top-14 text-center font-medium'
+          data-test-id={`${props.id}-error-message`}
+        >
           {props.error.message}
         </p>
       )}

@@ -17,7 +17,10 @@ const MemberTextArea: React.FC<TextAreaProps> = (props) => {
         className='w-full min-h-full resize-none rounded-[5px] outline-none text-primary-dark-blue placeholder:text-update-form-placeholder'
       />
       {props.error && (
-        <p className='text-input-error w-full text-center absolute -bottom-6 font-medium'>
+        <p
+          className='text-input-error w-full text-center absolute -bottom-6 font-medium'
+          data-test-id='member-textarea-error-message'
+        >
           {props.error.message}
         </p>
       )}

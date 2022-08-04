@@ -44,7 +44,7 @@ const Members: React.FC = () => {
         to='create'
         state={page}
         className='text-form-go-back-link absolute bottom-9 text-lg font-bold font-nino-mtavruli underline'
-        data-testid='link-to-member-create'
+        data-test-id='link-to-member-create'
       >
         ახალი წევრი გვყავს?
       </Link>

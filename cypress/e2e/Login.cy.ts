@@ -15,32 +15,45 @@ describe('login page', () => {
 
     cy.visit('/login');
 
-    cy.get('[data-testid="login-form"]').should('exist');
+    cy.get('[data-test-id="login-form"]').should('exist');
   });
 
   it('submitting empty fields displays error messages', () => {
-    cy.get('[data-testid="login-submit-button"]').click();
+    cy.get('[data-test-id="login-submit-button"]').click();
 
-    cy.contains('მეტსახელის ველი სავალდებულოა!').should('be.visible');
-    cy.contains('პაროლის ველი სავალდებულოა!').should('be.visible');
+    cy.get('[data-test-id="nickname-error-message"]').should(
+      'contain.text',
+      'მეტსახელის ველი სავალდებულოა!'
+    );
+    cy.get('[data-test-id="password-error-message"]').should(
+      'contain.text',
+      'პაროლის ველი სავალდებულოა!'
+    );
   });
 
   it('submitting invalid form data displays error message', () => {
     cy.get('#nickname').type('za');
-    cy.get('[data-testid="login-submit-button"]').click();
-    cy.contains('უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან!').should('be.visible');
+    cy.get('[data-test-id="login-submit-button"]').click();
+    cy.get('[data-test-id="nickname-error-message"]').should(
+      'contain.text',
+      'უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან!'
+    );
     cy.get('#nickname').clear();
 
     cy.get('#nickname').type('ZAZAEVICH');
-    cy.get('[data-testid="login-submit-button"]').click();
-    cy.contains(
+    cy.get('[data-test-id="login-submit-button"]').click();
+    cy.get('[data-test-id="nickname-error-message"]').should(
+      'contain.text',
       'უნდა შედგებოდეს დაბალი რეგისტრის სიმბოლოებისა და რიცხვებისგან!'
-    ).should('be.visible');
+    );
     cy.get('#nickname').clear();
 
     cy.get('#password').type('mo');
-    cy.get('[data-testid="login-submit-button"]').click();
-    cy.contains('უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან!').should('be.visible');
+    cy.get('[data-test-id="login-submit-button"]').click();
+    cy.get('[data-test-id="password-error-message"]').should(
+      'contain.text',
+      'უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან!'
+    );
     cy.get('#password').clear();
   });
 
@@ -51,22 +64,11 @@ describe('login page', () => {
 
     cy.get('#nickname').type('zazaevich');
     cy.get('#password').type('hockey');
-    cy.get('[data-testid="login-submit-button"]').click();
-    cy.contains('შეყვანილი მონაცემები არასწორია!').should('be.visible');
-  });
-
-  it('submitting valid credentials takes user to dashboard', () => {
-    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
-      statusCode: 200,
-      body: {
-        token: 'xxxxxx.zzzzzz.yyyyyy',
-      },
-    });
-
-    cy.get('#nickname').type('zazaevich');
-    cy.get('#password').type('motoburti');
-    cy.get('[data-testid="login-submit-button"]').click();
-    cy.url().should('include', 'band');
+    cy.get('[data-test-id="login-submit-button"]').click();
+    cy.get('[data-test-id="password-error-message"]').should(
+      'contain.text',
+      'შეყვანილი მონაცემები არასწორია!'
+    );
   });
 
   it('server error redirects user to 500 page', () => {
@@ -78,7 +80,23 @@ describe('login page', () => {
 
     cy.get('#nickname').type('zazaevich');
     cy.get('#password').type('motoburti');
-    cy.get('[data-testid="login-submit-button"]').click();
+    cy.get('[data-test-id="login-submit-button"]').click();
     cy.url().should('include', '500');
+  });
+
+  it('submitting valid credentials takes user to dashboard', () => {
+    cy.visit('/login');
+
+    cy.intercept('POST', `${Cypress.env('API_BASE_URL')}/api/login`, {
+      statusCode: 200,
+      body: {
+        token: 'xxxxxx.zzzzzz.yyyyyy',
+      },
+    });
+
+    cy.get('#nickname').type('zazaevich');
+    cy.get('#password').type('motoburti');
+    cy.get('[data-test-id="login-submit-button"]').click();
+    cy.url().should('include', 'band');
   });
 });

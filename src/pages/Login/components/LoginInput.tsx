@@ -22,7 +22,10 @@ const LoginInput: React.FC<LoginInputProps> = (props) => {
         className='bg-login-input-background w-full mb-1 py-4 pl-5 rounded-[2px] outline-none text-login-input-text placeholder:text-login-input-text'
       />
       {props.error && (
-        <p className='text-input-error absolute font-medium'>
+        <p
+          className='text-input-error absolute font-medium'
+          data-test-id={`${props.id}-error-message`}
+        >
           {props.error.message}
         </p>
       )}

@@ -5,7 +5,7 @@ const UpdateFormButton: React.FC<WrapperProps> = (props) => {
     <button
       type='submit'
       className={`bg-primary-dark-blue text-content-white mt-12 pt-4 pb-3 px-8 rounded-[5px] text-center text-sm font-bold font-nino-mtavruli ${props.className}`}
-      data-testid='update-form-submit-button'
+      data-test-id='update-form-submit-button'
     >
       {props.children}
     </button>

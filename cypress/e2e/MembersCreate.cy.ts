@@ -16,17 +16,26 @@ describe('member create page', () => {
     cy.login();
     cy.visit('/band/members');
 
-    cy.get('[data-testid="link-to-member-create"]').click();
+    cy.get('[data-test-id="link-to-member-create"]').click();
     cy.url().should('include', 'create');
-    cy.get('[data-testid="members-update-form"]').should('be.visible');
+    cy.get('[data-test-id="members-update-form"]').should('be.visible');
   });
 
   it('submitting empty fields displays error messages', () => {
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
 
-    cy.contains('სახელი სავალდებულოა!').should('be.visible');
-    cy.contains('ფერი სავალდებულოა!').should('be.visible');
-    cy.contains('ბიოგრაფია სავალდებულოა!').should('be.visible');
+    cy.get('[data-test-id="name-error-message"]').should(
+      'contain.text',
+      'სახელი სავალდებულოა!'
+    );
+    cy.get('[data-test-id="color-error-message"]').should(
+      'contain.text',
+      'ფერი სავალდებულოა!'
+    );
+    cy.get('[data-test-id="member-textarea-error-message"]').should(
+      'contain.text',
+      'ბიოგრაფია სავალდებულოა!'
+    );
   });
 
   it('submitting invalid form data displays error messages', () => {
@@ -34,11 +43,20 @@ describe('member create page', () => {
     cy.get('#orbit-radius').type('not a number');
     cy.get('#instrument').type('გ');
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
+    cy.get('[data-test-id="update-form-submit-button"]').click();
 
-    cy.contains('გამოიყენეთ მხოლოდ ქართული ასოები!').should('be.visible');
-    cy.contains('გამოიყენეთ მხოლოდ ციფრები!').should('be.visible');
-    cy.contains('გამოიყენეთ მინ. 2 სიმბოლო!').should('be.visible');
+    cy.get('[data-test-id="name-error-message"]').should(
+      'contain.text',
+      'გამოიყენეთ მხოლოდ ქართული ასოები!'
+    );
+    cy.get('[data-test-id="orbit-radius-error-message"]').should(
+      'contain.text',
+      'გამოიყენეთ მხოლოდ ციფრები!'
+    );
+    cy.get('[data-test-id="instrument-error-message"]').should(
+      'contain.text',
+      'გამოიყენეთ მინ. 2 სიმბოლო!'
+    );
 
     cy.get('#name').clear();
     cy.get('#orbit-radius').clear();
@@ -48,14 +66,23 @@ describe('member create page', () => {
   it('color input handles displaying error messages', () => {
     cy.get('#text-color').type('#not-a-color');
 
-    cy.get('[data-testid="update-form-submit-button"]').click();
-    cy.contains('უნდა ემთხვეოდეს HEX ფორმატს!').should('be.visible');
+    cy.get('[data-test-id="update-form-submit-button"]').click();
+    cy.get('[data-test-id="color-error-message"]').should(
+      'contain.text',
+      'უნდა ემთხვეოდეს HEX ფორმატს!'
+    );
 
     cy.get('#text-color').clear();
-    cy.contains('ფერი სავალდებულოა!').should('be.visible');
+    cy.get('[data-test-id="color-error-message"]').should(
+      'contain.text',
+      'ფერი სავალდებულოა!'
+    );
 
     cy.get('#text-color').type('#not-a-color');
-    cy.contains('უნდა ემთხვეოდეს HEX ფორმატს!').should('be.visible');
+    cy.get('[data-test-id="color-error-message"]').should(
+      'contain.text',
+      'უნდა ემთხვეოდეს HEX ფორმატს!'
+    );
     cy.get('#text-color').clear();
   });
 
@@ -64,15 +91,15 @@ describe('member create page', () => {
 
     cy.url().should('not.include', 'create');
 
-    cy.get('[data-testid="dashboard-card-nav-button-1"]').click();
-    cy.contains('ქაშა').should('be.visible');
+    cy.get('[data-test-id="dashboard-card-nav-button-1"]').click();
+    cy.get('[data-test-id="member-card-name"]').should('contain.text', 'ქაშა');
   });
 
   it('loading spinner shows up when waiting for server response', () => {
-    cy.get('[data-testid="link-to-member-create"]').click();
+    cy.get('[data-test-id="link-to-member-create"]').click();
 
     cy.addMember(5000);
-    cy.get('[data-testid="loading-spinner"]').should('be.visible');
+    cy.get('[data-test-id="loading-spinner"]').should('be.visible');
   });
 
   it('auth error redirects user to page 403', () => {
