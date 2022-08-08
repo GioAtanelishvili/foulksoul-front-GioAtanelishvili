@@ -48,10 +48,9 @@ const ImageUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
     } catch (err: any) {
       setIsLoading(false);
       const { status } = err.response;
-      console.log(err);
 
       if (status === 413) {
-        setLargeFileError('ფაილი ზედმეტად დიდია!');
+        setLargeFileError('ფაილი არ უნდა აღემატებოდეს 1MB-ს!');
       } else if (status === 403) {
         navigate('/403');
       } else if (status === 500) {

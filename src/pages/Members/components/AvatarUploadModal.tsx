@@ -61,7 +61,7 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       const { status } = err.response;
 
       if (status === 413) {
-        setLargeFileError('ფაილი ზედმეტად დიდია!');
+        setLargeFileError('ფაილი არ უნდა აღემატებოდეს 1MB-ს!');
       } else if (status === 403) {
         navigate('/403');
       } else if (status === 500) {

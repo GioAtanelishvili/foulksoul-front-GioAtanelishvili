@@ -26,7 +26,7 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
     >
       {props.payloadError && (
         <p
-          className='text-input-error absolute -top-5 text-center font-medium'
+          className='text-input-error absolute -top-3 text-center font-medium'
           data-test-id='photo-upload-error-message'
         >
           {props.payloadError}

@@ -145,7 +145,7 @@ describe('members page', () => {
 
     cy.get('[data-test-id="photo-upload-error-message"]').should(
       'contain.text',
-      'ფაილი ზედმეტად დიდია!'
+      'ფაილი არ უნდა აღემატებოდეს 1MB-ს!'
     );
     cy.get('[data-test-id="modal-close-button"]').click();
   });

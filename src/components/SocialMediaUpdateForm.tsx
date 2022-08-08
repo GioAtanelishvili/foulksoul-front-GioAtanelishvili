@@ -5,7 +5,7 @@ import { UpdateFormProps } from './types';
 import { SocialMediaItem } from 'types';
 
 const HTTP_URI_REGEXP =
-  /^(https:\/\/)[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+\s+$/gm;
+  /^(https:\/\/)[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@/!$&'()*+,;=.]+\s*$/gm;
 
 const SocialMediaUpdateForm: React.FC<UpdateFormProps> = (props) => {
   const { defaultValues } = props;
