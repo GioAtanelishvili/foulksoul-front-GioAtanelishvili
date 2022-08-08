@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 
 import { DataContext, AuthContext } from 'context';
 import { PhotoUploadModalProps } from 'types';
+import { validateFileSize } from 'helpers';
 import { uploadBandImage } from 'services';
 import {
   LoadingSpinner,
@@ -33,6 +34,10 @@ const ImageUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   };
 
   const handleImageUpload = async (image: File) => {
+    if (!validateFileSize(image)) {
+      return setLargeFileError('სურათი არ უნდა აღემატებოდეს 1MB-ს!');
+    }
+
     setIsLoading(true);
 
     const formData = new FormData();
@@ -49,9 +54,7 @@ const ImageUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === 413) {
-        setLargeFileError('ფაილი არ უნდა აღემატებოდეს 1MB-ს!');
-      } else if (status === 403) {
+      if (status === 403) {
         navigate('/403');
       } else if (status === 500) {
         navigate('/500');

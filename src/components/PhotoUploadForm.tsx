@@ -7,9 +7,12 @@ const PhotoUploadForm: React.FC<PhotoUploadFormProps> = (props) => {
 
   const handleSettingFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      setFile(e.target.files[0]);
+      const file = e.target.files[0];
 
-      const fileUrl = URL.createObjectURL(e.target.files[0]);
+      setFile(file);
+
+      const fileUrl = URL.createObjectURL(file);
+
       props.handleSettingFile(fileUrl);
     }
   };

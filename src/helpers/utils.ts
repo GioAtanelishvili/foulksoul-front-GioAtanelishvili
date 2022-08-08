@@ -52,3 +52,7 @@ export const calcAnimationTimings = (orbitRatios: number[]) => {
 export const sortMembersByRadius = (members: Member[]) => {
   return members.sort(({ orbitRadius: a }, { orbitRadius: b }) => b - a);
 };
+
+export const validateFileSize = (file: File) => {
+  return file.size < 1048576;
+};

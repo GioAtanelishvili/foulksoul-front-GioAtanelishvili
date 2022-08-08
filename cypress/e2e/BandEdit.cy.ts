@@ -52,7 +52,7 @@ describe('band edit page', () => {
   });
 
   it('auth error redirects user to page 403', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/info`, {
       statusCode: 403,
     });
     cy.visit('/band/about/edit');
@@ -62,7 +62,7 @@ describe('band edit page', () => {
   });
 
   it('auth error redirects user to page 500', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
+    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/info`, {
       statusCode: 500,
     });
     cy.visit('/band/about/edit');

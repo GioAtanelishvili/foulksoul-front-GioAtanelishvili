@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { DataContext, AuthContext } from 'context';
 import { PhotoUploadModalProps } from 'types';
 import { PhotoUploadForm } from 'components';
+import { validateFileSize } from 'helpers';
 import { uploadAvatar } from 'services';
 import { MemberAvatar } from './index';
 
@@ -36,6 +37,10 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   };
 
   const handleAvatarUpload = async (avatar: File) => {
+    if (!validateFileSize(avatar)) {
+      return setLargeFileError('ავატარი არ უნდა აღემატებოდეს 1MB-ს!');
+    }
+
     setIsLoading(true);
 
     const formData = new FormData();
@@ -60,9 +65,7 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === 413) {
-        setLargeFileError('ფაილი არ უნდა აღემატებოდეს 1MB-ს!');
-      } else if (status === 403) {
+      if (status === 403) {
         navigate('/403');
       } else if (status === 500) {
         navigate('/500');

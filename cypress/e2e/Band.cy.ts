@@ -71,18 +71,14 @@ describe('band about page', () => {
   });
 
   it('large payload error displays error message', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/*`, {
-      statusCode: 413,
-    });
-
     cy.get('[data-test-id="image-upload-button"]').click();
 
-    cy.get('[data-test-id="file-input"]').attachFile('images/band.jpg');
+    cy.get('[data-test-id="file-input"]').attachFile('images/large.jpg');
     cy.get('[data-test-id="photo-upload-submit-button"]').click();
 
     cy.get('[data-test-id="photo-upload-error-message"]').should(
       'contain.text',
-      'ფაილი არ უნდა აღემატებოდეს 1MB-ს!'
+      'სურათი არ უნდა აღემატებოდეს 1MB-ს!'
     );
     cy.get('[data-test-id="modal-close-button"]').click();
   });

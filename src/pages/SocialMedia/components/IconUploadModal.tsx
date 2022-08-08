@@ -2,10 +2,10 @@ import { Fragment, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 
+import { capitalize, validateFileSize } from 'helpers';
 import { AuthContext, DataContext } from 'context';
 import { PhotoUploadModalProps } from 'types';
 import { uploadIcon } from 'services';
-import { capitalize } from 'helpers';
 import {
   ModalOverlay,
   ModalCard,
@@ -34,6 +34,10 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   };
 
   const handleIconUpload = async (icon: File) => {
+    if (!validateFileSize(icon)) {
+      return setLargeFileError('ხატულა არ უნდა აღემატებოდეს 1MB-ს!');
+    }
+
     setIsLoading(true);
 
     const formData = new FormData();
@@ -58,9 +62,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
       setIsLoading(false);
       const { status } = err.response;
 
-      if (status === 413) {
-        setLargeFileError('ფაილი არ უნდა აღემატებოდეს 1MB-ს!');
-      } else if (status === 403) {
+      if (status === 403) {
         navigate('/403');
       } else if (status === 500) {
         navigate('/500');

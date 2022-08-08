@@ -134,18 +134,14 @@ describe('members page', () => {
   });
 
   it('large payload error displays error message', () => {
-    cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/member/*`, {
-      statusCode: 413,
-    });
-
     cy.get('[data-test-id="sluchaina-avatar-upload-button"]').click();
 
-    cy.get('[data-test-id="file-input"]').attachFile('images/qristefore.png');
+    cy.get('[data-test-id="file-input"]').attachFile('images/large.jpg');
     cy.get('[data-test-id="photo-upload-submit-button"]').click();
 
     cy.get('[data-test-id="photo-upload-error-message"]').should(
       'contain.text',
-      'ფაილი არ უნდა აღემატებოდეს 1MB-ს!'
+      'ავატარი არ უნდა აღემატებოდეს 1MB-ს!'
     );
     cy.get('[data-test-id="modal-close-button"]').click();
   });
