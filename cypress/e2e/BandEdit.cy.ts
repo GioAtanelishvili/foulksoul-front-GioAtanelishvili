@@ -2,6 +2,9 @@ describe('band edit page', () => {
   beforeEach(() => {
     cy.stubImageRequests();
     cy.restoreLocalStorage();
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false;
+    });
   });
 
   afterEach(() => {
@@ -52,20 +55,28 @@ describe('band edit page', () => {
   });
 
   it('auth error redirects user to page 403', () => {
+    cy.fixture('data.json').then((data) => {
+      cy.stubGetRequests(data);
+    });
     cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/info`, {
       statusCode: 403,
     });
-    cy.visit('/band/about/edit');
+    cy.visit('/band/about');
+    cy.get('[data-test-id="link-to-band-edit"]').click();
 
     cy.get('[data-test-id="band-edit-form-submit-button"]').click();
     cy.url().should('include', '403');
   });
 
   it('auth error redirects user to page 500', () => {
+    cy.fixture('data.json').then((data) => {
+      cy.stubGetRequests(data);
+    });
     cy.intercept('PUT', `${Cypress.env('API_BASE_URL')}/api/band/info`, {
       statusCode: 500,
     });
-    cy.visit('/band/about/edit');
+    cy.visit('/band/about');
+    cy.get('[data-test-id="link-to-band-edit"]').click();
 
     cy.get('[data-test-id="band-edit-form-submit-button"]').click();
     cy.url().should('include', '500');
