@@ -78,7 +78,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
         <h2 className='mt-14 text-center text-lg font-nino-mtavruli'>
           {capitalize(socialMediaItem?.name as string)}
         </h2>
-        <div className='w-56 h-56 mt-10 mb-10 flex justify-center items-center'>
+        <div className='w-64 h-64 mt-10 mb-10 flex justify-center items-center border-[6.3px] border-social-media-icon-frame rounded-full drop-shadow-social-media-icon overflow-hidden'>
           {newIconSource ? (
             <img
               src={newIconSource as string | undefined}
@@ -91,9 +91,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
               className='max-w-full max-h-full'
               alt='Social media icon'
             />
-          ) : (
-            <div className='bg-primary-dark-blue w-full h-full rounded-full' />
-          )}
+          ) : null}
         </div>
         <PhotoUploadForm
           inputName='icon'

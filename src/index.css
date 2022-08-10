@@ -37,9 +37,11 @@
   }
 
   #band-about-page-section::-webkit-scrollbar,
-  #band-edit-textarea::-webkit-scrollbar,
   #member-details-modal-div::-webkit-scrollbar {
     width: 8px;
+  }
+  #band-edit-textarea::-webkit-scrollbar {
+    width: 7px;
   }
   #band-about-page-section::-webkit-scrollbar-track,
   #band-edit-textarea::-webkit-scrollbar-track,

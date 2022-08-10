@@ -47,6 +47,7 @@ module.exports = {
         'primary-green': '#53C02C',
         'member-planet': '#F2C94C',
         'member-planet-orbit': '#F2C94C',
+        'social-media-icon-frame': '#3B5495',
       },
       backgroundImage: {
         'gradient-radial-purple':
@@ -63,6 +64,7 @@ module.exports = {
         'main-tv': '10px 10px 14px #939191',
         'band-image': '0px 4px 4px rgba(0, 0, 0, 0.25)',
         'member-planet': '8.04286px 8.04286px 32.1714px #000000',
+        'social-media-icon': '0px 4px 4px rgba(0, 0, 0, 0.25)',
       },
       boxShadow: {
         'dashboard-card': 'inset 4px 4px 20px #4d4d4d',

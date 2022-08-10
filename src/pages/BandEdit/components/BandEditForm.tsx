@@ -47,7 +47,7 @@ const BandEditForm: React.FC = () => {
   return (
     <form
       onSubmit={submitHandler}
-      className='w-3/4 h-140 mt-8 mx-40 flex flex-col items-center'
+      className='w-3/4 h-140 mt-8 mx-40 p-0 flex flex-col items-center'
       data-test-id='band-edit-form'
     >
       <BandEditCard>
@@ -57,7 +57,7 @@ const BandEditForm: React.FC = () => {
           <textarea
             id='band-edit-textarea'
             name='info'
-            className='text-primary-dark-blue w-full h-full pr-8 py-1 bg-transparent font-arial outline-none resize-none overflow-auto'
+            className='text-primary-dark-blue w-full h-full py-1 pr-4 bg-transparent font-arial text-justify outline-none resize-none overflow-auto'
             defaultValue={info}
             data-test-id='band-edit-textarea'
           />
