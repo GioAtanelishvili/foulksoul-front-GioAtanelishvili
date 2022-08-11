@@ -35,7 +35,7 @@ const Band: React.FC = () => {
           <Fragment>
             <div className='w-52 h-52 m-auto relative'>
               <BandImage path={imagePath} />
-              <ImageUploadButton _id='' />
+              <ImageUploadButton id='' />
             </div>
             <article
               className='mt-12 text-base text-justify font-arial whitespace-pre-wrap break-words'

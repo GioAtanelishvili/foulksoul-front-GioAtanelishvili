@@ -20,7 +20,7 @@ const SocialMediaDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
   const { socialMedia, updateSocialMedia } = useContext(DataContext);
   const { token } = useContext(AuthContext);
 
-  const item = socialMedia.find((item) => item._id === props._id);
+  const item = socialMedia.find((item) => item._id === props.id);
   const iconUrl = `${process.env.REACT_APP_API_BASE_URL}/${item?.iconPath}`;
 
   const navigate = useNavigate();
@@ -28,11 +28,11 @@ const SocialMediaDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
   const handleDelete = async () => {
     setIsLoading(true);
     try {
-      await deleteSocialMedia(props._id, token);
+      await deleteSocialMedia(props.id, token);
       setIsLoading(false);
 
       const updatedSocialMedia = socialMedia.filter(
-        (item) => item._id !== props._id
+        (item) => item._id !== props.id
       );
       updateSocialMedia(updatedSocialMedia);
       navigate(`/band/social-media`);
@@ -53,16 +53,18 @@ const SocialMediaDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
       <ModalOverlay handleClick={props.handleClose} />
       <ModalCard handleClose={props.handleClose}>
         <ModalCardHeader>წაშალე სოციალური ბმული</ModalCardHeader>
-        <figure className=' w-40 h-40 mt-6 flex justify-center items-center'>
-          <img
-            src={iconUrl}
-            className='max-w-full max-h-full'
-            alt='Social media icon'
-          />
-        </figure>
-        <p className='mt-6 text-lg font-nino-mtavruli'>
+        <h2 className='mt-14 text-center text-lg font-nino-mtavruli'>
           {capitalize(item?.name as string)}
-        </p>
+        </h2>
+        <figure className='w-64 h-64 mt-10 mb-10 flex justify-center items-center border-[6.3px] border-social-media-icon-frame rounded-full drop-shadow-social-media-icon overflow-hidden'>
+          {item?.iconPath ? (
+            <img
+              src={iconUrl}
+              className='max-w-full max-h-full'
+              alt='Social media icon'
+            />
+          ) : null}
+        </figure>
         <DataDeleteButton handleClick={handleDelete} />
         {isLoading && (
           <LoadingSpinner className='fixed scale-[2] left-[calc(50%-1rem)] top-[calc(50%-1rem)]' />

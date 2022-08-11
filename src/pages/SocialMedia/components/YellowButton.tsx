@@ -13,7 +13,7 @@ const YellowButton: React.FC<CardButtonProps> = (props) => {
   const { socialMedia } = useContext(DataContext);
 
   const handleClick = () => {
-    const item = socialMedia.find((item) => item._id === props._id);
+    const item = socialMedia.find((item) => item._id === props.id);
     const page = extractPageNumber(search) || 1;
 
     navigate('edit', { state: { ...item, page } });
@@ -23,7 +23,7 @@ const YellowButton: React.FC<CardButtonProps> = (props) => {
     <button
       onClick={handleClick}
       title='შეცვლა'
-      data-test-id={`${props._id}-yellow-button`}
+      data-test-id={`${props.id}-yellow-button`}
     >
       <YellowCircle />
     </button>

@@ -9,7 +9,7 @@ const MemberPlanet: React.FC<MemberPlanetProps> = (props) => {
 
   const avatarUrl = `${process.env.REACT_APP_API_BASE_URL}/${props.avatarPath}`;
 
-  const isActive = props.cardSubject.memberId === props._id;
+  const isActive = props.cardSubject.memberId === props.id;
   const isAnimating = props.cardSubject.subject === 'band';
 
   return (
@@ -20,11 +20,11 @@ const MemberPlanet: React.FC<MemberPlanetProps> = (props) => {
       style={{
         animationDuration: `${props.animationTiming}s`,
       }}
-      data-test-id={`${props._id}-planet`}
+      data-test-id={`${props.id}-planet`}
     >
       <div
         onClick={() =>
-          props.handleClick({ subject: 'member', memberId: props._id })
+          props.handleClick({ subject: 'member', memberId: props.id })
         }
         className={`w-32 flex flex-col items-center relative cursor-pointer drop-shadow-member-planet ${
           refContainer.current

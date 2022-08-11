@@ -33,18 +33,18 @@ export const addMember = async (data: MembersFormData, token: string) => {
 
 export const editMember = async (
   data: MembersFormData,
-  _id: string,
+  id: string,
   token: string
 ) => {
-  return axios.patch(`band/member?id=${_id}`, data, {
+  return axios.patch(`band/member?id=${id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const deleteMember = async (_id: string, token: string) => {
-  return axios.delete(`band/member?id=${_id}`, {
+export const deleteMember = async (id: string, token: string) => {
+  return axios.delete(`band/member?id=${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -53,10 +53,10 @@ export const deleteMember = async (_id: string, token: string) => {
 
 export const uploadAvatar = async (
   data: FormData,
-  _id: string,
+  id: string,
   token: string
 ) => {
-  return axios.put(`band/member/avatar?id=${_id}`, data, {
+  return axios.put(`band/member/avatar?id=${id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'multipart/form-data',
@@ -77,30 +77,26 @@ export const addSocialMedia = async (
 
 export const editSocialMedia = async (
   data: SocialMediaFormData,
-  _id: string,
+  id: string,
   token: string
 ) => {
-  return axios.patch(`band/social-media?id=${_id}`, data, {
+  return axios.patch(`band/social-media?id=${id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const deleteSocialMedia = async (_id: string, token: string) => {
-  return axios.delete(`band/social-media?id=${_id}`, {
+export const deleteSocialMedia = async (id: string, token: string) => {
+  return axios.delete(`band/social-media?id=${id}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   });
 };
 
-export const uploadIcon = async (
-  data: FormData,
-  _id: string,
-  token: string
-) => {
-  return axios.put(`band/social-media/icon?id=${_id}`, data, {
+export const uploadIcon = async (data: FormData, id: string, token: string) => {
+  return axios.put(`band/social-media/icon?id=${id}`, data, {
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'multipart/form-data',

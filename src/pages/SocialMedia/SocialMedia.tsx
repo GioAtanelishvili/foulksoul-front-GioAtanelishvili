@@ -28,7 +28,7 @@ const SocialMedia: React.FC = () => {
           itemsToRender.map((item, index) => (
             <SocialMediaCard
               key={item._id}
-              _id={item._id}
+              id={item._id}
               name={item.name}
               url={item.url}
               iconPath={item.iconPath}

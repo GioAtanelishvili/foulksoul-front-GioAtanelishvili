@@ -15,7 +15,7 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
     >
       <div className='w-36 h-36 mt-6 mb-5 mx-9 relative'>
         <MemberAvatar background={props.color} avatarPath={props.avatarPath} />
-        <AvatarUploadButton _id={props._id} />
+        <AvatarUploadButton id={props.id} />
       </div>
       <h2
         className='text-white text-lg font-nino-mtavruli tracking-[0.11em]'
@@ -24,9 +24,9 @@ const MemberCard: React.FC<MemberCardProps> = (props) => {
         {props.name}
       </h2>
       <div className='w-full mt-3 py-2 px-5 flex items-center justify-between border-t border-t-black shadow-member-card-buttons'>
-        <GreenButton _id={props._id} />
-        <YellowButton _id={props._id} />
-        <RedButton _id={props._id} />
+        <GreenButton id={props.id} />
+        <YellowButton id={props.id} />
+        <RedButton id={props.id} />
       </div>
     </div>
   );

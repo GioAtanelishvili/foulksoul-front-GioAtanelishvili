@@ -24,7 +24,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   const { socialMedia, updateSocialMedia } = useContext(DataContext);
   const { token } = useContext(AuthContext);
 
-  const socialMediaItem = socialMedia.find((item) => item._id === props._id);
+  const socialMediaItem = socialMedia.find((item) => item._id === props.id);
   const iconUrl = `${process.env.REACT_APP_API_BASE_URL}/${socialMediaItem?.iconPath}`;
 
   const navigate = useNavigate();
@@ -43,13 +43,13 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
     const formData = new FormData();
     formData.append('icon', icon);
     try {
-      const response = await uploadIcon(formData, props._id, token);
+      const response = await uploadIcon(formData, props.id, token);
       setIsLoading(false);
 
       const { iconPath } = response.data;
 
       const updatedSocialMedia = socialMedia.map((item) => {
-        if (item._id === props._id) {
+        if (item._id === props.id) {
           return { ...item, iconPath };
         }
 
@@ -78,7 +78,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
         <h2 className='mt-14 text-center text-lg font-nino-mtavruli'>
           {capitalize(socialMediaItem?.name as string)}
         </h2>
-        <div className='w-64 h-64 mt-10 mb-10 flex justify-center items-center border-[6.3px] border-social-media-icon-frame rounded-full drop-shadow-social-media-icon overflow-hidden'>
+        <figure className='w-64 h-64 mt-10 mb-10 flex justify-center items-center border-[6.3px] border-social-media-icon-frame rounded-full drop-shadow-social-media-icon overflow-hidden'>
           {newIconSource ? (
             <img
               src={newIconSource as string | undefined}
@@ -92,7 +92,7 @@ const IconUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
               alt='Social media icon'
             />
           ) : null}
-        </div>
+        </figure>
         <PhotoUploadForm
           inputName='icon'
           payloadError={largeFileError}

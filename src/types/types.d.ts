@@ -63,7 +63,7 @@ export interface ModalProps {
 }
 
 export interface CardButtonProps {
-  _id: string;
+  id: string;
 }
 
 export interface PhotoUploadButtonProps extends CardButtonProps {}

@@ -9,7 +9,7 @@ import { DataContext } from 'context';
 const MemberDetailsModal: React.FC<MemberDetailsModalProps> = (props) => {
   const { members } = useContext(DataContext);
 
-  const member = members.find((member) => member._id === props._id);
+  const member = members.find((member) => member._id === props.id);
 
   return createPortal(
     <Fragment>

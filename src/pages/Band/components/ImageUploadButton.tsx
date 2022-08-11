@@ -21,7 +21,7 @@ const AvatarUploadButton: React.FC<PhotoUploadButtonProps> = (props) => {
         <CameraIcon />
       </button>
       {isModalOpen && (
-        <ImageUploadModal _id={props._id} handleClose={handleModalClose} />
+        <ImageUploadModal id={props.id} handleClose={handleModalClose} />
       )}
     </Fragment>
   );

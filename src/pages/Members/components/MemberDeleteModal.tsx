@@ -20,18 +20,18 @@ const MemberDeleteModal: React.FC<DataDeleteModalProps> = (props) => {
   const { members, updateMembers } = useContext(DataContext);
   const { token } = useContext(AuthContext);
 
-  const member = members.find((member) => member._id === props._id);
+  const member = members.find((member) => member._id === props.id);
 
   const navigate = useNavigate();
 
   const handleDelete = async () => {
     setIsLoading(true);
     try {
-      await deleteMember(props._id, token);
+      await deleteMember(props.id, token);
       setIsLoading(false);
 
       const updatedMembers = members.filter(
-        (member) => member._id !== props._id
+        (member) => member._id !== props.id
       );
       updateMembers(updatedMembers);
       navigate(`/band/members`);

@@ -1,4 +1,4 @@
-import { Member, ModalProps, CardButtonProps } from 'types';
+import { ModalProps, CardButtonProps } from 'types';
 
 export interface MemberAvatarProps {
   background: string;
@@ -7,7 +7,14 @@ export interface MemberAvatarProps {
   className?: string;
 }
 
-export interface MemberCardProps extends Member {
+export interface MemberCardProps {
+  id: string;
+  name: string;
+  instrument: string;
+  orbitRadius: number;
+  color: string;
+  biography: string;
+  avatarPath: string;
   index: number;
 }
 

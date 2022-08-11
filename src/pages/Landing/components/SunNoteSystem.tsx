@@ -26,7 +26,7 @@ const SunNoteSystem: React.FC<SunNoteSystemProps> = (props) => {
           animationTiming={animationTimings[index]}
         >
           <MemberPlanet
-            _id={member._id}
+            id={member._id}
             name={member.name}
             color={member.color}
             width={orbitRatios[index]}

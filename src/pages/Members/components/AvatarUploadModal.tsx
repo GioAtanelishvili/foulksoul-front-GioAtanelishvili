@@ -26,7 +26,7 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
   const { members, updateMembers } = useContext(DataContext);
   const { token } = useContext(AuthContext);
 
-  const member = members.find((member) => member._id === props._id);
+  const member = members.find((member) => member._id === props.id);
 
   const navigate = useNavigate();
 
@@ -46,13 +46,13 @@ const AvatarUploadModal: React.FC<PhotoUploadModalProps> = (props) => {
     const formData = new FormData();
     formData.append('avatar', avatar);
     try {
-      const response = await uploadAvatar(formData, props._id, token);
+      const response = await uploadAvatar(formData, props.id, token);
       setIsLoading(false);
 
       const { avatarPath } = response.data;
 
       const updatedMembers = members.map((member) => {
-        if (member._id === props._id) {
+        if (member._id === props.id) {
           return { ...member, avatarPath };
         }
 

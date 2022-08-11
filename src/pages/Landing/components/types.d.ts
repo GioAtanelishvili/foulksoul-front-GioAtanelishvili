@@ -11,7 +11,7 @@ export interface LandingCardProps {
 }
 
 export interface MemberPlanetProps {
-  _id: string;
+  id: string;
   name: string;
   color: string;
   width: number;

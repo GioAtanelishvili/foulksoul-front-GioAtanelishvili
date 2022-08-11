@@ -27,7 +27,7 @@ const Members: React.FC = () => {
           membersToRender.map((member, index) => (
             <MemberCard
               key={member._id}
-              _id={member?._id}
+              id={member?._id}
               name={member.name}
               instrument={member.instrument}
               orbitRadius={member.orbitRadius}

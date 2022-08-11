@@ -15,7 +15,7 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
             alt='Social media icon'
           />
         )}
-        <IconUploadButton _id={props._id} />
+        <IconUploadButton id={props.id} />
       </figure>
       <h2
         className='text-content-white w-32 pt-1 text-lg text-center font-nino-mtavruli truncate'
@@ -31,8 +31,8 @@ const SocialMediaCard: React.FC<SocialMediaCardProps> = (props) => {
       >
         {props.url}
       </a>
-      <YellowButton _id={props._id} />
-      <RedButton _id={props._id} />
+      <YellowButton id={props.id} />
+      <RedButton id={props.id} />
     </div>
   );
 };
